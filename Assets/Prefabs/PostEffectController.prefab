@@ -50,15 +50,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
   isEnabled: 1
-  fogDensity: 9.48
-  fogDistance: 2.9
-  fogNear: 0
-  fogFar: 81.3
+  fogDensity: 0.3
+  fogDistance: 82
+  fogNear: 3.4
+  fogFar: 80.1
   fogAltScale: 10
   fogThinning: 458
   noiseScale: 837
   noiseStrength: 0.029
-  fogColor: {r: 1, g: 1, b: 1, a: 0}
+  fogColor: {r: 0.37054506, g: 0.19045925, b: 0.3773585, a: 0}
   ambientColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
 --- !u!114 &2157794797394505726
 MonoBehaviour:
@@ -113,8 +113,8 @@ MonoBehaviour:
   noiseWeight: 1
   screenBendX: 3
   screenBendY: 3
-  vignetteAmount: 0.98
-  vignetteSize: 2.06
+  vignetteAmount: 0
+  vignetteSize: 0
   vignetteRounding: 5.26
   vignetteSmoothing: 0.2
   scanLinesDensity: 200

@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   scanlinesWeight:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 2.67
   noiseWeight:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 1
   screenBendX:
     m_OverrideState: 1
     m_Value: 3
@@ -27,10 +27,10 @@ MonoBehaviour:
     m_Value: 3
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 0.98
+    m_Value: 0
   vignetteSize:
     m_OverrideState: 1
-    m_Value: 2.06
+    m_Value: 0
   vignetteRounding:
     m_OverrideState: 1
     m_Value: 5.26
@@ -69,7 +69,7 @@ MonoBehaviour:
     m_Value: 540
   grilleUvRotation:
     m_OverrideState: 1
-    m_Value: 1.618034
+    m_Value: 90
   grilleBrightness:
     m_OverrideState: 1
     m_Value: 15
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Value: 256
   colorPrecision:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 128
 --- !u!114 &-758010384845797820
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -116,16 +116,16 @@ MonoBehaviour:
   active: 1
   patternIndex:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   ditherThreshold:
     m_OverrideState: 1
-    m_Value: 3.53
+    m_Value: 10
   ditherStrength:
     m_OverrideState: 0
-    m_Value: 1.37
+    m_Value: 1
   ditherScale:
     m_OverrideState: 1
-    m_Value: 4.67
+    m_Value: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,13 +158,13 @@ MonoBehaviour:
   active: 1
   fogDensity:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 0
   fogDistance:
     m_OverrideState: 1
-    m_Value: 4.7
+    m_Value: 0
   fogColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    m_Value: {r: 1, g: 1, b: 1, a: 0}
   ambientColor:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 0}
@@ -173,16 +173,16 @@ MonoBehaviour:
     m_Value: 0
   fogFar:
     m_OverrideState: 0
-    m_Value: 81.3
+    m_Value: 0
   fogAltScale:
     m_OverrideState: 0
-    m_Value: 10
+    m_Value: 0
   fogThinning:
     m_OverrideState: 0
-    m_Value: 458
+    m_Value: 0
   noiseScale:
     m_OverrideState: 1
-    m_Value: 843
+    m_Value: 0
   noiseStrength:
     m_OverrideState: 1
-    m_Value: 0.029
+    m_Value: 0
