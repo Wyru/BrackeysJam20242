@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogSystemController : MonoBehaviour
 {
   public GameObject panel;
+  public GameObject point;
   public static DialogSystemController Instance { get; private set; }
   public TypewriterEffect typewriterEffect;
 
@@ -40,6 +41,7 @@ public class DialogSystemController : MonoBehaviour
 
     var input = Input.GetKeyDown(KeyCode.Space);
 
+
     if (quotes != null && quotes.Count > 0)
     {
       if (firstLine || input)
@@ -54,15 +56,16 @@ public class DialogSystemController : MonoBehaviour
 
       if (input)
         typewriterEffect.Skip();
-
       return;
     }
+    point.SetActive(!typewriterEffect.isTyping);
 
     if (typewriterEffect.isTyping && input)
     {
       typewriterEffect.Skip();
       return;
     }
+
 
     if (input && quotes != null && quotes.Count == 0 && !typewriterEffect.isTyping)
     {
