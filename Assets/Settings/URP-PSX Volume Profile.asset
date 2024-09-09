@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   scanlinesWeight:
     m_OverrideState: 1
-    m_Value: 2.67
+    m_Value: 1.5
   noiseWeight:
     m_OverrideState: 1
     m_Value: 1
@@ -27,22 +27,22 @@ MonoBehaviour:
     m_Value: 3
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.7
   vignetteSize:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   vignetteRounding:
     m_OverrideState: 1
-    m_Value: 5.26
+    m_Value: 1
   vignetteSmoothing:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.1
   scanlinesDensity:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 100
   scanlinesSpeed:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 100
   noiseAmount:
     m_OverrideState: 1
     m_Value: 250
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Value: 256
   colorPrecision:
     m_OverrideState: 1
-    m_Value: 128
+    m_Value: 16
 --- !u!114 &-758010384845797820
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -121,7 +121,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 10
   ditherStrength:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   ditherScale:
     m_OverrideState: 1
@@ -158,31 +158,31 @@ MonoBehaviour:
   active: 1
   fogDensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.05
   fogDistance:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 89
   fogColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 0}
+    m_Value: {r: 0, g: 0, b: 0, a: 0}
   ambientColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   fogNear:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 8.9
   fogFar:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 21.9
   fogAltScale:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   fogThinning:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 7
   noiseScale:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.001
   noiseStrength:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.1
