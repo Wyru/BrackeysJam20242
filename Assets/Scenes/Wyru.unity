@@ -660,12 +660,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &546281903 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8097826867683546313, guid: 2bcd3f08c7aba524896369a70a81a1a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 9185752760654759709}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1030969008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,11 +1101,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1331163188180844326, guid: 2bcd3f08c7aba524896369a70a81a1a4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2451713890662194041, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1212,35 +1201,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3548087627131490566, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+    - target: {fileID: 3644986668330430507, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
-      propertyPath: point
-      value: 
-      objectReference: {fileID: 546281903}
-    - target: {fileID: 6585715671109675593, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644986668330430507, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_fontSizeMax
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644986668330430507, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7195915181089549712, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+    - target: {fileID: 5046966043219756360, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
-      propertyPath: m_Pitch
-      value: 0.73
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7195915181089549712, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+    - target: {fileID: 6067823060681610265, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
-      propertyPath: m_Volume
-      value: 0.716
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7332677235987086766, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_Name
       value: DialogSystem
-      objectReference: {fileID: 0}
-    - target: {fileID: 8097826867683546313, guid: 2bcd3f08c7aba524896369a70a81a1a4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
