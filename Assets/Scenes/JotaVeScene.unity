@@ -1035,12 +1035,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-<<<<<<< Updated upstream
-  m_Cameras: []
-=======
   m_Cameras:
   - {fileID: 2018917308}
->>>>>>> Stashed changes
   m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
