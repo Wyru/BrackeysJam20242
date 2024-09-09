@@ -93,7 +93,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 233953761300720748, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
+      propertyPath: weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 233953761300720748, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157794797394505726, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: isEnabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2157794797394505726, guid: 141ed95b78fcf7e4ab960316fe94f813,
@@ -164,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
       propertyPath: isEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
@@ -249,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 8011689222024267687, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8393998688304342395, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
@@ -264,12 +274,12 @@ PrefabInstance:
     - target: {fileID: 8393998688304342395, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
       propertyPath: noiseWeight
-      value: -1.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8393998688304342395, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
       propertyPath: scanlinesWeight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8393998688304342395, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
@@ -383,13 +393,78 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
+      propertyPath: fogFar
+      value: 21.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: fogNear
+      value: 8.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: fogColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: fogColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: fogColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
       propertyPath: fogDensity
-      value: 0.3
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: noiseScale
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: fogAltScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
       propertyPath: fogDistance
-      value: 103
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: fogThinning
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: noiseStrength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: ambientColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: ambientColor.b
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: ambientColor.g
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694736605132507837, guid: 141ed95b78fcf7e4ab960316fe94f813,
+        type: 3}
+      propertyPath: ambientColor.r
+      value: 0.31132078
       objectReference: {fileID: 0}
     - target: {fileID: 8011689222024267687, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
@@ -399,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 8011689222024267687, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8393998688304342395, guid: 141ed95b78fcf7e4ab960316fe94f813,
         type: 3}
