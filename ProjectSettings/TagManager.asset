@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CanPickUp
+  - Weapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Interactable
+  - Hittable
   - HoldLayer
   - 
   - 

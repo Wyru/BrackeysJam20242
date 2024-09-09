@@ -32,7 +32,7 @@ public class PickUpScript : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) //change E to whichever key you want to press to pick up
+        if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
         {
             if (heldObj == null) //if currently not holding anything
             {
@@ -61,7 +61,7 @@ public class PickUpScript : MonoBehaviour
         {
             MoveObject(); //keep object position at holdPos
             RotateObject();
-            if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
+            if (Input.GetKeyDown(KeyCode.Mouse1) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
             {
                 StopClipping();
                 ThrowObject();
