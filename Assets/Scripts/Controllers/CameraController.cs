@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private float _sensitivity;
+    public float _sensitivity;
 
     private Vector2 _mouseInput;
 

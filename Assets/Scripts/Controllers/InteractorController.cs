@@ -1,30 +1,48 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
+interface IInteractable {
+    public void Interact();
+}
 
 public class InteractorController : MonoBehaviour
 {
     public Transform InteractorSource;
     public float InteractRange;
-
     public InputActionReference _interact;
-
-    void Start()
-    {
-        
-    }
+    
+    private IInteractable _interactObj;
+    [SerializeField] private RawImage _interactionIcon;
 
     private void Interacting(InputAction.CallbackContext context)
     {
-        Debug.Log("Interacting");
+        if(_interactObj != null) _interactObj.Interact();
+        
     }
 
-    void Update()
+    private void Update()
     {
-        
+        CheckInteraction();
+    }
+
+    private void CheckInteraction()
+    {
+        Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+        if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)){
+            if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
+                _interactObj = interactObj;
+                _interactionIcon.enabled = true;
+            }else{
+                _interactObj = null;
+                _interactionIcon.enabled = false;
+            }
+        }
     }
 
     private void OnEnable()
