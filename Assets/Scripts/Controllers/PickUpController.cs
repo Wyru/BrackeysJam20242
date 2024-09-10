@@ -127,12 +127,11 @@ public class PickUpScript : MonoBehaviour
         heldObjRb.isKinematic = false;
         heldObj.transform.parent = null;
         heldObjRb.AddForce(transform.forward * throwForce);
-        heldObj = null;
-
         if (heldObj.TryGetComponent(out DetectableSound detectableSound))
         {
             detectableSound.SetCanMakeSound(true);
         }
+        heldObj = null;
 
     }
     void StopClipping() //function only called when dropping/throwing
