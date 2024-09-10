@@ -1212,6 +1212,7 @@ MonoBehaviour:
   _inputs: {fileID: -5203731534505381055, guid: 940b05bca26d63f47a747f1459ae1800,
     type: 3}
   playerBody: {fileID: 2377795765143666968}
+  locked: 0
 --- !u!114 &9187977046038485889
 MonoBehaviour:
   m_ObjectHideFlags: 0
