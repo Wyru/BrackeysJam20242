@@ -9,11 +9,16 @@ public class InputManager : MonoBehaviour
     private PlayerInput.GameplayActions _gameplayActions;
     private PlayerController _playerController;
 
+    public static InputManager instance;
+
     private void Awake()
     {
         _playerInput = new PlayerInput();
         _gameplayActions = _playerInput.Gameplay;
         _playerController = GetComponent<PlayerController>();
+        if(instance == null){
+            instance = this;
+        }
     }
 
     private void FixedUpdate()
@@ -25,12 +30,12 @@ public class InputManager : MonoBehaviour
 
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         _gameplayActions.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         _gameplayActions.Disable();
 

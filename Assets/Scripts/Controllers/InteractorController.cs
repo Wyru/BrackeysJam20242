@@ -13,12 +13,20 @@ interface IInteractable {
 
 public class InteractorController : MonoBehaviour
 {
+    public static InteractorController instance;
     public Transform InteractorSource;
     public float InteractRange;
     public InputActionReference _interact;
     
     private IInteractable _interactObj;
     [SerializeField] private RawImage _interactionIcon;
+
+    void Awake()
+    {
+        if(instance == null){
+            instance = this;
+        }
+    }
 
     private void Interacting(InputAction.CallbackContext context)
     {
