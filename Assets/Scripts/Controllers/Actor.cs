@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Actor : MonoBehaviour
 {
+
+    public UnityEvent OnDeath;
+    public UnityEvent OnTakeDamage;
+    public bool destroyOnDeath;
     public int currentHealth;
     public int maxHealth;
 
@@ -14,9 +19,9 @@ public class Actor : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        OnTakeDamage?.Invoke();
         currentHealth -= amount;
-
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         { Death(); }
     }
 
@@ -24,6 +29,9 @@ public class Actor : MonoBehaviour
     {
         // Death function
         // TEMPORARY: Destroy Object
-        Destroy(gameObject);
-    }  
+        OnDeath?.Invoke();
+        if (destroyOnDeath)
+            Destroy(gameObject);
+    }
+
 }
