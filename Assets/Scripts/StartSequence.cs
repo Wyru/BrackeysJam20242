@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,7 @@ public class StartSequence : MonoBehaviour
     public GameObject _actualPlayer;
     public GameObject _hero;
     public Animator _anim;
-    public Canvas canvas;
+    public TextMeshProUGUI text;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -30,10 +31,10 @@ public class StartSequence : MonoBehaviour
 
     IEnumerator waiter()
     {
-        yield return new WaitForSeconds(6f);
-        canvas.enabled = false;
+        yield return new WaitForSeconds(6.5f);
+        text.enabled = false;
         GetComponent<CinemachineVirtualCamera>().enabled = false;
-        vcam.enabled = true;
+        // vcam.enabled = true;
         GetComponent<AudioSource>().volume = 0.1f;
         _actualPlayer.SetActive(true);
         yield return new WaitForSeconds(2f);
