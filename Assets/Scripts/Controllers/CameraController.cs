@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
     [SerializeField]
     public float _sensitivity;
 
@@ -18,18 +19,25 @@ public class CameraController : MonoBehaviour
     public Transform playerBody;
     private float smoothPitch;
 
+    public bool locked;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if(instance == null){
+            instance = this;
+        }
     }
 
     void Update(){
-        // Read mouse input
+        if (!locked){
+            // Read mouse input
         _mouseInput = _inputs.action.ReadValue<Vector2>();
 
         // Rotate the player body along the Y-axis (horizontal movement)
         playerBody.Rotate(Vector3.up, _mouseInput.x * _sensitivity * Time.deltaTime);
+        }
     }
 
     void LateUpdate()

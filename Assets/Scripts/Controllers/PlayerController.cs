@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [Header("WeaponAttributes")]
     public bool weaponEquipped;
     public float throwforce;
+
     
     private void Awake()
     {
@@ -42,6 +43,22 @@ public class PlayerController : MonoBehaviour
         if(instance == null){
             instance = this;
         }
+    }
+
+    public void DisableController()
+    {
+        InputManager.instance.OnDisable();
+        CameraController.instance.locked = true;
+        
+    }
+
+    public void EnableController()
+    {
+        controller.enabled = true;
+        animator.enabled = true;
+        InputManager.instance.enabled = true;
+        InteractorController.instance.enabled = true;
+        this.enabled = true;
     }
 
     private void Start()
