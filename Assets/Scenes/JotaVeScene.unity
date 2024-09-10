@@ -1748,6 +1748,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 30.062
       objectReference: {fileID: 0}
+    - target: {fileID: 1641866774751916719, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1803,10 +1808,20 @@ PrefabInstance:
       propertyPath: _interactionIcon
       value: 
       objectReference: {fileID: 744491813}
+    - target: {fileID: 3251982692805183779, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
+      propertyPath: _sensitivity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5390142903437791834, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_RenderPostProcessing
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037847873670897961, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7346965722515561136, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
