@@ -20,7 +20,7 @@ public class PickUpScript : MonoBehaviour
 
     //Reference to script which includes mouse movement of player (looking around)
     //we want to disable the player looking around when rotating the object
-    //example below 
+    //example below
     //MouseLookScript mouseLookScript;
     void Start()
     {
@@ -50,7 +50,7 @@ public class PickUpScript : MonoBehaviour
             }
             else
             {
-                if(canDrop == true)
+                if (canDrop == true)
                 {
                     StopClipping(); //prevents object from clipping through walls
                     DropObject();
@@ -128,6 +128,12 @@ public class PickUpScript : MonoBehaviour
         heldObj.transform.parent = null;
         heldObjRb.AddForce(transform.forward * throwForce);
         heldObj = null;
+
+        if (heldObj.TryGetComponent(out DetectableSound detectableSound))
+        {
+            detectableSound.SetCanMakeSound(true);
+        }
+
     }
     void StopClipping() //function only called when dropping/throwing
     {
@@ -139,8 +145,8 @@ public class PickUpScript : MonoBehaviour
         //if the array length is greater than 1, meaning it has hit more than just the object we are carrying
         if (hits.Length > 1)
         {
-            //change object position to camera position 
-            heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
+            //change object position to camera position
+            heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player
             //if your player is small, change the -0.5f to a smaller number (in magnitude) ie: -0.1f
         }
     }
