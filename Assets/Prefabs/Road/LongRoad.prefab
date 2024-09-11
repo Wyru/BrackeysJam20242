@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 4034823639925870608}
   - component: {fileID: 4405986644906304799}
   - component: {fileID: 9163434399309973467}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &282114075809155431
 Transform:
@@ -151,12 +151,12 @@ GameObject:
   - component: {fileID: 8324514229634361229}
   - component: {fileID: 5395369778414599736}
   - component: {fileID: 7317523495139217839}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalk (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1553530415830839889
 Transform:
@@ -289,12 +289,12 @@ GameObject:
   - component: {fileID: 2457807482919081221}
   - component: {fileID: 4010136514946556397}
   - component: {fileID: 1143324752562373981}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5034815806138559287
 Transform:
@@ -427,12 +427,12 @@ GameObject:
   - component: {fileID: 2695335313280232147}
   - component: {fileID: 6301015463478733798}
   - component: {fileID: 8442388735756760149}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8503242632864251333
 Transform:
@@ -565,12 +565,12 @@ GameObject:
   - component: {fileID: 1567525996491505200}
   - component: {fileID: 896116281010359398}
   - component: {fileID: 1076325288035456073}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7059633636724126970
 Transform:
@@ -703,12 +703,12 @@ GameObject:
   - component: {fileID: 5685031098432340145}
   - component: {fileID: 9091589022798555979}
   - component: {fileID: 3211155042101269417}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8446928178967670707
 Transform:
@@ -837,12 +837,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5779359157087632470}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LongRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5779359157087632470
 Transform:
@@ -880,12 +880,12 @@ GameObject:
   - component: {fileID: 456831695979614618}
   - component: {fileID: 9126509730325454743}
   - component: {fileID: 5828590801118740198}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8303921916767211438
 Transform:
@@ -1018,12 +1018,12 @@ GameObject:
   - component: {fileID: 4007891821411053016}
   - component: {fileID: 318984788581933137}
   - component: {fileID: 8749074275470311814}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6397051675399158178
 Transform:

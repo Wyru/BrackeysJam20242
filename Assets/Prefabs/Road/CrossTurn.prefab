@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77487849126787784}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Part1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &77487849126787784
 Transform:
@@ -43,12 +43,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4232973787733742084}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Part1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4232973787733742084
 Transform:
@@ -63,7 +63,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3800881821228498305}
   - {fileID: 3151292641369697590}
   - {fileID: 4275342905900561533}
   m_Father: {fileID: 7074551656018752330}
@@ -79,12 +78,12 @@ GameObject:
   - component: {fileID: 3151292641369697590}
   - component: {fileID: 3886868309046143512}
   - component: {fileID: 5168333366832513804}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalkCorner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3151292641369697590
 Transform:
@@ -160,12 +159,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 619320209411163707}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Part1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &619320209411163707
 Transform:
@@ -196,12 +195,12 @@ GameObject:
   - component: {fileID: 1614597618401825221}
   - component: {fileID: 1232412648453057839}
   - component: {fileID: 8691451130613783662}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalkCorner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1614597618401825221
 Transform:
@@ -277,12 +276,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7074551656018752330}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CrossTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7074551656018752330
 Transform:
@@ -318,12 +317,12 @@ GameObject:
   - component: {fileID: 1811706303976417254}
   - component: {fileID: 4179789580074992789}
   - component: {fileID: 9145433582169056719}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5631895834185077870
 Transform:
@@ -454,12 +453,12 @@ GameObject:
   - component: {fileID: 1405137801044145872}
   - component: {fileID: 2381879951410944704}
   - component: {fileID: 2450427210604776246}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalkCorner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1405137801044145872
 Transform:
@@ -526,89 +525,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &5241570498740411098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3800881821228498305}
-  - component: {fileID: 5039444862691440138}
-  - component: {fileID: 5052113713163708304}
-  m_Layer: 0
-  m_Name: SideWalkCorner (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3800881821228498305
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5241570498740411098}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.49991274, y: 0.49991274, z: 0.50008726, w: 0.50008726}
-  m_LocalPosition: {x: -0.36699867, y: 0, z: -2.981}
-  m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4232973787733742084}
-  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 90}
---- !u!33 &5039444862691440138
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5241570498740411098}
-  m_Mesh: {fileID: 8450564607577235940, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!23 &5052113713163708304
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5241570498740411098}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 4922052145096200299, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5295936689922919413
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,12 +538,12 @@ GameObject:
   - component: {fileID: 2608855829215090988}
   - component: {fileID: 992398280229423586}
   - component: {fileID: 6402006070851393364}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &632022422654472646
 Transform:
@@ -638,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 5295936689922919413}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.11, y: 0.101, z: 0.018}
+  m_LocalPosition: {x: 0.139, y: 0.072, z: 0.018}
   m_LocalScale: {x: 50.985054, y: 201.97987, z: 199.99988}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -758,12 +674,12 @@ GameObject:
   - component: {fileID: 310587590313685582}
   - component: {fileID: 1254506434796335947}
   - component: {fileID: 5846879636268075685}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalkCorner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &310587590313685582
 Transform:
@@ -842,12 +758,12 @@ GameObject:
   - component: {fileID: 8579682645431158905}
   - component: {fileID: 8533337196670671653}
   - component: {fileID: 8862681848422173897}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1434814272857951605
 Transform:
@@ -949,12 +865,12 @@ GameObject:
   - component: {fileID: 4755653007653167988}
   - component: {fileID: 2983895301510987474}
   - component: {fileID: 2272089776599593435}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4926570700730828714
 Transform:
@@ -1087,12 +1003,12 @@ GameObject:
   - component: {fileID: 8829825819469072252}
   - component: {fileID: 3123078551511107497}
   - component: {fileID: 6986645824018615065}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4275342905900561533
 Transform:
@@ -1221,12 +1137,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2123241970206284245}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Part1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2123241970206284245
 Transform:
@@ -1242,93 +1158,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4556994894700286645}
-  - {fileID: 7500944273969422645}
   - {fileID: 632022422654472646}
   m_Father: {fileID: 7074551656018752330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8008420838094794425
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7500944273969422645}
-  - component: {fileID: 2531509425936565394}
-  - component: {fileID: 2530205490384924195}
-  m_Layer: 0
-  m_Name: SideWalkCorner (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7500944273969422645
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008420838094794425}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7069834, z: 0.7072302, w: 0}
-  m_LocalPosition: {x: -0.36699867, y: 0, z: 3.04}
-  m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2123241970206284245}
-  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 180}
---- !u!33 &2531509425936565394
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008420838094794425}
-  m_Mesh: {fileID: 8450564607577235940, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!23 &2530205490384924195
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008420838094794425}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 4922052145096200299, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8477555203305318697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,12 +1172,12 @@ GameObject:
   - component: {fileID: 4556994894700286645}
   - component: {fileID: 3610802233252502667}
   - component: {fileID: 4704419214524457599}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalkCorner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4556994894700286645
 Transform:
@@ -1356,7 +1188,7 @@ Transform:
   m_GameObject: {fileID: 8477555203305318697}
   serializedVersion: 2
   m_LocalRotation: {x: -0.49991274, y: 0.49991274, z: 0.50008726, w: 0.50008726}
-  m_LocalPosition: {x: -0.36699867, y: 0, z: -2.981}
+  m_LocalPosition: {x: -0.36699867, y: 0.073, z: -2.981}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1423,12 +1255,12 @@ GameObject:
   - component: {fileID: 3092245706604956654}
   - component: {fileID: 3088772395991128191}
   - component: {fileID: 7777775820803876429}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SideWalkCorner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3092245706604956654
 Transform:
@@ -1508,12 +1340,12 @@ GameObject:
   - component: {fileID: 4123995557687857386}
   - component: {fileID: 7258723861864140086}
   - component: {fileID: 4560436718731754315}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Road (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2946954479913194605
 Transform:
