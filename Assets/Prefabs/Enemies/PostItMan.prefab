@@ -231,8 +231,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6440972549095610016}
-  - component: {fileID: 275980201946132893}
   - component: {fileID: 4671798082382862070}
+  - component: {fileID: 2482078097132215971}
   m_Layer: 9
   m_Name: SoundTrigger
   m_TagString: Untagged
@@ -255,8 +255,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6578473474168114719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &275980201946132893
-SphereCollider:
+--- !u!114 &4671798082382862070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107095589726204007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0962293d92cad41b77defaf0152391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2482078097132215971
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -274,20 +286,39 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4671798082382862070
-MonoBehaviour:
+  m_Size: {x: 25, y: 5, z: 25}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!1 &3832519051731461544
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3107095589726204007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0962293d92cad41b77defaf0152391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4040169679344922607}
+  m_Layer: 7
+  m_Name: Eyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4040169679344922607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3832519051731461544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.00182, z: -0.00004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6334255998696534697}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6926760018081095830
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,21 +372,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1667a70ab648a46bb737d1e4479880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxChaseDistance: 20
-  normalWakSpeed: 1.5
-  chasingPlayerSpeedModifier: 5
+  maxChaseDistance: 40
+  normalWakSpeed: 2
+  chasingPlayerSpeedModifier: 2.5
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  maxDetectionDistance: 10
-  detectionViewAngle: 70
+  farMaxDetectionDistance: 10
+  farDetectionViewAngle: 90
+  nearMaxDetectionDistance: 3
+  nearDetectionViewAngle: 180
   attentionThreshold: 10
   detactionDebugColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   minAttackDistance: 2
-  minAttackAngle: 90
+  minAttackAngle: 180
   animator: {fileID: 2521081348170221911}
   hitCollider: {fileID: 3753701404036354536}
   agent: {fileID: 0}
+  eyesAnchor: {fileID: 4040169679344922607}
   soundDetectionBehavior: {fileID: 4671798082382862070}
   idleTimer: {fileID: 8456125471010124594}
   attackCooldownTimer: {fileID: 8533410884411584587}
@@ -527,7 +561,7 @@ NavMeshAgent:
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 0.3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1382,7 +1416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2283365699879817761, guid: 0b3540c9e6bb74448a4eaa29c5d301d2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4040169679344922607}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b3540c9e6bb74448a4eaa29c5d301d2,
         type: 3}
@@ -1419,6 +1457,12 @@ Animator:
 --- !u!4 &5754844108244453219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b3540c9e6bb74448a4eaa29c5d301d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5212891574774816904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6334255998696534697 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2283365699879817761, guid: 0b3540c9e6bb74448a4eaa29c5d301d2,
     type: 3}
   m_PrefabInstance: {fileID: 5212891574774816904}
   m_PrefabAsset: {fileID: 0}

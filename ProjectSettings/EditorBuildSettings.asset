@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SceneTransition.unity
+    guid: a272d073e146eff49976d42c5a52004a
+  - enabled: 1
+    path: Assets/Scenes/Wyru.unity
+    guid: 78700f5a9235c4240b308eec1a5740a5
+  - enabled: 1
+    path: Assets/Scenes/KombiniInsideAndrew.unity
+    guid: 3e59a4c559b302b4ab531d34b7027aa5
+  - enabled: 1
+    path: Assets/Scenes/KombiniRoadAndrew.unity
+    guid: d8b4485b0d5c6404e9c41eeffc75d9b3
   m_configObjects: {}
