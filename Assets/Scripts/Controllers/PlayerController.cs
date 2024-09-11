@@ -26,21 +26,22 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Animator animator;
     AudioSource audioSource;
-    
+
     private Camera cam;
 
     [Header("WeaponAttributes")]
     public bool weaponEquipped;
     public float throwforce;
 
-    
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         cam = Camera.main;
-        if(instance == null){
+        if (instance == null)
+        {
             instance = this;
         }
     }
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         InputManager.instance.OnDisable();
         CameraController.instance.locked = true;
-        
+
     }
 
     public void EnableController()
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         SetAnimations();
     }
-    
+
     public void ProcessMove(Vector2 _input)
     {
         Vector3 move = _cameraTransform.forward * _input.y + _cameraTransform.right * _input.x;
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
     public void ProcessAttack(bool _attack)
     {
-        if(_attack){ Attack(true); }
+        if (_attack) { Attack(true); }
     }
 
     // ---------- //
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     string currentAnimationState;
 
-    public void ChangeAnimationState(string newState) 
+    public void ChangeAnimationState(string newState)
     {
         // STOP THE SAME ANIMATION FROM INTERRUPTING WITH ITSELF //
         if (currentAnimationState == newState) return;
@@ -119,11 +120,11 @@ public class PlayerController : MonoBehaviour
     {
 
         // If player is not attacking
-        if(!attacking)
+        if (!attacking)
         {
-            if(_PlayerVelocity.x == 0 &&_PlayerVelocity.z == 0)
-            { 
-                ChangeAnimationState(IDLE); 
+            if (_PlayerVelocity.x == 0 && _PlayerVelocity.z == 0)
+            {
+                ChangeAnimationState(IDLE);
             }
             else
             { ChangeAnimationState(WALK); }
@@ -151,19 +152,21 @@ public class PlayerController : MonoBehaviour
 
     public void Attack(bool melee)
     {
-        if(!readyToAttack || attacking) return;
+        if (!readyToAttack || attacking) return;
 
         readyToAttack = false;
         attacking = true;
 
         Invoke(nameof(ResetAttack), attackSpeed);
         Invoke(nameof(AttackRaycast), attackDelay);
-        if(melee){       
-            if(weaponEquipped){
+        if (melee)
+        {
+            if (weaponEquipped)
+            {
                 audioSource.pitch = Random.Range(0.9f, 1.1f);
                 audioSource.PlayOneShot(swordSwing);
 
-                if(attackCount == 0)
+                if (attackCount == 0)
                 {
                     ChangeAnimationState(ATTACK1);
                     attackCount++;
@@ -173,23 +176,28 @@ public class PlayerController : MonoBehaviour
                     ChangeAnimationState(ATTACK2);
                     attackCount = 0;
                 }
-            }else{
+            }
+            else
+            {
                 audioSource.pitch = Random.Range(2f, 2.5f);
                 audioSource.PlayOneShot(swordSwing);
 
                 ChangeAnimationState(ATTACK3);
                 attackCount = 0;
             }
-        }else{
-            if(weaponEquipped){
+        }
+        else
+        {
+            if (weaponEquipped)
+            {
 
                 ChangeAnimationState(THROW);
                 attackCount = 0;
             }
         }
-        
 
-        
+
+
     }
 
     void ResetAttack()
@@ -200,24 +208,27 @@ public class PlayerController : MonoBehaviour
 
     void AttackRaycast()
     {
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
-        { 
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
+        {
             HitTarget(hit.point);
 
-            if(hit.transform.TryGetComponent<Actor>(out Actor T))
+            if (hit.transform.TryGetComponent<Actor>(out Actor T))
             { T.TakeDamage(attackDamage); }
-        } 
+        }
     }
 
     void HitTarget(Vector3 pos)
     {
-        if(weaponEquipped){
+        if (weaponEquipped)
+        {
             audioSource.pitch = 1;
             audioSource.PlayOneShot(hitSound);
 
             GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
             Destroy(GO, 20);
-        }else{
+        }
+        else
+        {
             audioSource.pitch = 0.5f;
             audioSource.PlayOneShot(hitSound);
 
@@ -234,7 +245,8 @@ public class PlayerController : MonoBehaviour
 
     public void EquipWeapon(GameObject equippable)
     {
-        if(_equipedWeapon == null){
+        if (_equipedWeapon == null)
+        {
             attackDamage = equippable.GetComponent<EquipableObjects>().attackDamage;
             equippable.GetComponent<Rigidbody>().isKinematic = true;
             equippable.GetComponent<Rigidbody>().detectCollisions = false;
@@ -248,9 +260,10 @@ public class PlayerController : MonoBehaviour
 
     public void DropWeapon(bool _drop)
     {
-        if(_drop)
+        if (_drop)
         {
-            if(_equipedWeapon != null){
+            if (_equipedWeapon != null)
+            {
                 _equipedWeapon.GetComponent<Rigidbody>().isKinematic = false;
                 _equipedWeapon.GetComponent<Rigidbody>().detectCollisions = true;
                 _equipedWeapon.transform.SetParent(null);
@@ -262,14 +275,16 @@ public class PlayerController : MonoBehaviour
 
     public void Throwing(bool _throw)
     {
-        if(_throw)
+        if (_throw)
         {
             { Attack(false); }
         }
     }
 
-    public void ThrowWeapon(){
-         if(_equipedWeapon != null){
+    public void ThrowWeapon()
+    {
+        if (_equipedWeapon != null)
+        {
 
             Rigidbody equippedRb = _equipedWeapon.GetComponent<Rigidbody>();
 
@@ -278,8 +293,12 @@ public class PlayerController : MonoBehaviour
             equippedRb.isKinematic = false;
             _equipedWeapon.transform.parent = null;
             equippedRb.AddForce(transform.forward * throwforce);
+            if (_equipedWeapon.TryGetComponent(out DetectableSound detectableSound))
+                detectableSound.SetCanMakeSound(true);
             _equipedWeapon = null;
             weaponEquipped = false;
+
+
         }
     }
 

@@ -1,23 +1,46 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class PostItManBehavior : MonoBehaviour
 {
 
   [Header("Moviment")]
-  public float waitTime = 5f;
+  public float maxChaseDistance = 30f;
+  public float normalWakSpeed = 1.5f;
+  public float chasingPlayerSpeedModifier = 3;
   public Transform[] waypoints;
+
+  [Header("Detection")]
+
+  public float maxDetectionDistance = 10f;
+  public float detectionViewAngle = 45f;
+
+  [Header("SoundDetection")]
+  public int attentionThreshold = 10;
+
+  public Color detactionDebugColor = Color.yellow;
 
   [Header("Attack")]
 
   public float minAttackDistance = 2f;
-  public float maxChaseDistance = 2f;
+  public float minAttackAngle = 15f;
+
 
 
   [Header("References")]
   public Animator animator;
   public BoxCollider hitCollider;
   public NavMeshAgent agent;
+  public SoundDetectionBehavior soundDetectionBehavior;
+  public Timer idleTimer;
+  public Timer attackCooldownTimer;
+  public Timer deadTimer;
+
+  [Header("Events")]
+  public UnityEvent OnDetectPlayer;
+
 
 
   public Transform player;
@@ -28,9 +51,10 @@ public class PostItManBehavior : MonoBehaviour
     Idle,
     Walking,
     Chasing,
+    ChasingSound,
     Attacking,
     Damage,
-    Dead
+    Dead,
   }
 
   [Header("Status")]
@@ -43,6 +67,7 @@ public class PostItManBehavior : MonoBehaviour
   private void Awake()
   {
     agent = GetComponent<NavMeshAgent>();
+    soundDetectionBehavior.OnHearObject += OnHearObject;
   }
 
   public int currentWaypoint = 0;
@@ -53,23 +78,27 @@ public class PostItManBehavior : MonoBehaviour
 
   public float timeCouter = 0f;
 
+  public float distanceToPlayer = 0;
+
+  public Vector3 soundPosition;
+
   void Update()
   {
+
+    distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
     switch (state)
     {
       case State.Idle:
-        if (timeCouter < 0)
+        animator.SetBool("Walking", false);
+        agent.isStopped = true;
+        UpdateVision();
+        if (idleTimer.Timeout)
         {
-          state = State.Walking;
+          ChangeState(State.Walking);
           return;
         }
-        agent.isStopped = false;
-        animator.SetBool("Walking", false);
-        timeCouter -= Time.deltaTime;
 
-
-        // esperar um tempo
-        // validar se está vendo o player
         break;
 
       case State.Walking:
@@ -82,72 +111,92 @@ public class PostItManBehavior : MonoBehaviour
           if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) < 0.1)
           {
             currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
-            state = State.Idle;
-            timeCouter = waitTime;
+            ChangeState(State.Idle);
+            idleTimer.StartTimer();
           }
         }
+        UpdateVision();
         // validar se está vendo o player
         break;
       case State.Attacking:
         // ataque
         agent.isStopped = true;
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && attackCooldownTimer.Timeout)
         {
-          state = State.Chasing;
+          ChangeState(State.Chasing);
         }
 
         break;
 
       case State.Chasing:
-        // ataque
-        // validação de danodo
         animator.SetBool("Walking", true);
+        SetSpeed(true);
         agent.isStopped = false;
         agent.destination = player.transform.position;
-        var distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance < minAttackDistance)
+
+        if (IsPlayerInsideActionRange(minAttackDistance, minAttackAngle) && attackCooldownTimer.Timeout)
         {
           animator.SetTrigger("Attack");
-          state = State.Attacking;
+          attackCooldownTimer.StartTimer();
+          ChangeState(State.Attacking);
+          return;
         }
 
-        if (distance > maxChaseDistance)
+        if (distanceToPlayer > maxChaseDistance)
+          ChangeState(State.Walking);
+        break;
+
+      case State.ChasingSound:
+        agent.isStopped = false;
+        UpdateVision();
+        SetSpeed(true);
+        animator.SetBool("Walking", true);
+        agent.destination = soundPosition;
+
+        if (Vector3.Distance(transform.position, soundPosition) < 1)
         {
-          state = State.Walking;
+          ChangeState(State.Idle);
+          idleTimer.StartTimer();
         }
-
 
         break;
 
       case State.Damage:
-
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Damage"))
         {
-          state = State.Chasing;
+          ChangeState(State.Chasing);
         }
-
         break;
 
       case State.Dead:
-
+        if (deadTimer.Timeout)
+        {
+          Revive();
+        }
         break;
 
       default:
         return;
     }
-
   }
-
 
   public void OnDeath()
   {
     if (state == State.Dead)
       return;
-
+    deadTimer.StartTimer();
     agent.isStopped = true;
     hitCollider.enabled = false;
     animator.SetTrigger("Death");
-    state = State.Dead;
+    ChangeState(State.Dead);
+  }
+
+  public void Revive()
+  {
+    hitCollider.enabled = true;
+    ChangeState(State.Chasing);
+    animator.SetTrigger("Revive");
+
   }
 
   public void OnTakeDamage()
@@ -156,7 +205,77 @@ public class PostItManBehavior : MonoBehaviour
       return;
 
     animator.SetTrigger("Damage");
-    state = State.Damage;
+    ChangeState(State.Damage);
+
   }
 
+  public void UpdateVision()
+  {
+    if (IsPlayerInsideActionRange(maxDetectionDistance, detectionViewAngle))
+    {
+      Debug.Log("Has spot player!");
+      OnDetectPlayer?.Invoke();
+      ChangeState(State.Chasing);
+    }
+  }
+
+  bool IsPlayerInsideActionRange(float maxDistance, float angle)
+  {
+    if (player == null)
+      Debug.LogWarning("Player component not found!");
+
+    Vector3 playerDirection = (player.transform.position - transform.position).normalized;
+
+    float angleBetween = Vector3.Angle(transform.forward, playerDirection);
+
+    return (angleBetween < angle / 2) && distanceToPlayer <= maxDistance;
+  }
+
+  void ChangeState(State newState)
+  {
+    // Debug.Log($"{name} state changed from {state} to {newState}");
+    animator.SetBool("Walking", false);
+    SetSpeed();
+    state = newState;
+  }
+
+
+  public void OnHearObject(Vector3 position, int volume)
+  {
+    if (state == State.Idle || state == State.Walking)
+    {
+      if (attentionThreshold < volume)
+      {
+        ChangeState(State.ChasingSound);
+        soundPosition = position;
+      }
+    }
+  }
+
+  void SetSpeed(bool fast = false)
+  {
+    if (fast)
+    {
+      animator.speed = chasingPlayerSpeedModifier;
+      agent.speed = normalWakSpeed * chasingPlayerSpeedModifier;
+    }
+    else
+    {
+      animator.speed = 1;
+      agent.speed = normalWakSpeed;
+    }
+  }
+
+  private void OnDrawGizmos()
+  {
+    Gizmos.color = Color.yellow;
+    // Generate the cone mesh and draw it
+    Mesh coneMesh = MeshFactory.GenerateVisionConeMesh(detectionViewAngle, maxDetectionDistance, 20);
+    Gizmos.DrawMesh(coneMesh, transform.position + Vector3.up, transform.rotation);
+
+    Gizmos.color = Color.red;
+    // Generate the cone mesh and draw it
+    coneMesh = MeshFactory.GenerateVisionConeMesh(minAttackAngle, minAttackDistance, 10);
+    Gizmos.DrawMesh(coneMesh, transform.position + (Vector3.up * 1.1f), transform.rotation);
+  }
 }
