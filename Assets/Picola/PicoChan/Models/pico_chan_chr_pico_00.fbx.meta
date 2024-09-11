@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 10038fdbf93c4dd43af9ce774d03a956
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
   - first:
@@ -64,6 +64,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -89,10 +90,12 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -104,6 +107,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -114,6 +118,7 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -861,7 +866,8 @@ ModelImporter:
     - name: LeftHandThumb3
       parentName: LeftHandThumb2
       position: {x: -0.034, y: 3.5527135e-16, z: 1.4210854e-16}
-      rotation: {x: 7.3669576e-10, y: 0.0000000012566302, z: -0.0000000016413559, w: 1}
+      rotation: {x: 7.3669576e-10, y: 0.0000000012566302, z: -0.0000000016413559,
+        w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: RightShoulder
       parentName: Spine02
@@ -1381,6 +1387,8 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
