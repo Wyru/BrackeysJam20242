@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 33965027}
   - component: {fileID: 33965026}
   - component: {fileID: 33965025}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69811105}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Waypoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 149827356}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Waypoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 164664749}
   - component: {fileID: 164664751}
   - component: {fileID: 164664750}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 320066792}
   - component: {fileID: 320066794}
   - component: {fileID: 320066793}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 422124007}
   - component: {fileID: 422124006}
   - component: {fileID: 422124005}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 455880463}
   - component: {fileID: 455880462}
   - component: {fileID: 455880461}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 483200425}
   - component: {fileID: 483200424}
   - component: {fileID: 483200423}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,8 +1394,8 @@ Transform:
   m_GameObject: {fileID: 483200422}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.38, y: 0.43, z: -1.36}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.38, y: 0.43, z: 8.3}
+  m_LocalScale: {x: 9.2751, y: 5.0703, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1154789667}
@@ -1467,7 +1467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 503800619}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Waypoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -1581,7 +1581,7 @@ GameObject:
   - component: {fileID: 561858392}
   - component: {fileID: 561858391}
   - component: {fileID: 561858390}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: lightPost (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1817,7 +1817,7 @@ GameObject:
   - component: {fileID: 710746097}
   - component: {fileID: 710746096}
   - component: {fileID: 710746095}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 747494180}
   - component: {fileID: 747494182}
   - component: {fileID: 747494181}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2339,7 +2339,7 @@ GameObject:
   - component: {fileID: 936571147}
   - component: {fileID: 936571146}
   - component: {fileID: 936571145}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2444,7 +2444,7 @@ GameObject:
   - component: {fileID: 997862422}
   - component: {fileID: 997862421}
   - component: {fileID: 997862420}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2642,7 +2642,7 @@ GameObject:
   - component: {fileID: 1017034529}
   - component: {fileID: 1017034528}
   - component: {fileID: 1017034527}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2815,7 +2815,7 @@ GameObject:
   - component: {fileID: 1035846232}
   - component: {fileID: 1035846231}
   - component: {fileID: 1035846230}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: lightPost (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2926,7 +2926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1055182010}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Waypoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -2957,7 +2957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1154789667}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3094,7 +3094,7 @@ GameObject:
   - component: {fileID: 1330150558}
   - component: {fileID: 1330150557}
   - component: {fileID: 1330150556}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: lightPost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3387,7 +3387,7 @@ PrefabInstance:
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.42
+      value: -9.59
       objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
@@ -3397,27 +3397,27 @@ PrefabInstance:
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.37
+      value: 13.99
       objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.13042115
       objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.9914587
       objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
@@ -3427,7 +3427,7 @@ PrefabInstance:
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 165.012
       objectReference: {fileID: 0}
     - target: {fileID: 2377795765143666968, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
@@ -3439,6 +3439,16 @@ PrefabInstance:
       propertyPath: _interactionIcon
       value: 
       objectReference: {fileID: 319666320}
+    - target: {fileID: 2462848161210549637, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367372521699543393, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7471773049586791621, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
       propertyPath: m_Name
@@ -3525,7 +3535,7 @@ GameObject:
   - component: {fileID: 1562532881}
   - component: {fileID: 1562532880}
   - component: {fileID: 1562532879}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3627,7 +3637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1617435880}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -3993,7 +4003,7 @@ GameObject:
   - component: {fileID: 1845331804}
   - component: {fileID: 1845331803}
   - component: {fileID: 1845331807}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4105,7 +4115,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4096
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -4143,7 +4153,7 @@ Transform:
   m_GameObject: {fileID: 1851418167}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00057, z: 0.00001}
+  m_LocalPosition: {x: -0, y: 0.00182, z: -0.00004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4160,7 +4170,7 @@ GameObject:
   - component: {fileID: 1912704043}
   - component: {fileID: 1912704045}
   - component: {fileID: 1912704044}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4372,7 +4382,7 @@ GameObject:
   - component: {fileID: 1966223979}
   - component: {fileID: 1966223978}
   - component: {fileID: 1966223977}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4605,7 +4615,7 @@ GameObject:
   - component: {fileID: 2080892613}
   - component: {fileID: 2080892612}
   - component: {fileID: 2080892611}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: lightPost (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5052,7 +5062,7 @@ PrefabInstance:
     - target: {fileID: 6578473474168114719, guid: 6a6a1f69a590b4f4caf7716860136fa2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.01
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 6578473474168114719, guid: 6a6a1f69a590b4f4caf7716860136fa2,
         type: 3}
