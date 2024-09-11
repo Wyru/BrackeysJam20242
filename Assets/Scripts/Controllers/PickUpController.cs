@@ -16,6 +16,7 @@ public class PickUpScript : MonoBehaviour
     private Rigidbody heldObjRb; //rigidbody of object we pick up
     private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
     private int LayerNumber; //layer index
+    public TextMeshProUGUI textRef; // references Text on canvas for name of item
 
     CameraController _cameraController;
     private float _cameraSens;
@@ -63,10 +64,13 @@ public class PickUpScript : MonoBehaviour
         {
             MoveObject(); //keep object position at holdPos
             RotateObject();
+            textRef.text = heldObj.name;
             if (Input.GetKeyDown(KeyCode.Mouse1) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
             {
                 StopClipping();
                 ThrowObject();
+                textRef.text = "";
+
             }
 
         }
@@ -92,6 +96,7 @@ public class PickUpScript : MonoBehaviour
         heldObjRb.isKinematic = false;
         heldObj.transform.parent = null; //unparent object
         heldObj = null; //undefine game object
+        textRef.text = "";
     }
     void MoveObject()
     {
@@ -142,6 +147,7 @@ public class PickUpScript : MonoBehaviour
             detectableSound.SetCanMakeSound(true);
         }
         heldObj = null;
+        textRef.text = "";
 
     }
     void StopClipping() //function only called when dropping/throwing
