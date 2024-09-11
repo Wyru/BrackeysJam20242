@@ -7,6 +7,7 @@ TagManager:
   - CanPickUp
   - Weapon
   - Enemy
+  - Activator
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,10 @@ TagManager:
   - Interactable
   - Hittable
   - HoldLayer
+  - Screen
+  - NoPost
   - SoundLayer
+  - 
   - 
   - 
   - 
@@ -43,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Arrows
+    uniqueID: 1669512667
     locked: 0
