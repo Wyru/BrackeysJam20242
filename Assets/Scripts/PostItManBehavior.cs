@@ -39,7 +39,11 @@ public class PostItManBehavior : MonoBehaviour
   public Timer deadTimer;
 
   [Header("Events")]
-  public UnityEvent OnDetectPlayer;
+  public UnityEvent OnDetectPlayerEvent;
+  public UnityEvent OnTakeDamageEvent;
+  public UnityEvent OnAttackEvent;
+  public UnityEvent OnDeathEvent;
+  public UnityEvent OnHearEvent;
 
 
 
@@ -108,7 +112,7 @@ public class PostItManBehavior : MonoBehaviour
           agent.isStopped = false;
           agent.destination = waypoints[currentWaypoint].position;
 
-          if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) < 0.1)
+          if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) <= agent.stoppingDistance + 0.1f)
           {
             currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
             ChangeState(State.Idle);
@@ -139,6 +143,7 @@ public class PostItManBehavior : MonoBehaviour
           animator.SetTrigger("Attack");
           attackCooldownTimer.StartTimer();
           ChangeState(State.Attacking);
+          OnAttackEvent?.Invoke();
           return;
         }
 
@@ -189,6 +194,7 @@ public class PostItManBehavior : MonoBehaviour
     hitCollider.enabled = false;
     animator.SetTrigger("Death");
     ChangeState(State.Dead);
+    OnDeathEvent?.Invoke();
   }
 
   public void Revive()
@@ -204,9 +210,9 @@ public class PostItManBehavior : MonoBehaviour
     if (state == State.Dead)
       return;
 
+    OnTakeDamageEvent?.Invoke();
     animator.SetTrigger("Damage");
     ChangeState(State.Damage);
-
   }
 
   public void UpdateVision()
@@ -214,7 +220,7 @@ public class PostItManBehavior : MonoBehaviour
     if (IsPlayerInsideActionRange(maxDetectionDistance, detectionViewAngle))
     {
       Debug.Log("Has spot player!");
-      OnDetectPlayer?.Invoke();
+      OnDetectPlayerEvent?.Invoke();
       ChangeState(State.Chasing);
     }
   }
@@ -233,7 +239,7 @@ public class PostItManBehavior : MonoBehaviour
 
   void ChangeState(State newState)
   {
-    // Debug.Log($"{name} state changed from {state} to {newState}");
+    Debug.Log($"{name} state changed from {state} to {newState}");
     animator.SetBool("Walking", false);
     SetSpeed();
     state = newState;
@@ -248,6 +254,7 @@ public class PostItManBehavior : MonoBehaviour
       {
         ChangeState(State.ChasingSound);
         soundPosition = position;
+        OnHearEvent?.Invoke();
       }
     }
   }
