@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         _playerController.ProcessMove(_gameplayActions.move.ReadValue<Vector2>());
         _playerController.ProcessAttack(_gameplayActions.atack.IsPressed());
