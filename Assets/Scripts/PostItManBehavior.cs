@@ -14,8 +14,11 @@ public class PostItManBehavior : MonoBehaviour
 
   [Header("Detection")]
 
-  public float maxDetectionDistance = 10f;
-  public float detectionViewAngle = 45f;
+  public float farMaxDetectionDistance = 10f;
+  public float farDetectionViewAngle = 45f;
+
+  public float nearMaxDetectionDistance = 10f;
+  public float nearDetectionViewAngle = 45f;
 
   [Header("SoundDetection")]
   public int attentionThreshold = 10;
@@ -33,6 +36,7 @@ public class PostItManBehavior : MonoBehaviour
   public Animator animator;
   public BoxCollider hitCollider;
   public NavMeshAgent agent;
+  public Transform eyesAnchor;
   public SoundDetectionBehavior soundDetectionBehavior;
   public Timer idleTimer;
   public Timer attackCooldownTimer;
@@ -125,6 +129,7 @@ public class PostItManBehavior : MonoBehaviour
       case State.Attacking:
         // ataque
         agent.isStopped = true;
+        agent.velocity = Vector3.zero;
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && attackCooldownTimer.Timeout)
         {
           ChangeState(State.Chasing);
@@ -217,7 +222,8 @@ public class PostItManBehavior : MonoBehaviour
 
   public void UpdateVision()
   {
-    if (IsPlayerInsideActionRange(maxDetectionDistance, detectionViewAngle))
+    if (IsPlayerInsideActionRange(farMaxDetectionDistance, farDetectionViewAngle) ||
+        IsPlayerInsideActionRange(nearMaxDetectionDistance, nearDetectionViewAngle))
     {
       Debug.Log("Has spot player!");
       OnDetectPlayerEvent?.Invoke();
@@ -230,11 +236,29 @@ public class PostItManBehavior : MonoBehaviour
     if (player == null)
       Debug.LogWarning("Player component not found!");
 
-    Vector3 playerDirection = (player.transform.position - transform.position).normalized;
+    Vector3 playerDirection = (player.transform.position - eyesAnchor.position).normalized;
 
+    // distancia mínima
+    if (distanceToPlayer > maxDistance)
+      return false;
+
+    // angulo de visao
     float angleBetween = Vector3.Angle(transform.forward, playerDirection);
 
-    return (angleBetween < angle / 2) && distanceToPlayer <= maxDistance;
+    if (angleBetween > angle / 2)
+      return false;
+
+    // se consegue ver
+    if (Physics.Raycast(eyesAnchor.position, playerDirection, out RaycastHit hit, maxDistance))
+    {
+      Debug.Log(hit.collider.gameObject.name);
+      if (hit.collider.transform == player)
+      {
+        return true;
+      }
+    }
+    // raycast da visão ta bugado
+    return false;
   }
 
   void ChangeState(State newState)
@@ -277,12 +301,20 @@ public class PostItManBehavior : MonoBehaviour
   {
     Gizmos.color = Color.yellow;
     // Generate the cone mesh and draw it
-    Mesh coneMesh = MeshFactory.GenerateVisionConeMesh(detectionViewAngle, maxDetectionDistance, 20);
+    Mesh coneMesh = MeshFactory.GenerateVisionConeMesh(farDetectionViewAngle, farMaxDetectionDistance, 20);
     Gizmos.DrawMesh(coneMesh, transform.position + Vector3.up, transform.rotation);
+
+    Gizmos.color = Color.cyan;
+    // Generate the cone mesh and draw it
+    coneMesh = MeshFactory.GenerateVisionConeMesh(nearDetectionViewAngle, nearMaxDetectionDistance, 20);
+    Gizmos.DrawMesh(coneMesh, transform.position + (Vector3.up * 1.1f), transform.rotation);
 
     Gizmos.color = Color.red;
     // Generate the cone mesh and draw it
     coneMesh = MeshFactory.GenerateVisionConeMesh(minAttackAngle, minAttackDistance, 10);
-    Gizmos.DrawMesh(coneMesh, transform.position + (Vector3.up * 1.1f), transform.rotation);
+    Gizmos.DrawMesh(coneMesh, transform.position + (Vector3.up * 1.15f), transform.rotation);
+
+    if (player)
+      Gizmos.DrawLine(eyesAnchor.position, player.position);
   }
 }

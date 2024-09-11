@@ -128,7 +128,15 @@ public class PickUpScript : MonoBehaviour
         heldObj.layer = 0;
         heldObjRb.isKinematic = false;
         heldObj.transform.parent = null;
-        heldObjRb.AddForce(transform.forward * throwForce);
+
+        if (heldObj.TryGetComponent(out ThrowableObject throwableObject))
+        {
+            heldObjRb.transform.rotation = Quaternion.Euler(throwableObject.throwRotation);
+            heldObjRb.AddForce(holdPos.forward * throwableObject.forceNeedToThrow);
+        }
+        else
+            heldObjRb.AddForce(holdPos.forward * throwForce);
+
         if (heldObj.TryGetComponent(out DetectableSound detectableSound))
         {
             detectableSound.SetCanMakeSound(true);

@@ -289,13 +289,20 @@ public class PlayerController : MonoBehaviour
 
             Rigidbody equippedRb = _equipedWeapon.GetComponent<Rigidbody>();
 
-            _equipedWeapon.GetComponent<Rigidbody>().detectCollisions = true;
             _equipedWeapon.layer = 0;
             equippedRb.isKinematic = false;
             _equipedWeapon.transform.parent = null;
-            equippedRb.AddForce(transform.forward * throwforce);
+
+            if (equippedRb.TryGetComponent(out ThrowableObject throwableObject))
+                equippedRb.AddForce(cam.transform.forward * throwableObject.forceNeedToThrow);
+            else
+                equippedRb.AddForce(cam.transform.forward * throwforce);
+
+            _equipedWeapon.GetComponent<Rigidbody>().detectCollisions = true;
+
             if (_equipedWeapon.TryGetComponent(out DetectableSound detectableSound))
                 detectableSound.SetCanMakeSound(true);
+
             _equipedWeapon = null;
             weaponEquipped = false;
 
