@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Enemy
   - Activator
+  - Arrows
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,6 @@ TagManager:
   - Screen
   - NoPost
   - SoundLayer
-  - 
-  - 
-  - 
   - 
   - 
   - 

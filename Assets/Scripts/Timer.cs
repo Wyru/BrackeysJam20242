@@ -5,7 +5,7 @@ public class Timer : MonoBehaviour
   public float seconds;
 
   [SerializeField]
-  float secondsCounter;
+  public float secondsCounter;
 
   [SerializeField]
   bool timeout = false;
