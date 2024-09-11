@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
     // ANIMATIONS //
     // ---------- //
 
-    public const string SwordIdle = "Sword_Idle";
-    public const string FistIdle = "Fist_Idle";
+    public const string SwordIdle = "Idle";
+    public const string FistIdle = "Idle";
     public string IDLE
     {
         get
@@ -99,10 +99,10 @@ public class PlayerController : MonoBehaviour
         }
     }
     public const string WALK = "Walk";
-    public const string ATTACK1 = "Attack 1";
-    public const string ATTACK2 = "Attack 2";
-    public const string ATTACK3 = "Pull_Animation";
-    public const string THROW = "Throw_Animation";
+    public const string ATTACK1 = "Attack";
+    public const string ATTACK2 = "AttackWeaponSlash";
+    public const string ATTACK3 = "PushEnemy";
+    public const string THROW = "Throw";
 
     string currentAnimationState;
 
@@ -168,12 +168,12 @@ public class PlayerController : MonoBehaviour
 
                 if (attackCount == 0)
                 {
-                    ChangeAnimationState(ATTACK1);
+                    ChangeAnimationState(weaponEquipped ? ATTACK2 : ATTACK1);
                     attackCount++;
                 }
                 else
                 {
-                    ChangeAnimationState(ATTACK2);
+                    ChangeAnimationState(weaponEquipped ? ATTACK2 : ATTACK1);
                     attackCount = 0;
                 }
             }
@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
 
                 ChangeAnimationState(THROW);
                 attackCount = 0;
+                StartCoroutine("WaitToThrow");
             }
         }
 
@@ -250,7 +251,7 @@ public class PlayerController : MonoBehaviour
             attackDamage = equippable.GetComponent<EquipableObjects>().attackDamage;
             equippable.GetComponent<Rigidbody>().isKinematic = true;
             equippable.GetComponent<Rigidbody>().detectCollisions = false;
-            equippable.transform.SetParent(_weaponSlot.transform);
+            equippable.transform.SetParent(_weaponSlot.transform, true);
             equippable.transform.localPosition = Vector3.zero;
             equippable.transform.rotation = _weaponSlot.rotation;
             _equipedWeapon = equippable;
@@ -300,6 +301,12 @@ public class PlayerController : MonoBehaviour
 
 
         }
+    }
+
+    IEnumerator WaitToThrow()
+    {
+        yield return new WaitForSeconds(.3f);
+        ThrowWeapon();
     }
 
 }
