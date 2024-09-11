@@ -5,12 +5,10 @@ using UnityEngine;
 public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
-
     public KeyCode keyToPress;
     private GameObject _onPointTrigger;
-    public float _perfectDistance = 0.2f;
-    public float _goodDistance = 0.4f;
-
+    public float _perfectDistance = 0.1f;
+    public float _goodDistance = 0.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +35,11 @@ public class NoteObject : MonoBehaviour
                     GameManager.instance.NormalHit();
                 }
                 
-                Destroy(gameObject);
+                gameObject.SetActive(false);
+                Destroy(gameObject,2);
             }
         }
+        transform.position -= new Vector3(0f, BeatScroller.instance.beatTempo * Time.deltaTime, 0f);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -55,12 +55,12 @@ public class NoteObject : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            if (other.tag == "activator")
+            if (other.tag == "Activator")
             {
                 _onPointTrigger = null;
                 canBePressed = false;
                 GameManager.instance.NoteMissed();
-                Destroy(gameObject,5);
+                Destroy(gameObject);
             }
        }
     }
