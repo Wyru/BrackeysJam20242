@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 466254365281040717}
   - component: {fileID: 1628861725798121769}
   - component: {fileID: 7895822568366859743}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BrickBuildingFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3295505449704100177}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 3454538187831714674}
   - component: {fileID: 4618585047412683015}
   - component: {fileID: 4105056338027799942}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BrickBuildingFront (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4753252067553757383}
   - component: {fileID: 2071585198211773558}
   - component: {fileID: 4009205119448673207}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BrickBuildingFront (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 3794868719921652345}
   - component: {fileID: 5916675442941631895}
   - component: {fileID: 8200745651903323971}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BrickBuildingFront (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 457200298134783598}
   - component: {fileID: 5640237965396503597}
   - component: {fileID: 2077553212145464289}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
