@@ -12,25 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4265a041954897941afec871c608473b, type: 3}
   m_Name: Crt
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   scanlinesWeight:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 0.3
   noiseWeight:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.5
   screenBendX:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 5.29
   screenBendY:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 4.25
   vignetteAmount:
     m_OverrideState: 1
     m_Value: 0.7
   vignetteSize:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1.5
   vignetteRounding:
     m_OverrideState: 1
     m_Value: 1
@@ -45,7 +45,7 @@ MonoBehaviour:
     m_Value: 100
   noiseAmount:
     m_OverrideState: 1
-    m_Value: 250
+    m_Value: 800
   chromaticRed:
     m_OverrideState: 1
     m_Value: {x: 0.002, y: -0.002}
@@ -57,7 +57,7 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0}
   grilleOpacity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.2
   grilleCounterOpacity:
     m_OverrideState: 1
     m_Value: 0.2
@@ -94,10 +94,10 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 1920
+    m_Value: 720
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 1080
+    m_Value: 480
   colorPrecision:
     m_OverrideState: 1
     m_Value: 128
