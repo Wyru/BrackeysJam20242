@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2963706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 357000701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38167440
 GameObject:
@@ -310,10 +310,12 @@ Transform:
   - {fileID: 4626764140831554694}
   - {fileID: 1874010115}
   - {fileID: 1324663730}
+  - {fileID: 862350306}
   - {fileID: 2085685234}
   - {fileID: 60737685}
   - {fileID: 1562854411}
   - {fileID: 2114962654}
+  - {fileID: 2963707}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &357000702
@@ -374,7 +376,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1410767113465f347972ffbd8f2140af, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -471,11 +473,11 @@ GameObject:
   - component: {fileID: 862350307}
   m_Layer: 0
   m_Name: Directional Light
-  m_TagString: Untagged
+  m_TagString: DeixarDesativado
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &862350305
 Light:
   m_ObjectHideFlags: 0
@@ -551,7 +553,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 357000701}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &862350307
 MonoBehaviour:
@@ -733,8 +735,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b5ae1e3d63a2a314c99a77e04e5eae4e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.819
-  m_Pitch: 0.96
+  m_Volume: 0.7
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1640,6 +1642,4 @@ MeshRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 862350306}
-  - {fileID: 2963707}
   - {fileID: 357000701}

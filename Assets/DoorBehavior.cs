@@ -13,14 +13,23 @@ public class DoorBehavior : MonoBehaviour, IInteractable
 
   public SceneTransitionController.TransitionType type;
 
+  bool activated = false;
   public void Interact()
   {
-    SceneTransitionController.ToScene(sceneNameDestity, type, destityDoorName);
+    if (!activated)
+    { // impede que o player interaja duas vezes seguidas
+      activated = true;
+      SceneTransitionController.ToScene(sceneNameDestity, type, destityDoorName);
+    }
   }
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject == PlayerController.instance.gameObject) { }
-    Interact();
+    if (other.gameObject == PlayerController.instance.gameObject && !activated)
+    {
+      Interact();
+      // player está colidindo duas vezes por algum motivo
+      activated = true;
+    }
   }
 }
