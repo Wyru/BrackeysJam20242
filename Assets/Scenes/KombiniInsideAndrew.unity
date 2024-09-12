@@ -11991,6 +11991,12 @@ PrefabInstance:
       propertyPath: sceneNameDestity
       value: KombiniRoadAndrew
       objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: destinySpawnPoint
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ae0406594296a6468802da08a34d88b,
+        type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12046,6 +12052,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6412891947135049455, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: spawnIdentifier
+      value: 
+      objectReference: {fileID: 11400000, guid: 5600d839e94f6e4468c6c2c2f8f57941,
+        type: 2}
     - target: {fileID: 8868361754330855684, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.x

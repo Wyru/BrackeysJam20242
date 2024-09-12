@@ -14,9 +14,8 @@ public class SceneTransitionController : MonoBehaviour
 
   public static readonly string SCENE_TRANSITION_NAME = "SceneTransition";
 
-  public static string nextScene;
   public static string currentScene;
-  public static string doorName;
+  public static SpawnPointScriptableObject nextSpawn;
 
   public static TransitionType transitionType;
 
@@ -53,7 +52,7 @@ public class SceneTransitionController : MonoBehaviour
   public void LoadNextScene()
   {
     SceneManager.sceneLoaded += OnSceneLoaded;
-    SceneManager.LoadScene(nextScene);
+    SceneManager.LoadScene(nextSpawn.targetSceneName);
   }
 
   public void UnloadLastScene()
@@ -62,12 +61,11 @@ public class SceneTransitionController : MonoBehaviour
     SceneManager.UnloadSceneAsync(currentScene);
   }
 
-  public static void ToScene(string _nextScene, TransitionType type, string _doorName)
+  public static void ToScene(SpawnPointScriptableObject spawn, TransitionType type)
   {
     currentScene = SceneManager.GetActiveScene().name;
-    nextScene = _nextScene;
+    nextSpawn = spawn;
     transitionType = type;
-    doorName = _doorName;
     PlayerController.instance.DisableMovement(true);
     SceneManager.LoadScene(SCENE_TRANSITION_NAME, LoadSceneMode.Additive);
   }
@@ -92,19 +90,22 @@ public class SceneTransitionController : MonoBehaviour
 
   void MovePlayerToDoor()
   {
-    var doors = FindObjectsOfType<DoorBehavior>();
-    foreach (var door in doors)
+    var points = FindObjectsOfType<SpawnPointBehavior>();
+    foreach (var point in points)
     {
-      if (door.name == doorName)
+      if (point.spawnIdentifier == nextSpawn)
       {
         FindObjectOfType<PlayerController>()
         .transform.SetPositionAndRotation(
-          door.thisSpawnPoint.position,
-          door.thisSpawnPoint.rotation);
+          point.transform.position,
+          point.transform.rotation);
 
         Physics.SyncTransforms();
+        return;
       }
     }
+
+    Debug.LogError($"SpanwPointBevahior de {nextSpawn.name} não encontrado na cena {nextSpawn.targetSceneName}");
   }
 
 }

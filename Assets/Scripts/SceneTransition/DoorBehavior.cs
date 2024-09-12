@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class DoorBehavior : MonoBehaviour, IInteractable
 {
-
-  public string sceneNameDestity;
-
-  public Transform thisSpawnPoint;
-
-  public string destityDoorName;
-
+  public SpawnPointScriptableObject destinySpawnPoint;
   public SceneTransitionController.TransitionType type;
 
   bool activated = false;
@@ -19,7 +13,7 @@ public class DoorBehavior : MonoBehaviour, IInteractable
     if (!activated)
     { // impede que o player interaja duas vezes seguidas
       activated = true;
-      SceneTransitionController.ToScene(sceneNameDestity, type, destityDoorName);
+      SceneTransitionController.ToScene(destinySpawnPoint, type);
     }
   }
 
