@@ -7,22 +7,12 @@ public class DoorBehavior : MonoBehaviour, IInteractable
 
   public string sceneNameDestity;
 
-  // Start is called before the first frame update
-  void Start()
-  {
+  public Transform thisSpawnPoint;
 
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
-  }
-
+  public string destityDoorName;
 
   public void Interact()
   {
-    Debug.Log(this);
-    SceneTransitionController.ToScene(sceneNameDestity, SceneTransitionController.TransitionType.Door);
+    SceneTransitionController.ToScene(sceneNameDestity, SceneTransitionController.TransitionType.Door, destityDoorName);
   }
 }
