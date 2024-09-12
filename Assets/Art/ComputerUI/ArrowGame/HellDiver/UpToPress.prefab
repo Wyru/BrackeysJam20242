@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4707021777287530522}
   - component: {fileID: 3543248323015698490}
   - component: {fileID: 6196423801747646010}
-  - component: {fileID: -8500669012563484738}
   m_Layer: 9
   m_Name: UpToPress
   m_TagString: Untagged
@@ -104,26 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theSRArrow: {fileID: 3543248323015698490}
   defaultImage: {fileID: 21300000, guid: 71dd6261a4df82142a632d3040f1c726, type: 3}
-  _correctKey: {fileID: 21300000, guid: 582dec87fb4014349ae48a5a2613ea64, type: 3}
-  _wrongKey: {fileID: 21300000, guid: 736132ffc69bd1949911f7b84f2017bd, type: 3}
   keyToPress: 273
---- !u!114 &-8500669012563484738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3392195306014056545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 100
-  m_MinHeight: 100
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  _rightKey: 0
+  _keyPressed: 0
