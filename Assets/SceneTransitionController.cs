@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class SceneTransitionController : MonoBehaviour
@@ -13,6 +8,9 @@ public class SceneTransitionController : MonoBehaviour
   public Camera transitionCamera;
 
   public Transform playerPos;
+
+  public AudioSource doorAudioSource;
+  public AudioSource stepsAudioSource;
 
   public static readonly string SCENE_TRANSITION_NAME = "SceneTransition";
 
@@ -24,7 +22,7 @@ public class SceneTransitionController : MonoBehaviour
 
   public enum TransitionType
   {
-    Door
+    Door, Street
   }
 
   private void Awake()
@@ -33,14 +31,29 @@ public class SceneTransitionController : MonoBehaviour
   }
   void Start()
   {
-    animator.SetTrigger("Door");
-    Debug.Log("Start SceneTransitionController");
+    switch (transitionType)
+    {
+      case TransitionType.Door:
+        animator.SetTrigger("Door");
+        doorAudioSource.Play();
+        break;
+
+      case TransitionType.Street:
+        animator.SetTrigger("Street");
+        stepsAudioSource.Play();
+        break;
+
+      default:
+        animator.SetTrigger("Door");
+        doorAudioSource.Play();
+        break;
+    }
   }
 
   public void LoadNextScene()
   {
     SceneManager.sceneLoaded += OnSceneLoaded;
-    SceneManager.LoadScene(nextScene, LoadSceneMode.Additive);
+    SceneManager.LoadScene(nextScene);
   }
 
   public void UnloadLastScene()
@@ -68,9 +81,8 @@ public class SceneTransitionController : MonoBehaviour
   private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
   {
     MovePlayerToDoor();
-    SceneManager.UnloadSceneAsync(SCENE_TRANSITION_NAME);
     PlayerController.instance.DisableMovement(false);
-    Destroy(gameObject, 1);
+    Destroy(gameObject, 2);
   }
 
   private void OnDestroy()

@@ -671,6 +671,150 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 80, y: 22, z: 1}
   m_Center: {x: -10.686905, y: 4.1413636, z: -0.32807544}
+--- !u!1001 &795449522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 798792470614611375, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Name
+      value: KombiniStreet2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: destityDoorName
+      value: KombiniStreet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: sceneNameDestity
+      value: KombiniRoadAndrew
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.608
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538690387536298049, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493434736535915162, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850874686402653414, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: thisSpawnPoint
+      value: 
+      objectReference: {fileID: 795449523}
+    - target: {fileID: 8850874686402653414, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: destityDoorName
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850874686402653414, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: sceneNameDestity
+      value: Wyru
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 20.962694
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.450832
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 1.3005352
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.163853
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6, type: 3}
+--- !u!4 &795449523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 795449522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &795729192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,6 +2306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
       propertyPath: destityDoorName
       value: Door
       objectReference: {fileID: 0}
@@ -2173,7 +2322,7 @@ PrefabInstance:
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.84
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -2188,7 +2337,7 @@ PrefabInstance:
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99691737
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -2198,7 +2347,7 @@ PrefabInstance:
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.078459114
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -2213,7 +2362,7 @@ PrefabInstance:
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -2224,6 +2373,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493434736535915162, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.33
       objectReference: {fileID: 0}
     - target: {fileID: 8850874686402653414, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -2239,6 +2398,31 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneNameDestity
       value: Wyru
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 20.962694
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.450832
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 1.3005352
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.163853
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2361,6 +2545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KombiniDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493434736535915162, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8850874686402653414, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -2992,5 +3181,6 @@ SceneRoots:
   - {fileID: 2081874500}
   - {fileID: 1783477629}
   - {fileID: 1962750798}
+  - {fileID: 795449522}
   - {fileID: 2065495238}
   - {fileID: 1657296612}

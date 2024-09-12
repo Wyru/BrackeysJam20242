@@ -11,8 +11,16 @@ public class DoorBehavior : MonoBehaviour, IInteractable
 
   public string destityDoorName;
 
+  public SceneTransitionController.TransitionType type;
+
   public void Interact()
   {
-    SceneTransitionController.ToScene(sceneNameDestity, SceneTransitionController.TransitionType.Door, destityDoorName);
+    SceneTransitionController.ToScene(sceneNameDestity, type, destityDoorName);
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    if (other.gameObject == PlayerController.instance.gameObject) { }
+    Interact();
   }
 }
