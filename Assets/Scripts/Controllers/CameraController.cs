@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.Mathematics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,14 +20,17 @@ public class CameraController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        if(instance == null){
+        if (instance == null)
+        {
             instance = this;
         }
         Application.targetFrameRate = 60;
     }
 
-    void Update(){
-        if (!locked){
+    void Update()
+    {
+        if (!locked)
+        {
             // Read mouse input
             _mouseInput = _inputs.action.ReadValue<Vector2>();
 
@@ -40,7 +38,7 @@ public class CameraController : MonoBehaviour
 
     }
 
-    void  FixedUpdate()
+    void FixedUpdate()
     {
         // Rotate the player body along the Y-axis (horizontal movement)
         playerBody.Rotate(Vector3.up, _mouseInput.x * _sensitivity * Time.deltaTime);
