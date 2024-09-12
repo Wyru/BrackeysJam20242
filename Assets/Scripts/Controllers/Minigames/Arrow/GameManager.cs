@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     private int scorePerPerfectNote = 150;
     private int maxCombo;
     
-    private int timeWorked = 0;
-    private int rankPosition = 1785;
+    public int timeWorked = 0;
+    public int rankPosition = 1785;
 
     private int currentMultiplier;
     private int multiplierTracker;
@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text endScore;
     public TMP_Text endPositionRank;
     public TMP_Text _currentHitText;
+    public TMP_Text _totalScoreWork;
+    public TMP_Text _totalTimesWorked;
     public Slider slider;
 
     [Header("Reference for Objecs")]
@@ -57,7 +59,6 @@ public class GameManager : MonoBehaviour
     {
         currentMultiplier = 1;
         scoreText.text = "0";
-        slider.value = 100f;
         instance = this;
         maxCombo = 1;
     }
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         theBS.hasStarted = false;
+        theBS.CleanUp();
         _gameOver.SetActive(true);
         _workPanel.SetActive(false);
         _timeUp.SetActive(false);
@@ -87,16 +89,13 @@ public class GameManager : MonoBehaviour
     public void TimeUp()
     {
         theBS.hasStarted = false;
-        finalScoreSave = currentScore;
+        finalScoreSave += currentScore;
         _timeUp.SetActive(true);
         _gameOver.SetActive(false);
         _workPanel.SetActive(false);
         timeWorked++;
         endScore.text = "Score: " + currentScore.ToString();
-        if(timeWorked > 1){
-            endPositionRank.text = (timeWorked * Random.Range(10,100)) + rankPosition.ToString() ;
-        }
-        endPositionRank.text = rankPosition.ToString();
+        SetAllVariables();
         CleanUp();
     }
 
@@ -184,6 +183,18 @@ public class GameManager : MonoBehaviour
         foreach (GameObject arrow in arrows)
         {
             Destroy(arrow);
+        }
+    }
+
+    public void SetAllVariables()
+    {
+        _totalTimesWorked.text = "Work Completed: " + timeWorked.ToString();
+        _totalScoreWork.text = finalScoreSave.ToString();
+        if(timeWorked > 1){
+            rankPosition = rankPosition + timeWorked * Random.Range(100,200);
+            endPositionRank.text = rankPosition.ToString();
+        }else{
+            endPositionRank.text = rankPosition.ToString();
         }
     }
 }

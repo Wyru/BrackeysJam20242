@@ -4,13 +4,18 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InputRelaySource : MonoBehaviour
+public class InputRelaySource : MonoBehaviour, IInteractable
 {
     [SerializeField] LayerMask RaycastMask = ~0;
     [SerializeField] float RaycastDistance = 15f;
     [SerializeField] UnityEvent<Vector2> OnCursorInput = new UnityEvent<Vector2>();
+    public GameObject _computer;
 
-    public CinemachineVirtualCamera _cam;
+    public void Interact(){
+        int changeLayer = LayerMask.NameToLayer("Default");
+        gameObject.layer = changeLayer;
+        _computer.gameObject.GetComponent<ComputerController>().Interact();
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,8 +30,8 @@ public class InputRelaySource : MonoBehaviour
             // ignore if not us
             if (hitResult.collider.gameObject != gameObject)
                 return;
-
-            OnCursorInput.Invoke(hitResult.textureCoord);
+            if(OnCursorInput != null)
+                OnCursorInput?.Invoke(hitResult.textureCoord);
         }
     }
 }

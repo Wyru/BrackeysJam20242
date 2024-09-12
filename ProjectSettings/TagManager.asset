@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Activator
   - Arrows
+  - DeixarDesativado
   layers:
   - Default
   - TransparentFX
