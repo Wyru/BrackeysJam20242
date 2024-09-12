@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -229,7 +230,12 @@ public class PlayerController : MonoBehaviour
             HitTarget(hit.point);
 
             if (hit.transform.TryGetComponent<Actor>(out Actor T))
-            { T.TakeDamage(attackDamage); }
+            {
+                T.TakeDamage(attackDamage);
+                if(!weaponEquipped){
+                    T.GetComponent<NavMeshAgent>().velocity = transform.forward*7.5f;
+                }
+            }
         }
     }
 

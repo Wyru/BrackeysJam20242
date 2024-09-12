@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1239301533460460893}
   - component: {fileID: 5743181201255270558}
   - component: {fileID: 3720034353945974717}
+  - component: {fileID: 2113425975198742422}
   m_Layer: 0
   m_Name: Ar
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5024743010460808343, guid: 3ba591650be0d3c419f5b32e687c5bec, type: 3}
+  - {fileID: 2100000, guid: 19cc7ac0df957d94fb86d613d8bc99bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2113425975198742422
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260806708872637834}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4810224500622353555, guid: 3ba591650be0d3c419f5b32e687c5bec, type: 3}

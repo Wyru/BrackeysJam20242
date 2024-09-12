@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6636456891370484198}
   - component: {fileID: 4841449852910928308}
   - component: {fileID: 8026121113182782763}
+  - component: {fileID: -846001687368056018}
   m_Layer: 0
   m_Name: Ar14
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6844676777322478897, guid: 3ba591650be0d3c419f5b32e687c5bec, type: 3}
+  - {fileID: 2100000, guid: 973305875f2b06b4f842e7130e868ce6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-846001687368056018
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574567606960756202}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5260619058782884767, guid: 3ba591650be0d3c419f5b32e687c5bec, type: 3}
