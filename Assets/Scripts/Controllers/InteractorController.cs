@@ -7,7 +7,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-interface IInteractable {
+interface IInteractable
+{
     public void Interact();
 }
 
@@ -17,21 +18,31 @@ public class InteractorController : MonoBehaviour
     public Transform InteractorSource;
     public float InteractRange;
     public InputActionReference _interact;
-    
+
     private IInteractable _interactObj;
     [SerializeField] private RawImage _interactionIcon;
 
     void Awake()
     {
-        if(instance == null){
+        if (instance == null)
+        {
             instance = this;
+        }
+    }
+
+    private void Start()
+    {
+        var defaultCanvasBehavior = FindAnyObjectByType<DefaultCanvasBehavior>();
+        if (defaultCanvasBehavior != null)
+        {
+            _interactionIcon = defaultCanvasBehavior.hand;
         }
     }
 
     private void Interacting(InputAction.CallbackContext context)
     {
-        if(_interactObj != null) _interactObj.Interact();
-        
+        if (_interactObj != null) _interactObj.Interact();
+
     }
 
     private void Update()
@@ -42,11 +53,15 @@ public class InteractorController : MonoBehaviour
     private void CheckInteraction()
     {
         Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
-        if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)){
-            if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
+        {
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            {
                 _interactObj = interactObj;
                 _interactionIcon.enabled = true;
-            }else{
+            }
+            else
+            {
                 _interactObj = null;
                 _interactionIcon.enabled = false;
             }

@@ -1366,8 +1366,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7471773049586791621}
   holdPos: {fileID: 3072148438512071900}
-  throwForce: 5000
+  throwForce: 200
   pickUpRange: 5
+  textRef: {fileID: 0}
 --- !u!1 &4152392510820757916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,7 +2441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2377795765143666968
 Transform:
   m_ObjectHideFlags: 0
@@ -2473,7 +2474,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7471773049586791621}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
