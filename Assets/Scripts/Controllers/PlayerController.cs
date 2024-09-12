@@ -34,17 +34,29 @@ public class PlayerController : MonoBehaviour
     public bool weaponEquipped;
     public float throwforce;
 
+    bool _disableMovement = false;
+
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
-        animator = GetComponentInChildren<Animator>();
-        audioSource = GetComponent<AudioSource>();
-        cam = Camera.main;
         if (instance == null)
         {
             instance = this;
         }
+        else
+        {
+            Debug.LogWarning("Multiplas instâncias do player!");
+            DestroyImmediate(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        cam = Camera.main;
+
     }
 
     public void DisableController()
@@ -56,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     public void EnableController()
     {
-        controller.enabled = true;
+        // controller.enabled = true;
         animator.enabled = true;
         InputManager.instance.enabled = true;
         InteractorController.instance.enabled = true;
@@ -75,6 +87,9 @@ public class PlayerController : MonoBehaviour
 
     public void ProcessMove(Vector2 _input)
     {
+        if (_disableMovement)
+            return;
+
         Vector3 move = _cameraTransform.forward * _input.y + _cameraTransform.right * _input.x;
         move.y = 0f;
         _rb.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
@@ -320,6 +335,14 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(.3f);
         ThrowWeapon();
+    }
+
+    public void DisableMovement(bool disable = true)
+    {
+        _disableMovement = disable;
+        _rb.velocity = Vector3.zero;
+        _rb.isKinematic = disable;
+        _rb.useGravity = !disable;
     }
 
 }

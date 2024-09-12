@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4348011930530550648}
   - component: {fileID: 4034823639925870608}
   - component: {fileID: 4405986644906304799}
-  - component: {fileID: 9163434399309973467}
   m_Layer: 12
   m_Name: Road (1)
   m_TagString: Untagged
@@ -107,37 +106,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8634060567236447461, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &9163434399309973467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832497703718818809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &1566171524096422803
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +118,6 @@ GameObject:
   - component: {fileID: 6003816751456367508}
   - component: {fileID: 8324514229634361229}
   - component: {fileID: 5395369778414599736}
-  - component: {fileID: 7317523495139217839}
   m_Layer: 12
   m_Name: SideWalk (1)
   m_TagString: Untagged
@@ -245,37 +212,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1559461194213298357, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &7317523495139217839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566171524096422803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &1773670417881854817
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +224,6 @@ GameObject:
   - component: {fileID: 2357789696415309361}
   - component: {fileID: 2457807482919081221}
   - component: {fileID: 4010136514946556397}
-  - component: {fileID: 1143324752562373981}
   m_Layer: 12
   m_Name: Road (5)
   m_TagString: Untagged
@@ -383,37 +318,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8634060567236447461, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &1143324752562373981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773670417881854817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &3802244683640524303
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +330,6 @@ GameObject:
   - component: {fileID: 5534176943595587003}
   - component: {fileID: 2695335313280232147}
   - component: {fileID: 6301015463478733798}
-  - component: {fileID: 8442388735756760149}
   m_Layer: 12
   m_Name: Road
   m_TagString: Untagged
@@ -521,37 +424,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8634060567236447461, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &8442388735756760149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3802244683640524303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &4092543189477905653
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +436,6 @@ GameObject:
   - component: {fileID: 9001460809909673598}
   - component: {fileID: 1567525996491505200}
   - component: {fileID: 896116281010359398}
-  - component: {fileID: 1076325288035456073}
   m_Layer: 12
   m_Name: SideWalk
   m_TagString: Untagged
@@ -659,37 +530,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1559461194213298357, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &1076325288035456073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4092543189477905653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &6739054522242988917
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +542,6 @@ GameObject:
   - component: {fileID: 4368209048882297289}
   - component: {fileID: 5685031098432340145}
   - component: {fileID: 9091589022798555979}
-  - component: {fileID: 3211155042101269417}
   m_Layer: 12
   m_Name: Road (3)
   m_TagString: Untagged
@@ -797,37 +636,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8634060567236447461, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &3211155042101269417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6739054522242988917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &6792337962341484180
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +687,6 @@ GameObject:
   - component: {fileID: 3206216621254566835}
   - component: {fileID: 456831695979614618}
   - component: {fileID: 9126509730325454743}
-  - component: {fileID: 5828590801118740198}
   m_Layer: 12
   m_Name: Road (2)
   m_TagString: Untagged
@@ -974,37 +781,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8634060567236447461, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &5828590801118740198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222641700670028544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &8939074187582188411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +793,6 @@ GameObject:
   - component: {fileID: 153450150655898069}
   - component: {fileID: 4007891821411053016}
   - component: {fileID: 318984788581933137}
-  - component: {fileID: 8749074275470311814}
   m_Layer: 12
   m_Name: Road (4)
   m_TagString: Untagged
@@ -1112,34 +887,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8634060567236447461, guid: 6d7448632089f2f478d7cf28bf868ef3, type: 3}
---- !u!114 &8749074275470311814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8939074187582188411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 45f842d75fdf4a7419bb860bf96e263b, type: 2}
-  m_BuildHeightMesh: 0
