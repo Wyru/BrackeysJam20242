@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   scanlinesWeight:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 0.34
   noiseWeight:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   screenBendX:
     m_OverrideState: 1
     m_Value: 3
@@ -27,22 +27,22 @@ MonoBehaviour:
     m_Value: 3
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 0.7
+    m_Value: 0
   vignetteSize:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   vignetteRounding:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.92
   vignetteSmoothing:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0.2
   scanlinesDensity:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 200
   scanlinesSpeed:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 200
   noiseAmount:
     m_OverrideState: 1
     m_Value: 250
@@ -94,13 +94,13 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 512
+    m_Value: 640
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 256
+    m_Value: 240
   colorPrecision:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 64
 --- !u!114 &-758010384845797820
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -116,16 +116,16 @@ MonoBehaviour:
   active: 1
   patternIndex:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   ditherThreshold:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 0
   ditherStrength:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   ditherScale:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,31 +158,31 @@ MonoBehaviour:
   active: 1
   fogDensity:
     m_OverrideState: 1
-    m_Value: 1.7
+    m_Value: 0.016
   fogDistance:
     m_OverrideState: 1
-    m_Value: 34
+    m_Value: 422
   fogColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    m_Value: {r: 0.42138356, g: 0.42138356, b: 0.42138356, a: 0.4745098}
   ambientColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    m_Value: {r: 0.81761, g: 0.81761, b: 0.81761, a: 1}
   fogNear:
     m_OverrideState: 1
-    m_Value: 6.1
+    m_Value: 0
   fogFar:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 28
   fogAltScale:
     m_OverrideState: 1
     m_Value: 10
   fogThinning:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 552
   noiseScale:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 0.1
   noiseStrength:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 1

@@ -21,15 +21,20 @@ public class ComputerController : MonoBehaviour, IInteractable
         _screenCamera.tag = "MainCamera";
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        int changeLayer = LayerMask.NameToLayer("Default");
+        _screen.gameObject.layer = changeLayer;
     }
 
     public void LeaveScreen()
     {
+        int changeLayer = LayerMask.NameToLayer("Interactable");
         _pixelation.gameObject.SetActive(false);
         _crosshairCanvas.enabled = true;
         _terminalUI.gameObject.SetActive(false);
         PlayerController.instance.gameObject.SetActive(true);
         _screenCamera.tag = "Untagged";
+        _screen.gameObject.layer = changeLayer;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
