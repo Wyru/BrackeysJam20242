@@ -375,9 +375,7 @@ MonoBehaviour:
   maxChaseDistance: 40
   normalWakSpeed: 2
   chasingPlayerSpeedModifier: 2.5
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   farMaxDetectionDistance: 10
   farDetectionViewAngle: 90
   nearMaxDetectionDistance: 3
