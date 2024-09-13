@@ -9,17 +9,21 @@ using UnityEngine.UI;
 public class EmailController : MonoBehaviour
 {
     public static EmailController instance;
-    public GameObject buttonPrefab;   
+    public GameObject buttonPrefab;
+    public GameObject newEmailIcon;
     public Transform buttonArea;     
     public TMP_Text textArea;
     public TMP_Text senderTextArea;
-    private Button lastClickedButton;  
+    private Button lastClickedButton;
+    private AudioSource soundSource;
+    public AudioClip receiveEmailSound;
 
     [SerializeField] private List<EmailScriptableObject> emails; 
 
     private void Start()
     {
         instance = this;
+        soundSource = GetComponent<AudioSource>();
         InstatiateEmails();
     }
 
@@ -30,6 +34,8 @@ public class EmailController : MonoBehaviour
             InstantiateButton(email);
         }
         emails.Clear();
+        newEmailIcon.gameObject.SetActive(true);
+        PlaySound();
     }
 
     public void InstantiateButton(EmailScriptableObject email)
@@ -67,6 +73,12 @@ public class EmailController : MonoBehaviour
     {
         emails.Add(newEmail);
         InstatiateEmails();
+    }
+
+    public void PlaySound()
+    {
+        soundSource.clip = receiveEmailSound;
+        soundSource.Play();
     }
 }
 
