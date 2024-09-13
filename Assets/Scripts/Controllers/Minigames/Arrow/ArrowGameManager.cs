@@ -5,11 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class ArrowGameManager : MonoBehaviour
 {
     public BeatScroller theBS;
-
-    public static GameManager instance;
+    public static ArrowGameManager instance;
     
     private float slidePerNoteMiss = 5f;
     private float slidePerNote = 3f;
@@ -25,6 +24,9 @@ public class GameManager : MonoBehaviour
     
     public int timeWorked = 0;
     public int rankPosition = 1785;
+    public int costForCompany = 45789;
+    public int moneyTotal;
+    public int moneyPerWork;
 
     private int currentMultiplier;
     private int multiplierTracker;
@@ -37,22 +39,20 @@ public class GameManager : MonoBehaviour
     public TMP_Text multiHit;
     public TMP_Text endScore;
     public TMP_Text endPositionRank;
+    public TMP_Text companyCostText;
     public TMP_Text _currentHitText;
-    public TMP_Text _totalScoreWork;
-    public TMP_Text _totalTimesWorked;
     public Slider slider;
 
     [Header("Reference for Objecs")]
     public GameObject _gameOver;
     public GameObject _workPanel;
     public GameObject _timeUp;
+    private GameManager _gameManager;
 
     private string _perfectText = "Shareholders are happy :)";
     private string _goodText = "Need Improve";
     private string _normalText = "Lack of Softskills";
     private string _missedText = "Quiet Vacation";
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -89,11 +89,12 @@ public class GameManager : MonoBehaviour
     public void TimeUp()
     {
         theBS.hasStarted = false;
+        timeWorked++;
+        moneyPerWork = currentScore / 100;
         finalScoreSave += currentScore;
         _timeUp.SetActive(true);
         _gameOver.SetActive(false);
         _workPanel.SetActive(false);
-        timeWorked++;
         endScore.text = "Score: " + currentScore.ToString();
         SetAllVariables();
         CleanUp();
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         maxCombo = 1;
         multiplierTracker = 0;
+        moneyPerWork = 0;
     }
 
     public void StartWorking()
@@ -188,13 +190,26 @@ public class GameManager : MonoBehaviour
 
     public void SetAllVariables()
     {
-        _totalTimesWorked.text = "Work Completed: " + timeWorked.ToString();
-        _totalScoreWork.text = finalScoreSave.ToString();
+        _gameManager.SetSatisfaction(10);
+        _gameManager.SetWorkScoreToday(finalScoreSave);
+        _gameManager.SetWorkDoneToday(timeWorked);
+        _gameManager.SetMoneyToday(moneyPerWork);
+        companyCostText.text = "Your cost for the company: $" + (costForCompany + moneyPerWork);
         if(timeWorked > 1){
-            rankPosition = rankPosition + timeWorked * Random.Range(100,200);
+            rankPosition = rankPosition + timeWorked * Random.Range(1,100);
             endPositionRank.text = rankPosition.ToString();
         }else{
             endPositionRank.text = rankPosition.ToString();
         }
+    }
+
+    void OnEnable()
+    {
+        _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
+
+    void OnDisable()
+    {
+        _gameManager = null;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SequencyToPress : MonoBehaviour
@@ -20,22 +21,23 @@ public class SequencyToPress : MonoBehaviour
     private int pointsPerNote = 150;
     private int removePoints = -50;
 
-    [Header("Texts")]
-    public TMP_Text scoreText;
-    public TMP_Text timerText;
-    public TMP_Text finalScore;
-    public TMP_Text finalRank;
-
     public GameObject _endGame;
     public GameObject _workPanel;
     public GameObject _closeWindows;
 
     private int currentInputIndex = 0;
     public Timer timer;
-
     private bool gameHasStarted;
 
+    [Header("Texts")]
+    public TMP_Text scoreText;
+    public TMP_Text timerText;
+    public TMP_Text finalScore;
+    public TMP_Text finalRank;
 
+    private GameManager _gameManager;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -142,20 +144,21 @@ public class SequencyToPress : MonoBehaviour
         if(scorePoints >= 0){
             scorePoints += giveScore;
         }else if(scorePoints < 0) scorePoints = 0;
-        
     }
+
 
     void SetPointsFinal()
     {
-
+        DestroyArrowOnScreen();
         gameHasStarted = false;
         _endGame.SetActive(true);
         _closeWindows.SetActive(true);
         _workPanel.SetActive(false);
-        GameManager manager = GameManager.instance;
+        ArrowGameManager manager = ArrowGameManager.instance;
         finalScore.text = scorePoints.ToString();
         manager.finalScoreSave += scorePoints;
         manager.timeWorked++;
+        manager.moneyPerWork = scorePoints / 100;
         manager.SetAllVariables();
         finalRank.text = manager.rankPosition.ToString();
     }
