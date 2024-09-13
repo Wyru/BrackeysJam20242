@@ -43,14 +43,14 @@ public class BeatScroller : MonoBehaviour
         if(_timerTempoTotal.Timeout)
         {
             CleanUp();
-            GameManager.instance.TimeUp();
+            ArrowGameManager.instance.TimeUp();
         }
     }
 
     public void CleanUp()
     {
         hasStarted = false;
-        GameManager.instance.DestroyAllClones();
+        ArrowGameManager.instance.DestroyAllClones();
         _closeWindows.SetActive(true);
         beatTempo = 120;
         beatTempoBase = 120;

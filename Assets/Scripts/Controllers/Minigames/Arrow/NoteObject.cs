@@ -26,13 +26,13 @@ public class NoteObject : MonoBehaviour
                 float dist = Vector2.Distance(_onPointTrigger.transform.position , transform.position);
                 if(dist <= _perfectDistance)
                 {
-                    GameManager.instance.PerfectHit();
+                    ArrowGameManager.instance.PerfectHit();
                 }else if(dist <= _goodDistance)
                 {
-                    GameManager.instance.GoodHit();
+                    ArrowGameManager.instance.GoodHit();
                 }else
                 {
-                    GameManager.instance.NormalHit();
+                    ArrowGameManager.instance.NormalHit();
                 }
                 
                 gameObject.SetActive(false);
@@ -59,7 +59,7 @@ public class NoteObject : MonoBehaviour
             {
                 _onPointTrigger = null;
                 canBePressed = false;
-                GameManager.instance.NoteMissed();
+                ArrowGameManager.instance.NoteMissed();
                 Destroy(gameObject);
             }
        }
