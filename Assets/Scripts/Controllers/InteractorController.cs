@@ -74,7 +74,7 @@ public class InteractorController : MonoBehaviour
     private void CheckInteraction()
     {
         Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
-        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, interactableLayer))
         {
             bool hasInteractable = false;
             string interactionMessage = "";  // To store the prompt message
