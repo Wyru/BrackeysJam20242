@@ -20,12 +20,16 @@ public class PostItManBehavior : MonoBehaviour
   public float nearMaxDetectionDistance = 10f;
   public float nearDetectionViewAngle = 45f;
 
+  public LayerMask playerLayer;
+
+
   [Header("SoundDetection")]
   public int attentionThreshold = 10;
 
   [Header("Attack")]
   public float minAttackDistance = 2f;
   public float minAttackAngle = 15f;
+
 
 
   [Header("References")]
@@ -39,6 +43,8 @@ public class PostItManBehavior : MonoBehaviour
   public Timer attackCooldownTimer;
   public Timer deadTimer;
   public Timer detectPlayerTimer;
+
+
 
   [Header("Events")]
   public UnityEvent OnDetectPlayerEvent;
@@ -252,6 +258,7 @@ public class PostItManBehavior : MonoBehaviour
     spottedPlayer = false;
   }
 
+
   bool IsPlayerInsideActionRange(float maxDistance, float angle)
   {
     if (player == null)
@@ -270,13 +277,9 @@ public class PostItManBehavior : MonoBehaviour
       return false;
 
     // se consegue ver
-    if (Physics.Raycast(eyesAnchor.position, playerDirection, out RaycastHit hit, maxDistance))
+    if (Physics.Raycast(eyesAnchor.position, playerDirection, out RaycastHit hit, maxDistance, playerLayer))
     {
-      Debug.Log(hit.collider.gameObject.name);
-      if (hit.collider.transform == player)
-      {
-        return true;
-      }
+      return true;
     }
     // raycast da visão ta bugado
     return false;

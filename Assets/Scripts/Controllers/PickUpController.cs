@@ -12,10 +12,12 @@ public class PickUpScript : MonoBehaviour
   public float throwForce = 500f; //force at which the object is thrown at
   public float pickUpRange = 5f; //how far the player can pickup the object from
   private float rotationSensitivity = 3f; //how fast/slow the object is rotated in relation to mouse movement
+  public LayerMask interectableLayer;
   private GameObject heldObj; //object which we pick up
   private Rigidbody heldObjRb; //rigidbody of object we pick up
   private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
   private int LayerNumber; //layer index
+
   public TextMeshProUGUI textRef; // references Text on canvas for name of item
 
   CameraController _cameraController;
@@ -45,7 +47,7 @@ public class PickUpScript : MonoBehaviour
       {
         //perform raycast to check if player is looking at object within pickuprange
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, interectableLayer))
         {
           //make sure pickup tag is attached
           if (hit.transform.gameObject.tag == "CanPickUp")

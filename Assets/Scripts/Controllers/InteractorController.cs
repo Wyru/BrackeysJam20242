@@ -19,6 +19,8 @@ public class InteractorController : MonoBehaviour
     public float InteractRange;
     public InputActionReference _interact;
 
+    public LayerMask interactableLayer;
+
     private IInteractable _interactObj;
     [SerializeField] private RawImage _interactionIcon;
 
@@ -53,10 +55,17 @@ public class InteractorController : MonoBehaviour
     private void CheckInteraction()
     {
         Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
-        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, interactableLayer))
         {
+
+            Debug.Log(hitInfo.collider.gameObject.name);
+
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
+
+                Debug.Log(hitInfo.collider.gameObject.name);
+
+
                 _interactObj = interactObj;
                 _interactionIcon.enabled = true;
             }

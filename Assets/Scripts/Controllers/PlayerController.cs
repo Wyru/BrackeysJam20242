@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
 
     public float speed = 5;
+    public float runningSpeed = 5;
+
     Vector3 _PlayerVelocity;
 
 
@@ -36,6 +38,9 @@ public class PlayerController : MonoBehaviour
     public float throwforce;
 
     bool _disableMovement = false;
+
+
+    public FootstepController footstepController;
 
 
     private void Awake()
@@ -81,11 +86,6 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        SetAnimations();
-    }
-
     public void ProcessMove(Vector2 _input)
     {
         if (_disableMovement)
@@ -94,8 +94,14 @@ public class PlayerController : MonoBehaviour
         Vector3 move = _cameraTransform.forward * _input.y + _cameraTransform.right * _input.x;
         move.y = 0f;
 
+        footstepController.isWalking = move.magnitude != 0;
+
         if (move.magnitude == 0)
         {
+
+            animator.SetBool(WALKING, false);
+            animator.SetBool(RUNNING, false);
+
             _rb.velocity = Vector3.zero;
             // _rb.velocity = Vector3.MoveTowards(_rb.velocity, Vector3.zero, deceleration);
             return;
@@ -104,9 +110,17 @@ public class PlayerController : MonoBehaviour
         // _rb.AddForce(move.normalized * acceleration * Time.deltaTime, ForceMode.VelocityChange);
         // _rb.maxLinearVelocity = maxSpeed;
 
-        _rb.velocity = move * speed;
+        animator.SetBool(WALKING, true);
+
+        bool inputRunning = Input.GetKey(KeyCode.LeftShift);
+        animator.SetBool(RUNNING, inputRunning);
+
+        footstepController.isRunning = inputRunning;
+
+        _rb.velocity = move * (inputRunning ? runningSpeed : speed);
 
     }
+
 
     public void ProcessAttack(bool _attack)
     {
@@ -117,62 +131,33 @@ public class PlayerController : MonoBehaviour
     // ANIMATIONS //
     // ---------- //
 
-    public const string SwordIdle = "Idle";
-    public const string FistIdle = "Idle";
-    public string IDLE
-    {
-        get
-        {
-            return weaponEquipped ? SwordIdle : FistIdle;
-        }
-    }
-    public const string WALK = "Walk";
-    public const string ATTACK1 = "Attack";
-    public const string ATTACK2 = "AttackWeaponSlash";
-    public const string ATTACK3 = "PushEnemy";
-    public const string THROW = "Throw";
 
-    string currentAnimationState;
-
-    public void ChangeAnimationState(string newState)
-    {
-        // STOP THE SAME ANIMATION FROM INTERRUPTING WITH ITSELF //
-        if (currentAnimationState == newState) return;
-
-        // PLAY THE ANIMATION //
-        currentAnimationState = newState;
-        animator.CrossFadeInFixedTime(currentAnimationState, 0.2f);
-    }
-
-    void SetAnimations()
-    {
-
-        // If player is not attacking
-        if (!attacking)
-        {
-            if (_PlayerVelocity.x == 0 && _PlayerVelocity.z == 0)
-            {
-                ChangeAnimationState(IDLE);
-            }
-            else
-            { ChangeAnimationState(WALK); }
-        }
-    }
+    public const string WALKING = "walking";
+    public const string RUNNING = "running";
+    public const string WEAPON_SLASH_TRIGGER = "weaponSlash";
+    public const string PUSH_ENEMY_TRIGGER = "pushEnemy";
+    public const string PUNCH_ENEMY_TRIGGER = "punch";
+    public const string THROW_TRIGGER = "throw";
 
     // ------------------- //
     // ATTACKING BEHAVIOUR //
     // ------------------- //
 
     [Header("Attacking")]
-    public float attackDistance = 3f;
+    public AttackCollider attackHitbox;
     public float attackDelay = 0.4f;
     public float attackSpeed = 1f;
     private int attackDamage = 1;
     public LayerMask attackLayer;
 
     public GameObject hitEffect;
-    public AudioClip swordSwing;
+
+    [Header("Audio Clips")]
+    public AudioClip attackSlash;
     public AudioClip hitSound;
+    public AudioSource walkAudioSource;
+    public AudioClip walkSound;
+    public AudioClip runningSound;
 
     bool attacking = false;
     bool readyToAttack = true;
@@ -189,28 +174,28 @@ public class PlayerController : MonoBehaviour
         Invoke(nameof(AttackRaycast), attackDelay);
         if (melee)
         {
-            if (weaponEquipped)
+            if (!weaponEquipped)
             {
-                audioSource.pitch = Random.Range(0.9f, 1.1f);
-                audioSource.PlayOneShot(swordSwing);
+                audioSource.pitch = Random.Range(0.8f, 1f);
+                audioSource.PlayOneShot(attackSlash);
 
                 if (attackCount == 0)
                 {
-                    ChangeAnimationState(weaponEquipped ? ATTACK2 : ATTACK1);
+                    animator.SetTrigger(PUSH_ENEMY_TRIGGER);
                     attackCount++;
                 }
                 else
                 {
-                    ChangeAnimationState(weaponEquipped ? ATTACK2 : ATTACK1);
+                    animator.SetTrigger(PUSH_ENEMY_TRIGGER);
                     attackCount = 0;
                 }
             }
             else
             {
-                audioSource.pitch = Random.Range(2f, 2.5f);
-                audioSource.PlayOneShot(swordSwing);
+                audioSource.pitch = Random.Range(1.1f, 1.3f);
+                audioSource.PlayOneShot(attackSlash);
 
-                ChangeAnimationState(ATTACK3);
+                animator.SetTrigger(WEAPON_SLASH_TRIGGER);
                 attackCount = 0;
             }
         }
@@ -218,8 +203,7 @@ public class PlayerController : MonoBehaviour
         {
             if (weaponEquipped)
             {
-
-                ChangeAnimationState(THROW);
+                animator.SetTrigger(THROW_TRIGGER);
                 attackCount = 0;
                 StartCoroutine("WaitToThrow");
             }
@@ -237,16 +221,30 @@ public class PlayerController : MonoBehaviour
 
     void AttackRaycast()
     {
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
+        if (attackHitbox == null)
         {
-            HitTarget(hit.point);
+            Debug.LogWarning("AttackHitbox nao configurada!");
+            return;
+        }
+        var colliders = attackHitbox.GetObjectsInsideHitbox();
 
-            if (hit.transform.TryGetComponent<Actor>(out Actor T))
+        foreach (var collider in colliders)
+        {
+
+            if (collider.transform.TryGetComponent(out Actor actor))
             {
-                T.TakeDamage(attackDamage);
+                var dir = (collider.transform.position - cam.transform.position).normalized;
+
+                if (Physics.Raycast(cam.transform.position, dir, out RaycastHit hit, 10, attackLayer))
+                {
+                    HitTarget(hit.point);
+                }
+
+                actor.TakeDamage(attackDamage);
+
                 if (!weaponEquipped)
                 {
-                    T.GetComponent<NavMeshAgent>().velocity = transform.forward * 7.5f;
+                    actor.GetComponent<NavMeshAgent>().velocity = transform.forward * 7.5f;
                 }
             }
         }
@@ -259,6 +257,7 @@ public class PlayerController : MonoBehaviour
             audioSource.pitch = 1;
             audioSource.PlayOneShot(hitSound);
 
+            //arrumar
             GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
             Destroy(GO, 20);
         }
@@ -267,6 +266,7 @@ public class PlayerController : MonoBehaviour
             audioSource.pitch = 0.5f;
             audioSource.PlayOneShot(hitSound);
 
+            //arrumar
             GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
             Destroy(GO, 20);
         }
