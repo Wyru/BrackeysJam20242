@@ -17,7 +17,8 @@ public class InputManager : MonoBehaviour
         _playerInput = new PlayerInput();
         _gameplayActions = _playerInput.Gameplay;
         _playerController = GetComponent<PlayerController>();
-        if(instance == null){
+        if (instance == null)
+        {
             instance = this;
         }
     }
@@ -29,7 +30,8 @@ public class InputManager : MonoBehaviour
         _playerController.DropWeapon(_gameplayActions.drop.IsPressed());
         _playerController.Throwing(_gameplayActions.throwWeapon.IsPressed());
 
-        if(Input.GetKeyDown(KeyCode.P)){
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             _gameManager.IncrementDay();
         }
     }
@@ -42,12 +44,10 @@ public class InputManager : MonoBehaviour
     public void OnEnable()
     {
         _gameplayActions.Enable();
-        _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     public void OnDisable()
     {
         _gameplayActions.Disable();
-        _gameManager = null;
     }
 }

@@ -68,6 +68,8 @@ public class ClockmanBehavior : MonoBehaviour
 
   Vector3 startOfMoviment;
 
+  public float currentMaxMovement;
+
 
   public enum State
   {
@@ -210,6 +212,7 @@ public class ClockmanBehavior : MonoBehaviour
     OnDetectPlayerEvent?.Invoke();
     ChangeState(State.Chasing);
     animator.SetTrigger("FoundPlayer");
+    currentMaxMovement = maxMovementDistance;
   }
 
   public void UpdateVision()
@@ -341,9 +344,18 @@ public class ClockmanBehavior : MonoBehaviour
 
       if (state == State.Chasing)
       {
+        currentMaxMovement *= 1 - movementDecreaseRate;
+
+
+        Debug.Log(currentMaxMovement);
+
+        if (currentMaxMovement < 1)
+        {
+          StopChasePlayer();
+        }
+
         MoveTowardsPlayer();
         return;
-
       }
 
       if (state == State.Walking)
@@ -371,12 +383,21 @@ public class ClockmanBehavior : MonoBehaviour
     }
   }
 
+  void StopChasePlayer()
+  {
+    Debug.Log("StopChasePlayer");
+    // teletransportar?
+
+    ChangeState(State.Walking);
+  }
 
   void CheckDistanceTraveled()
   {
     float distanceTraveled = Vector3.Distance(startOfMoviment, transform.position);
 
-    if (distanceTraveled > maxMovementDistance)
+    var x = state == State.Chasing ? currentMaxMovement : maxMovementDistance;
+
+    if (distanceTraveled > x)
     {
       StopMovement();
     }
