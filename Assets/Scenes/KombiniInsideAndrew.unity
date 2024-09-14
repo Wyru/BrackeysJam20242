@@ -12485,6 +12485,7 @@ MonoBehaviour:
   bagPositionSpawn: {fileID: 1415393275}
   bagToSpawn: {fileID: 4070853179616762278, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
     type: 3}
+  _bagExist: {fileID: 0}
 --- !u!1 &573537232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2640473632204455779, guid: eaa38478706b50f4882fb5ec39c4344c,
@@ -13646,8 +13647,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3770373966223988524, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770373966223988524, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770373966223988524, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
       propertyPath: m_TagString
       value: PaperBagSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950965465615779151, guid: d8edaab764d46d94a92ed5dfe0401890,
+        type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3950965465615779151, guid: d8edaab764d46d94a92ed5dfe0401890,
         type: 3}
@@ -37823,12 +37839,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1810267939 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2628314254431856785, guid: 2bcd3f08c7aba524896369a70a81a1a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1844185705}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1824084577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45669,84 +45679,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &1598988191481419032
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.946
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.264
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.271
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444147923769282798, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4070853179616762278, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_Name
-      value: PaperBag
-      objectReference: {fileID: 0}
-    - target: {fileID: 4070853179616762278, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6002038021515262113, guid: 59bc2b0a0ad40844782c7efe82e9c8a5,
-        type: 3}
-      propertyPath: textBagEquiped
-      value: 
-      objectReference: {fileID: 1810267939}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 59bc2b0a0ad40844782c7efe82e9c8a5, type: 3}
 --- !u!1 &1731116792750329725
 GameObject:
   m_ObjectHideFlags: 0
@@ -48549,4 +48481,3 @@ SceneRoots:
   - {fileID: 1894834913}
   - {fileID: 571049552}
   - {fileID: 1415393275}
-  - {fileID: 1598988191481419032}

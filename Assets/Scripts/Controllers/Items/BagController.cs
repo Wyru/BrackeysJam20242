@@ -64,13 +64,16 @@ public class BagController : MonoBehaviour
         bag.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void PutItemOnBag(GameObject other)
     {
         if(other.gameObject.CompareTag("CanPickUp"))
         {
-            Debug.Log("Test");
             if(other.GetComponent<ItemsController>().alreadyPurchased){
+                Debug.Log("Item add");
                 itemsOnBag.Add(other.gameObject);
+                other.transform.SetParent(bag.gameObject.transform,true);
+                other.gameObject.transform.localPosition = Vector3.zero;
+                other.gameObject.SetActive(false);
             }
         }
     }

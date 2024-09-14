@@ -15,6 +15,14 @@ public class ItemsCounterController: MonoBehaviour
     private int playerMoney;
     private GameManager _gameManager;
 
+    private bool _alreadySpawned = false;
+    public GameObject _bagExist;
+
+    void Awake()
+    {
+        _bagExist = null;
+    }
+
     void Update()
     {
         if(itemsOnCounter.Count > 0)
@@ -23,6 +31,11 @@ public class ItemsCounterController: MonoBehaviour
             cartTotalObject.GetComponent<TMP_Text>().text = "Cart Total: $" + cartTotalValue;
         }else{
             cartTotalObject.SetActive(false);
+        }
+        if(_bagExist = GameObject.FindWithTag("PaperBag")){
+            _alreadySpawned = true;
+        }else{
+            _alreadySpawned = false;
         }
     }
     
@@ -53,19 +66,33 @@ public class ItemsCounterController: MonoBehaviour
 
     public void CompletePurchase()
     {
-        GameObject paperBag = Instantiate(bagToSpawn, bagPositionSpawn);
-        if(cartTotalValue <= _gameManager.moneyTotal){
-            paperBag.gameObject.GetComponent<BagController>().itemsOnBag = itemsOnCounter;
+        if(!_alreadySpawned){
+            GameObject paperBag = Instantiate(bagToSpawn, bagPositionSpawn);
+            if(cartTotalValue <= _gameManager.moneyTotal){
+                for (int i = 0; i < itemsOnCounter.Count; i++)
+                {
+                    paperBag.gameObject.GetComponent<BagController>().itemsOnBag.Add(itemsOnCounter[i]);
+                    itemsOnCounter[i].transform.SetParent(paperBag.gameObject.transform,true);
+                    itemsOnCounter[i].gameObject.transform.localPosition = Vector3.zero;
+                    itemsOnCounter[i].gameObject.SetActive(false);
+                    itemsOnCounter[i].gameObject.GetComponent<ItemsController>().alreadyPurchased = true;
+                    paperBag.SetActive(true);
+                }
+                _alreadySpawned = true;
+                _gameManager.SetMoneyToday(-cartTotalValue);
+                cartTotalValue = 0;
+                itemsOnCounter.Clear();
+            }
+        }else 
+        if(cartTotalValue <= _gameManager.moneyTotal && _alreadySpawned){
+            Debug.Log("Test2");
             for (int i = 0; i < itemsOnCounter.Count; i++)
             {
-                itemsOnCounter[i].transform.SetParent(paperBag.gameObject.transform,true);
-                itemsOnCounter[i].gameObject.transform.localPosition = Vector3.zero;
-                itemsOnCounter[i].gameObject.SetActive(false);
                 itemsOnCounter[i].gameObject.GetComponent<ItemsController>().alreadyPurchased = true;
-                paperBag.SetActive(true);
             }
             _gameManager.SetMoneyToday(-cartTotalValue);
             cartTotalValue = 0;
+            itemsOnCounter.Clear();
         }
     }
 

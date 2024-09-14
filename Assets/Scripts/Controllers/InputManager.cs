@@ -41,10 +41,12 @@ public class InputManager : MonoBehaviour
     public void OnEnable()
     {
         _gameplayActions.Enable();
+        _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     public void OnDisable()
     {
         _gameplayActions.Disable();
+        _gameManager = null;
     }
 }
