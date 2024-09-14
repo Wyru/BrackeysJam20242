@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/KombiniInsideAndrew.unity
     guid: 3e59a4c559b302b4ab531d34b7027aa5
   - enabled: 0
-    path: Assets/Scenes/KombiniRoadAndrew.unity
+    path: Assets/Scenes/OfficeRoadAndrew.unity
     guid: d8b4485b0d5c6404e9c41eeffc75d9b3
   - enabled: 0
     path: Assets/Scenes/UrbanStageAndrew.unity
