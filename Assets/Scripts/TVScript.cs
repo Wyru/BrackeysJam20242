@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class TVScript : MonoBehaviour
 {
-
-
     public MeshRenderer m_renderer;
     [SerializeField]
     public Texture[] tex;
     [SerializeField]
     private float time = 0;
-    public bool rand = true;
+    public bool rand = false;
     // Update is called once per frame
     void Update()
     {

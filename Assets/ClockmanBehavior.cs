@@ -15,6 +15,14 @@ public class ClockmanBehavior : MonoBehaviour
   public float chasingPlayerSpeedModifier = 3;
   public float normalPlayerSpeedModifier = 3;
 
+  [Header("Debug")]
+  [SerializeField]
+  float currentMaxMovement;
+
+  [SerializeField]
+  bool canAttack;
+
+  bool spottedPlayer = false;
 
   [Header("Detection")]
   public float farMaxDetectionDistance = 10f;
@@ -53,7 +61,7 @@ public class ClockmanBehavior : MonoBehaviour
   public FootstepController footstepController;
 
   [Header("References Timers")]
-  public Timer idleTimer;
+  public Timer detectPlayerTimer;
   public Timer movementTimer;
   public Timer deadTimer;
 
@@ -62,13 +70,15 @@ public class ClockmanBehavior : MonoBehaviour
   public UnityEvent OnTakeDamageEvent;
   public UnityEvent OnAttackEvent;
   public UnityEvent OnDeathEvent;
-  public UnityEvent OnHearEvent;
+  public UnityEvent OnLostSightOfPlayer;
+
+  public UnityEvent OnRevive;
 
   public Transform player;
 
   Vector3 startOfMoviment;
 
-  public float currentMaxMovement;
+
 
 
   public enum State
@@ -82,12 +92,8 @@ public class ClockmanBehavior : MonoBehaviour
     Dead,
   }
 
-  [Header("Status")]
 
   public State state = State.Idle;
-
-  public bool isChasingPlayer = false;
-
 
   bool firstClock = false;
 
@@ -124,21 +130,30 @@ public class ClockmanBehavior : MonoBehaviour
         UpdateVision();
         break;
 
+
+
+
       case State.Walking:
         footstepController.isRunning = false;
         CheckDistanceTraveled();
         UpdateVision();
         break;
+
+
+
       case State.Attacking:
         agent.isStopped = true;
         agent.velocity = Vector3.zero;
 
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("AttackWeak") && !animator.GetCurrentAnimatorStateInfo(0).IsName("AttackStrong"))
+        if (isAniEnd("WeakAttack") &&
+            isAniEnd("StrongAttack"))
         {
           ChangeState(State.Chasing);
         }
 
         break;
+
+
 
       case State.Chasing:
         footstepController.isRunning = true;
@@ -147,7 +162,17 @@ public class ClockmanBehavior : MonoBehaviour
         CheckDistanceTraveled();
 
         if (distanceToPlayer > maxChaseDistance)
+        {
           ChangeState(State.Walking);
+          LostSightOfPlayer();
+        }
+
+        if (distanceToPlayer <= minAttackDistance)
+        {
+          if (canAttack)
+            Attack();
+        }
+
         break;
 
       case State.Damage:
@@ -185,7 +210,8 @@ public class ClockmanBehavior : MonoBehaviour
   void Revive()
   {
     hitCollider.enabled = true;
-    ChangeState(State.Chasing);
+    ChangeState(State.Walking);
+    OnRevive?.Invoke();
     animator.SetTrigger("Revive");
   }
 
@@ -220,9 +246,23 @@ public class ClockmanBehavior : MonoBehaviour
     if (IsPlayerInsideActionRange(farMaxDetectionDistance, farDetectionViewAngle) ||
         IsPlayerInsideActionRange(nearMaxDetectionDistance, nearDetectionViewAngle))
     {
-      Debug.Log("Has spot player!");
-      OnDetectPlayer();
+      if (spottedPlayer == false)
+      {
+        spottedPlayer = true;
+        detectPlayerTimer.StartTimer();
+      }
+      else
+      {
+        if (detectPlayerTimer.Timeout)
+        {
+          OnDetectPlayer();
+        }
+      }
+
+      return;
     }
+
+    spottedPlayer = false;
   }
 
   bool IsPlayerInsideActionRange(float maxDistance, float angle)
@@ -241,9 +281,6 @@ public class ClockmanBehavior : MonoBehaviour
 
     if (angleBetween > angle / 2)
       return false;
-
-    Debug.Log("raycast");
-
 
     // se consegue ver
     if (Physics.Raycast(eyesAnchor.position, playerDirection, out RaycastHit hit, maxDistance))
@@ -322,36 +359,36 @@ public class ClockmanBehavior : MonoBehaviour
 
   void Attack()
   {
-
+    canAttack = false;
+    OnAttackEvent?.Invoke();
+    StopMovement();
+    ChangeState(State.Attacking);
     if (ShouldPerformAction(strongAttackProbability))
     {
       animator.SetTrigger("AttackStrong");
       return;
     }
     animator.SetTrigger("AttackWeak");
-    ChangeState(State.Attacking);
   }
 
   public void OnMovementTimerEnd()
   {
     firstClock = !firstClock;
 
-
     if (!firstClock)
     {
       //movement clock action
-      clock01.PlayOneShot(clock01.clip);
+      if (state != State.Dead)
+        clock01.PlayOneShot(clock01.clip);
 
       if (state == State.Chasing)
       {
         currentMaxMovement *= 1 - movementDecreaseRate;
 
-
-        Debug.Log(currentMaxMovement);
-
         if (currentMaxMovement < 1)
         {
           StopChasePlayer();
+          return;
         }
 
         MoveTowardsPlayer();
@@ -373,8 +410,12 @@ public class ClockmanBehavior : MonoBehaviour
     }
 
     // fixed clock action
-    clock02.PlayOneShot(clock02.clip);
+    if (state != State.Dead)
+      clock02.PlayOneShot(clock02.clip);
+
     StopMovement();
+
+    canAttack = true;
 
     if (IsPlayerInsideActionRange(minAttackDistance, minAttackAngle))
     {
@@ -387,7 +428,7 @@ public class ClockmanBehavior : MonoBehaviour
   {
     Debug.Log("StopChasePlayer");
     // teletransportar?
-
+    LostSightOfPlayer();
     ChangeState(State.Walking);
   }
 
@@ -403,9 +444,20 @@ public class ClockmanBehavior : MonoBehaviour
     }
   }
 
+
+  void LostSightOfPlayer()
+  {
+    OnLostSightOfPlayer?.Invoke();
+  }
+
   bool ShouldPerformAction(float chance)
   {
     float randomValue = Random.Range(0f, 1f);
     return randomValue < chance;
+  }
+
+  bool isAniEnd(string _name)
+  {
+    return !animator.GetCurrentAnimatorStateInfo(0).IsName(_name);
   }
 }

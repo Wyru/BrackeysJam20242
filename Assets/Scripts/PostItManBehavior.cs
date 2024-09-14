@@ -38,6 +38,7 @@ public class PostItManBehavior : MonoBehaviour
   public Timer idleTimer;
   public Timer attackCooldownTimer;
   public Timer deadTimer;
+  public Timer detectPlayerTimer;
 
   [Header("Events")]
   public UnityEvent OnDetectPlayerEvent;
@@ -224,15 +225,31 @@ public class PostItManBehavior : MonoBehaviour
     ChangeState(State.Damage);
   }
 
+  bool spottedPlayer = false;
   public void UpdateVision()
   {
     if (IsPlayerInsideActionRange(farMaxDetectionDistance, farDetectionViewAngle) ||
         IsPlayerInsideActionRange(nearMaxDetectionDistance, nearDetectionViewAngle))
     {
-      Debug.Log("Has spot player!");
-      OnDetectPlayerEvent?.Invoke();
-      ChangeState(State.Chasing);
+
+      if (spottedPlayer == false)
+      {
+        spottedPlayer = true;
+        detectPlayerTimer.StartTimer();
+      }
+      else
+      {
+        if (detectPlayerTimer.Timeout)
+        {
+          Debug.Log("Has spot player!");
+          OnDetectPlayerEvent?.Invoke();
+          ChangeState(State.Chasing);
+        }
+      }
+      return;
     }
+
+    spottedPlayer = false;
   }
 
   bool IsPlayerInsideActionRange(float maxDistance, float angle)

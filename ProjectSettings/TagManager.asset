@@ -12,6 +12,7 @@ TagManager:
   - DeixarDesativado
   - PaperBagSlot
   - PaperBag
+  - BossSpawn
   - Canvas
   layers:
   - Default
