@@ -27,6 +27,7 @@ public class PostItManBehavior : MonoBehaviour
   public int attentionThreshold = 10;
 
   [Header("Attack")]
+  public int attackPower = 2;
   public float minAttackDistance = 2f;
   public float minAttackAngle = 15f;
 
@@ -39,6 +40,7 @@ public class PostItManBehavior : MonoBehaviour
   public Transform eyesAnchor;
   public SoundDetectionBehavior soundDetectionBehavior;
   public FootstepController footstepController;
+  public AttackCollider hitbox;
   public Timer idleTimer;
   public Timer attackCooldownTimer;
   public Timer deadTimer;
@@ -83,9 +85,11 @@ public class PostItManBehavior : MonoBehaviour
   }
 
   public int currentWaypoint = 0;
+  PlayerController playerController;
   void Start()
   {
-    player = FindAnyObjectByType<PlayerController>().transform;
+    playerController = FindAnyObjectByType<PlayerController>();
+    player = playerController.transform;
   }
 
   public float timeCouter = 0f;
@@ -153,10 +157,7 @@ public class PostItManBehavior : MonoBehaviour
 
         if (IsPlayerInsideActionRange(minAttackDistance, minAttackAngle) && attackCooldownTimer.Timeout)
         {
-          animator.SetTrigger("Attack");
-          attackCooldownTimer.StartTimer();
-          ChangeState(State.Attacking);
-          OnAttackEvent?.Invoke();
+          Attack();
           return;
         }
 
@@ -199,6 +200,39 @@ public class PostItManBehavior : MonoBehaviour
       default:
         return;
     }
+  }
+
+  public void Attack()
+  {
+    animator.SetTrigger("Attack");
+    attackCooldownTimer.StartTimer();
+    ChangeState(State.Attacking);
+    OnAttackEvent?.Invoke();
+    Invoke("RunHitbox", .3f);
+  }
+
+  void RunHitbox()
+  {
+    var colliders = hitbox.GetObjectsInsideHitbox();
+    foreach (var collider in colliders)
+    {
+      Debug.Log(collider.name);
+
+      if (collider.gameObject.CompareTag("Player"))
+      {
+        if (collider.gameObject.TryGetComponent(out PlayerController player))
+        {
+          DealDamageToPlayer();
+        }
+      }
+    }
+  }
+
+  public float playerPushForce = 3;
+  void DealDamageToPlayer()
+  {
+    playerController.TakeDamage(-attackPower);
+    playerController.GetComponent<Rigidbody>().AddForce(transform.forward * playerPushForce, ForceMode.Impulse);
   }
 
   public void OnDeath()

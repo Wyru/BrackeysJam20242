@@ -6,33 +6,32 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public int satistafactionToday {get; private set; }
-    public int maxSatistafaction {get; set; }
+    public int satistafaction;
+    public int maxSatistafaction;
+    public float stamina;
+    public int maxStamina;
+    public int health;
+    public int maxHealth = 100;
+    public int day;
+    public int moneyTotal;
+    public int moneyToday;
+    public int workScoreToday;
+    public int workDoneToday;
+    public static Action<int, int, int> OnSatisfactionChange;
+    public static Action<float, float, int> OnStaminaChange;
+    public static Action<int, int, int> OnMoneyChange;
+    public static Action<int, int> OnWorkScoreTodayChange;
+    public static Action<int, int> OnWorkDoneDayChange;
     public int globalSatisfaction {get; set; }
-    public float stamina {get; private set;}
-    public int maxStamina {get; private set;}
-    public int health {get; private set;}
-    public int maxHealth {get; private set;}
-    public int day {get; private set; }
-    public int moneyTotal {get; private set; }
-    public int moneyToday {get; private set; }
-    public int workScoreToday {get; private set; }
-    public int workDoneToday {get; private set; }
-    public static Action<int,int,int,int> OnSatisfactionChange;
-    public static Action<float,float,int> OnStaminaChange;
-    public static Action<int,int,int> OnMoneyChange;
-    public static Action<int,int> OnWorkScoreTodayChange;
-    public static Action<int,int> OnWorkDoneDayChange;
     public static Action<int> OnDayChange;
-    public static Action<int,int,int> OnHealthChange;
+    public static Action<int, int, int> OnHealthChange;
 
     void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+        health = maxHealth;
         maxSatistafaction = 110;
-        maxHealth = 100;
         day = 1;
     }
 
@@ -46,9 +45,10 @@ public class GameManager : MonoBehaviour
     }
     public void SetHealth(int value)
     {
-        if(health < maxHealth){
+        if (health <= maxHealth)
+        {
             health += value;
-            OnHealthChange?.Invoke(value,health,maxHealth);
+            OnHealthChange?.Invoke(value, health, maxHealth);
         }
     }
 
@@ -59,18 +59,18 @@ public class GameManager : MonoBehaviour
     public void ResetHeath()
     {
         health = maxHealth;
-        OnHealthChange?.Invoke(0,health,maxHealth);
+        OnHealthChange?.Invoke(0, health, maxHealth);
     }
 
     public void Stamina(float value)
     {
         stamina += value;
-        OnStaminaChange?.Invoke(value,stamina,maxStamina);
+        OnStaminaChange?.Invoke(value, stamina, maxStamina);
     }
     public void SetMoneyTotal(int value)
     {
         moneyTotal += value;
-        OnMoneyChange?.Invoke(value,moneyTotal,moneyToday);
+        OnMoneyChange?.Invoke(value, moneyTotal, moneyToday);
     }
 
     public void SetMoneyToday(int value)
@@ -82,12 +82,12 @@ public class GameManager : MonoBehaviour
     public void SetWorkScoreToday(int value)
     {
         workScoreToday += value;
-        OnWorkScoreTodayChange?.Invoke(value,workScoreToday);
+        OnWorkScoreTodayChange?.Invoke(value, workScoreToday);
     }
     public void SetWorkDoneToday(int value)
     {
         workDoneToday = value;
-        OnWorkDoneDayChange?.Invoke(value,workDoneToday);
+        OnWorkDoneDayChange?.Invoke(value, workDoneToday);
     }
 
     public void IncrementDay()
@@ -102,23 +102,25 @@ public class GameManager : MonoBehaviour
 
     public void ResetSatisfaction()
     {
+        satistafaction = 0;
+        OnSatisfactionChange?.Invoke(0, satistafaction, maxSatistafaction);
         satistafactionToday = 0;
         OnSatisfactionChange?.Invoke(0,satistafactionToday,maxSatistafaction,globalSatisfaction);
     }
     public void ResetWorkDoneToday()
     {
         workDoneToday = 0;
-        OnWorkDoneDayChange?.Invoke(0,workDoneToday);
+        OnWorkDoneDayChange?.Invoke(0, workDoneToday);
     }
     public void ResetWorkScoreToday()
     {
         workScoreToday = 0;
-        OnWorkScoreTodayChange?.Invoke(0,workScoreToday);
-    }    
+        OnWorkScoreTodayChange?.Invoke(0, workScoreToday);
+    }
     public void ResetMoneyToday()
     {
         moneyToday = 0;
-        OnMoneyChange?.Invoke(0,moneyTotal,moneyToday);
+        OnMoneyChange?.Invoke(0, moneyTotal, moneyToday);
     }
 }
 

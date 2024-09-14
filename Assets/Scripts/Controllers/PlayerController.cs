@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -43,6 +44,9 @@ public class PlayerController : MonoBehaviour
     public FootstepController footstepController;
 
 
+    GameManager gameManager;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -62,6 +66,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         cam = Camera.main;
+
+        gameManager = FindAnyObjectByType<GameManager>();
 
     }
 
@@ -147,7 +153,7 @@ public class PlayerController : MonoBehaviour
     public AttackCollider attackHitbox;
     public float attackDelay = 0.4f;
     public float attackSpeed = 1f;
-    private int attackDamage = 1;
+    public int attackDamage = 1;
     public LayerMask attackLayer;
 
     public GameObject hitEffect;
@@ -155,9 +161,9 @@ public class PlayerController : MonoBehaviour
     [Header("Audio Clips")]
     public AudioClip attackSlash;
     public AudioClip hitSound;
-    public AudioSource walkAudioSource;
-    public AudioClip walkSound;
-    public AudioClip runningSound;
+    public AudioSource audioSource2;
+    public AudioClip takeDamageSound;
+    public UnityEvent OnTakeDamage;
 
     bool attacking = false;
     bool readyToAttack = true;
@@ -174,9 +180,10 @@ public class PlayerController : MonoBehaviour
         Invoke(nameof(AttackRaycast), attackDelay);
         if (melee)
         {
+            audioSource.pitch = Random.Range(.9f, 1f);
+
             if (!weaponEquipped)
             {
-                audioSource.pitch = Random.Range(0.8f, 1f);
                 audioSource.PlayOneShot(attackSlash);
 
                 if (attackCount == 0)
@@ -192,7 +199,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                audioSource.pitch = Random.Range(1.1f, 1.3f);
                 audioSource.PlayOneShot(attackSlash);
 
                 animator.SetTrigger(WEAPON_SLASH_TRIGGER);
@@ -254,22 +260,31 @@ public class PlayerController : MonoBehaviour
     {
         if (weaponEquipped)
         {
-            audioSource.pitch = 1;
             audioSource.PlayOneShot(hitSound);
-
             //arrumar
             GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
             Destroy(GO, 20);
         }
         else
         {
-            audioSource.pitch = 0.5f;
             audioSource.PlayOneShot(hitSound);
-
             //arrumar
             GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
             Destroy(GO, 20);
         }
+    }
+
+    public void TakeDamage(int x)
+    {
+        if (gameManager == null)
+        {
+            Debug.LogWarning("Game manager não encontrado pelo player ou nulo");
+            return;
+        }
+
+        OnTakeDamage?.Invoke();
+
+        gameManager.SetHealth(x);
     }
 
     public void PlaySound()
