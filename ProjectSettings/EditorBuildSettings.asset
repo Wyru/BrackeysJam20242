@@ -29,7 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AndreScene.unity
     guid: 129b0cd65be04414a8ed23bdd117e87f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JotaVeScene.unity
     guid: c2a077916e1839843bf1288f6f55318b
+  - enabled: 1
+    path: Assets/Scenes/ParkStageAndrew.unity
+    guid: 0e05b6adafc2e094b99c3ec59848c3cd
   m_configObjects: {}
