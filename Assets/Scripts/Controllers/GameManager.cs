@@ -6,8 +6,10 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public int satistafaction {get; private set; }
+    public static GameManager instance;
+    public int satistafactionToday {get; private set; }
     public int maxSatistafaction {get; set; }
+    public int globalSatisfaction {get; set; }
     public float stamina {get; private set;}
     public int maxStamina {get; private set;}
     public int health {get; private set;}
@@ -17,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int moneyToday {get; private set; }
     public int workScoreToday {get; private set; }
     public int workDoneToday {get; private set; }
-    public static Action<int,int,int> OnSatisfactionChange;
+    public static Action<int,int,int,int> OnSatisfactionChange;
     public static Action<float,float,int> OnStaminaChange;
     public static Action<int,int,int> OnMoneyChange;
     public static Action<int,int> OnWorkScoreTodayChange;
@@ -27,17 +29,19 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         DontDestroyOnLoad(this.gameObject);
-        maxSatistafaction = 100;
+        maxSatistafaction = 110;
         maxHealth = 100;
         day = 1;
     }
 
     public void SetSatisfaction(int value)
     {
-        if(satistafaction < maxSatistafaction){
-            satistafaction += value;
-            OnSatisfactionChange?.Invoke(value,satistafaction,maxSatistafaction);
+        if(satistafactionToday < maxSatistafaction){
+            satistafactionToday += value;
+            SetGlobalSatisfaction(value);
+            OnSatisfactionChange?.Invoke(value,satistafactionToday,maxSatistafaction,globalSatisfaction);
         }
     }
     public void SetHealth(int value)
@@ -46,6 +50,11 @@ public class GameManager : MonoBehaviour
             health += value;
             OnHealthChange?.Invoke(value,health,maxHealth);
         }
+    }
+
+    public void SetGlobalSatisfaction(int value)
+    {
+        globalSatisfaction += value;
     }
     public void ResetHeath()
     {
@@ -93,8 +102,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetSatisfaction()
     {
-        satistafaction = 0;
-        OnSatisfactionChange?.Invoke(0,satistafaction,maxSatistafaction);
+        satistafactionToday = 0;
+        OnSatisfactionChange?.Invoke(0,satistafactionToday,maxSatistafaction,globalSatisfaction);
     }
     public void ResetWorkDoneToday()
     {

@@ -41,7 +41,7 @@ public class EmailsManager : MonoBehaviour
         currentDay = day;
     }
     
-    void GameManagerOnSatisfactionChange(int value, int satisfaction, int maxSatistafaction)
+    void GameManagerOnSatisfactionChange(int value, int satisfaction, int maxSatistafaction,int globalSatisfaction)
     {
         switch (satisfaction)
         {

@@ -19,7 +19,7 @@ public class ReportController : MonoBehaviour
         GameManager.OnMoneyChange += GameManagerOnMoneyChange;
     }
 
-    void GameManagerOnSatisfactionChange(int value, int satisfaction, int maxSatistafaction)
+    void GameManagerOnSatisfactionChange(int value, int satisfaction, int maxSatistafaction, int globalSatisfaction)
     {
         satisfactionText.text = "Company satisfaction: " + satisfaction.ToString() + "%";
     }

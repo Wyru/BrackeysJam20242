@@ -24,7 +24,10 @@ public class SequencyToPress : MonoBehaviour
 
     public GameObject _endGame;
     public GameObject _workPanel;
+    public GameObject _chooseWork;
     public GameObject _closeWindows;
+    public GameObject _goodEmployer;
+    public GameObject _badEmployer;
 
     private int currentInputIndex = 0;
     public Timer timer;
@@ -55,6 +58,7 @@ public class SequencyToPress : MonoBehaviour
         GenerateRandomSequence();
         SpawnObjects();
         scorePoints = 0;
+        currentInputIndex = 0;
         timer.StartTimer();
         gameHasStarted = true;
         sequenceError = false;
@@ -165,9 +169,15 @@ public class SequencyToPress : MonoBehaviour
 
     void GivePoints(int giveScore)
     {
-        if(scorePoints >= 0){
+        if(giveScore < 0){
+            if(scorePoints <= 0){
+                scorePoints = 0;
+            }else{
+                scorePoints += giveScore;
+            }
+        }else{
             scorePoints += giveScore;
-        }else if(scorePoints < 0) scorePoints = 0;
+        }
     }
 
 
@@ -176,15 +186,23 @@ public class SequencyToPress : MonoBehaviour
         DestroyArrowOnScreen();
         gameHasStarted = false;
         _endGame.SetActive(true);
+        if(scorePoints == 0){
+            _goodEmployer.SetActive(false);
+            _badEmployer.SetActive(true);
+        }else{
+            _badEmployer.SetActive(false);
+            _goodEmployer.SetActive(true);
+        }
         _closeWindows.SetActive(true);
         _workPanel.SetActive(false);
+        _chooseWork.SetActive(false);
         ArrowGameManager manager = ArrowGameManager.instance;
         finalScore.text = scorePoints.ToString();
         manager.finalScoreSave += scorePoints;
-        manager.timeWorked++;
         manager.moneyPerWork = scorePoints / 1000;
         manager.SetAllVariables();
         finalRank.text = manager.rankPosition.ToString();
+        manager.finalScoreSave = 0;
     }
 
     void PlaySound(AudioClip soundPlay)

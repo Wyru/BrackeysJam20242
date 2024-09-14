@@ -94,10 +94,10 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 920
+    m_Value: 720
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 750
+    m_Value: 480
   colorPrecision:
     m_OverrideState: 1
     m_Value: 128
