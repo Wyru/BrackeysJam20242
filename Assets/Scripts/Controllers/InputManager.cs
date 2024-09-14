@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     private PlayerInput.GameplayActions _gameplayActions;
     private PlayerController _playerController;
     public static InputManager instance;
-    private GameManager _gameManager;
+    // private GameManager _gameManager;
 
     private void Awake()
     {
@@ -31,11 +31,11 @@ public class InputManager : MonoBehaviour
         _playerController.Throwing(_gameplayActions.throwWeapon.IsPressed());
         // BagController.instance.RemoveItems(_gameplayActions.drop.IsPressed());
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            _gameManager.IncrementDay();
-            _gameManager.SetMoneyToday(+100);
-        }
+        // if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     _gameManager.IncrementDay();
+        //     _gameManager.SetMoneyToday(+100);
+        // }
     }
 
     public void OnEnable()
@@ -47,6 +47,6 @@ public class InputManager : MonoBehaviour
     public void OnDisable()
     {
         _gameplayActions.Disable();
-        _gameManager = null;
+        // _gameManager = null;
     }
 }

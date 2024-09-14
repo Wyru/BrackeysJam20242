@@ -381,10 +381,10 @@ GameObject:
   m_Layer: 0
   m_Name: PaperBagPosition
   m_TagString: PaperBagSlot
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4264456090519665197
 Transform:
   m_ObjectHideFlags: 0
@@ -1190,7 +1190,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65
   _interactionIcon: {fileID: 0}
-  hasInteractable: 0
 --- !u!114 &8239731818626092468
 MonoBehaviour:
   m_ObjectHideFlags: 0
