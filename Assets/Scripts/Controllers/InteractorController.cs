@@ -72,10 +72,8 @@ public class InteractorController : MonoBehaviour
     }
 
     private void CheckInteraction()
-{
-    Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
-    if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
     {
+
         Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
         if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, interactableLayer))
         {
@@ -158,15 +156,8 @@ public class InteractorController : MonoBehaviour
             _interactionIcon.enabled = false;
             _possibleKeys.enabled = false;
         }
+
     }
-    else
-    {
-        _interactObj = null;
-        _interactObjB = null;
-        _interactionIcon.enabled = false;
-        _possibleKeys.enabled = false;
-    }
-}
 
     private void OnEnable()
     {
