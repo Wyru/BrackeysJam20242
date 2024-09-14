@@ -14,16 +14,4 @@ public class HellDiverArrow : MonoBehaviour
     {
         theSRArrow.sprite = defaultImage;
     }
-
-    void Update(){
-
-    }
-    public void CorrectPressed(){
-
-    }
-
-    public void WrongPressed()
-    {
-
-    }
 }

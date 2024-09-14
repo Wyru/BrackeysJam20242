@@ -18,16 +18,24 @@ public class HellDiverPlayerArrows : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(keyToPress))
-        {
-            theSRDiver.sprite = pressedImage;
-            SequencyToPress.instance.CheckPlayerInput(gameObject);
-        }
-
-        if(Input.GetKeyUp(keyToPress))
-        {
+        if(!SequencyToPress.instance.timerError.Timeout){
             theSRDiver.sprite = defaultImage;
+            return;
         }
+        else 
+        {
+            if(Input.GetKeyDown(keyToPress))
+            {
+                theSRDiver.sprite = pressedImage;
+                SequencyToPress.instance.CheckPlayerInput(gameObject);
+            }
+
+            if(Input.GetKeyUp(keyToPress))
+            {
+                theSRDiver.sprite = defaultImage;
+            }
+        }
+        
     }
 
 }

@@ -76,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (5)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (13)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -254,7 +254,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (12)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -473,7 +473,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (6)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -562,7 +562,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (6)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -651,7 +651,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (10)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -740,7 +740,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (14)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -829,7 +829,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (11)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -918,7 +918,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (9)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1007,7 +1007,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (4)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1096,7 +1096,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (8)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1185,7 +1185,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (4)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1274,7 +1274,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (8)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1363,7 +1363,7 @@ PrefabInstance:
     - target: {fileID: 8729570340581578152, guid: b956fb5da9340bb498da8e360b16d7a1,
         type: 3}
       propertyPath: m_Name
-      value: guarana (5)
+      value: "Guaran\xE1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

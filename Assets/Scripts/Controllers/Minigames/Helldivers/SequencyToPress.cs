@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SequencyToPress : MonoBehaviour
@@ -19,12 +20,7 @@ public class SequencyToPress : MonoBehaviour
     private int pointsForComplete = 1500;
     private int pointsPerNote = 150;
     private int removePoints = -50;
-
-    [Header("Texts")]
-    public TMP_Text scoreText;
-    public TMP_Text timerText;
-    public TMP_Text finalScore;
-    public TMP_Text finalRank;
+    private bool sequenceError;
 
     public GameObject _endGame;
     public GameObject _workPanel;
@@ -32,14 +28,25 @@ public class SequencyToPress : MonoBehaviour
 
     private int currentInputIndex = 0;
     public Timer timer;
-
+    public Timer timerError;
     private bool gameHasStarted;
 
+    [Header("Texts")]
+    public TMP_Text scoreText;
+    public TMP_Text timerText;
+    public TMP_Text errorTimerText;
+    public TMP_Text finalScore;
+    public TMP_Text finalRank;
 
+    public AudioClip completeSequenceSound;
+    public AudioClip errorSequenceSound;
+    public AudioSource soundSource;
+    
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        sequenceError = false;
     }
 
     public void StartGame()
@@ -50,6 +57,7 @@ public class SequencyToPress : MonoBehaviour
         scorePoints = 0;
         timer.StartTimer();
         gameHasStarted = true;
+        sequenceError = false;
     }
 
     private void ResetGame()
@@ -65,12 +73,25 @@ public class SequencyToPress : MonoBehaviour
         if(scorePoints >= 0){
             scoreText.text = scorePoints.ToString();
         }
+        if(sequenceError)
+        {
+            errorTimerText.text = timerError.secondsCounter.ToString("F3");
+        }else{
+            errorTimerText.text = "";
+        }
+        
         
         timerText.text = Mathf.RoundToInt(timer.secondsCounter).ToString();
 
         if(timer.Timeout)
         {
             SetPointsFinal();
+        }
+
+        if(sequenceError && timerError.Timeout)
+        {
+            ResetAfterErrorTime();
+            sequenceError = false;
         }
     }
     
@@ -112,21 +133,26 @@ public class SequencyToPress : MonoBehaviour
         {
             GivePoints(removePoints);
             _spawnedObjects[currentInputIndex].GetComponent<SpriteRenderer>().color = Color.red;
-            ResetSequence();
-        }
-        
-        void ResetSequence()
-        {
-            currentInputIndex = 0;
-            ResetGame();
+            PlaySound(errorSequenceSound);
+            timerError.StartTimer();
+            sequenceError = true;           
         }
 
         void SequenceCompleted()
         {
             GivePoints(pointsForComplete);
+            PlaySound(completeSequenceSound);
             currentInputIndex = 0;
             ResetGame();
         }
+    }
+
+    public void ResetAfterErrorTime()
+    {
+    
+        currentInputIndex = 0;
+        ResetGame();
+    
     }
 
     void DestroyArrowOnScreen()
@@ -142,22 +168,29 @@ public class SequencyToPress : MonoBehaviour
         if(scorePoints >= 0){
             scorePoints += giveScore;
         }else if(scorePoints < 0) scorePoints = 0;
-        
     }
+
 
     void SetPointsFinal()
     {
-
+        DestroyArrowOnScreen();
         gameHasStarted = false;
         _endGame.SetActive(true);
         _closeWindows.SetActive(true);
         _workPanel.SetActive(false);
-        GameManager manager = GameManager.instance;
+        ArrowGameManager manager = ArrowGameManager.instance;
         finalScore.text = scorePoints.ToString();
         manager.finalScoreSave += scorePoints;
         manager.timeWorked++;
+        manager.moneyPerWork = scorePoints / 100;
         manager.SetAllVariables();
         finalRank.text = manager.rankPosition.ToString();
+    }
+
+    void PlaySound(AudioClip soundPlay)
+    {
+        soundSource.clip = soundPlay;
+        soundSource.Play();
     }
 
 }

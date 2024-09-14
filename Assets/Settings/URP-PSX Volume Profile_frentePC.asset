@@ -27,13 +27,13 @@ MonoBehaviour:
     m_Value: 4.25
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 0.7
+    m_Value: 0.78
   vignetteSize:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 1.61
   vignetteRounding:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.28
   vignetteSmoothing:
     m_OverrideState: 1
     m_Value: 0.1
@@ -91,13 +91,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a1bd58dd7548198609eabd8ae2bb7d, type: 3}
   m_Name: Pixelation
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 720
+    m_Value: 920
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 480
+    m_Value: 750
   colorPrecision:
     m_OverrideState: 1
     m_Value: 128
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea62842ddb6960488930897ba9ce398, type: 3}
   m_Name: Dithering
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   patternIndex:
     m_OverrideState: 1
     m_Value: 2
