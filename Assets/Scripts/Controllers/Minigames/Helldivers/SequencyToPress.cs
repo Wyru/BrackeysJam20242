@@ -182,7 +182,7 @@ public class SequencyToPress : MonoBehaviour
         finalScore.text = scorePoints.ToString();
         manager.finalScoreSave += scorePoints;
         manager.timeWorked++;
-        manager.moneyPerWork = scorePoints / 100;
+        manager.moneyPerWork = scorePoints / 1000;
         manager.SetAllVariables();
         finalRank.text = manager.rankPosition.ToString();
     }

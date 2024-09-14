@@ -10,9 +10,10 @@ TagManager:
   - Activator
   - Arrows
   - DeixarDesativado
-  - 1
-  - 2
+  - PaperBagSlot
+  - PaperBag
   - BossSpawn
+  - Canvas
   layers:
   - Default
   - TransparentFX

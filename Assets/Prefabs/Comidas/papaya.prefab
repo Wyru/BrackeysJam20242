@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4228534200629116716}
   - component: {fileID: 6130875965229127082}
   - component: {fileID: -2421337297551732834}
+  - component: {fileID: 2084350007129313406}
   m_Layer: 0
   m_Name: papaya
   m_TagString: CanPickUp
@@ -111,3 +112,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2084350007129313406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3900825810305931856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c62950825e108c49bb4ad5cc9cf7bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 45
+  staminaRecover: 4
