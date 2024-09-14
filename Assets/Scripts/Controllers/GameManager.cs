@@ -6,8 +6,10 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public int satistafaction;
+    public static GameManager instance;
+    public int satistafactionToday;
     public int maxSatistafaction;
+    public int globalSatisfaction {get; set; }
     public float stamina;
     public int maxStamina;
     public int health;
@@ -17,12 +19,11 @@ public class GameManager : MonoBehaviour
     public int moneyToday;
     public int workScoreToday;
     public int workDoneToday;
-    public static Action<int, int, int> OnSatisfactionChange;
+    public static Action<int, int, int,int> OnSatisfactionChange;
     public static Action<float, float, int> OnStaminaChange;
     public static Action<int, int, int> OnMoneyChange;
     public static Action<int, int> OnWorkScoreTodayChange;
     public static Action<int, int> OnWorkDoneDayChange;
-    public int globalSatisfaction {get; set; }
     public static Action<int> OnDayChange;
     public static Action<int, int, int> OnHealthChange;
 
@@ -102,8 +103,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetSatisfaction()
     {
-        satistafaction = 0;
-        OnSatisfactionChange?.Invoke(0, satistafaction, maxSatistafaction);
         satistafactionToday = 0;
         OnSatisfactionChange?.Invoke(0,satistafactionToday,maxSatistafaction,globalSatisfaction);
     }
