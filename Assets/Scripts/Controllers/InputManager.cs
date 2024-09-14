@@ -29,16 +29,13 @@ public class InputManager : MonoBehaviour
         _playerController.ProcessAttack(_gameplayActions.atack.IsPressed());
         _playerController.DropWeapon(_gameplayActions.drop.IsPressed());
         _playerController.Throwing(_gameplayActions.throwWeapon.IsPressed());
+        // BagController.instance.RemoveItems(_gameplayActions.drop.IsPressed());
 
         if (Input.GetKeyDown(KeyCode.P))
         {
             _gameManager.IncrementDay();
+            _gameManager.SetMoneyToday(+100);
         }
-    }
-
-    public void OnGameEnd()
-    {
-
     }
 
     public void OnEnable()

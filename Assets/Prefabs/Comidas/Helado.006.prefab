@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4655295734742451387}
   - component: {fileID: 4077419977217346315}
   - component: {fileID: 2056173566314286912}
+  - component: {fileID: 8465314802320330048}
   m_Layer: 0
   m_Name: Helado.006
   m_TagString: CanPickUp
@@ -111,3 +112,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8465314802320330048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624623586875612856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c62950825e108c49bb4ad5cc9cf7bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 125
+  staminaRecover: 20
