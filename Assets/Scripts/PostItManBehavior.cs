@@ -23,13 +23,9 @@ public class PostItManBehavior : MonoBehaviour
   [Header("SoundDetection")]
   public int attentionThreshold = 10;
 
-  public Color detactionDebugColor = Color.yellow;
-
   [Header("Attack")]
-
   public float minAttackDistance = 2f;
   public float minAttackAngle = 15f;
-
 
 
   [Header("References")]
@@ -38,6 +34,7 @@ public class PostItManBehavior : MonoBehaviour
   public NavMeshAgent agent;
   public Transform eyesAnchor;
   public SoundDetectionBehavior soundDetectionBehavior;
+  public FootstepController footstepController;
   public Timer idleTimer;
   public Timer attackCooldownTimer;
   public Timer deadTimer;
@@ -115,6 +112,8 @@ public class PostItManBehavior : MonoBehaviour
           animator.SetBool("Walking", true);
           agent.isStopped = false;
           agent.destination = waypoints[currentWaypoint].position;
+          footstepController.isWalking = true;
+
 
           if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) <= agent.stoppingDistance + 0.1f)
           {
@@ -142,6 +141,8 @@ public class PostItManBehavior : MonoBehaviour
         SetSpeed(true);
         agent.isStopped = false;
         agent.destination = player.transform.position;
+        footstepController.isWalking = true;
+        footstepController.isRunning = true;
 
         if (IsPlayerInsideActionRange(minAttackDistance, minAttackAngle) && attackCooldownTimer.Timeout)
         {
@@ -162,6 +163,9 @@ public class PostItManBehavior : MonoBehaviour
         SetSpeed(true);
         animator.SetBool("Walking", true);
         agent.destination = soundPosition;
+        footstepController.isRunning = true;
+        footstepController.isWalking = true;
+
 
         if (Vector3.Distance(transform.position, soundPosition) < 1)
         {
@@ -263,8 +267,10 @@ public class PostItManBehavior : MonoBehaviour
 
   void ChangeState(State newState)
   {
-    Debug.Log($"{name} state changed from {state} to {newState}");
+    // Debug.Log($"{name} state changed from {state} to {newState}");
     animator.SetBool("Walking", false);
+    footstepController.isWalking = false;
+    footstepController.isRunning = false;
     SetSpeed();
     state = newState;
   }

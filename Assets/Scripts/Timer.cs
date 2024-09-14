@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
@@ -10,11 +12,14 @@ public class Timer : MonoBehaviour
   [SerializeField]
   bool timeout = false;
 
+  public Action OnTimerEnd;
 
   public bool Timeout
   {
     get { return timeout; }
   }
+
+  bool loop = false;
 
   void Start()
   {
@@ -24,18 +29,32 @@ public class Timer : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (secondsCounter < 0)
-    {
-      timeout = true;
+    if (timeout)
       return;
-    }
 
     secondsCounter -= Time.deltaTime;
+
+    if (secondsCounter < 0)
+    {
+      if (!timeout)
+      {
+        OnTimerEnd?.Invoke();
+      }
+
+      timeout = true;
+
+      if (loop)
+      {
+        timeout = false;
+        secondsCounter = seconds;
+      }
+    }
   }
 
-  public void StartTimer()
+  public void StartTimer(bool loop = false)
   {
     timeout = false;
+    this.loop = loop;
     secondsCounter = seconds;
   }
 }
