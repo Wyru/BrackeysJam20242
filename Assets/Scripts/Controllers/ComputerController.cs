@@ -9,9 +9,14 @@ public class ComputerController : MonoBehaviour, IInteractable
     [SerializeField]
     public Transform _screen;
     public GameObject _screenCamera;
-    public Canvas _crosshairCanvas;
+    private Canvas _crosshairCanvas;
     public Canvas _terminalUI;
     public Volume _pixelation;
+
+    void Start()
+    {
+        _crosshairCanvas = GameObject.FindWithTag("Canvas").GetComponent<Canvas>();
+    }
 
     public void Interact(){
         _pixelation.gameObject.SetActive(true);

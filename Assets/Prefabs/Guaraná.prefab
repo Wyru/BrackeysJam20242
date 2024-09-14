@@ -235,6 +235,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 158865734074715418}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 64cf53ff6965adf458393fa230a2839b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2571015387970048868}
   m_SourcePrefab: {fileID: 100100000, guid: 64cf53ff6965adf458393fa230a2839b, type: 3}
 --- !u!4 &8245661376468930322 stripped
 Transform:
@@ -342,3 +346,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceNeedToThrow: 150
   throwRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &2571015387970048868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729570340581578152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c62950825e108c49bb4ad5cc9cf7bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 150
+  staminaRecover: 25

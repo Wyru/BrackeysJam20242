@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,18 +6,21 @@ using UnityEngine.UI;
 
 public class PickUpScript : MonoBehaviour
 {
+  public static PickUpScript instance;
   public GameObject player;
   public Transform holdPos;
   //if you copy from below this point, you are legally required to like the video
   public float throwForce = 500f; //force at which the object is thrown at
   public float pickUpRange = 5f; //how far the player can pickup the object from
   private float rotationSensitivity = 3f; //how fast/slow the object is rotated in relation to mouse movement
-  private GameObject heldObj; //object which we pick up
+  public LayerMask interectableLayer;
+  public GameObject heldObj; //object which we pick up
   private Rigidbody heldObjRb; //rigidbody of object we pick up
   private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
   private int LayerNumber; //layer index
-  public TextMeshProUGUI textRef; // references Text on canvas for name of item
 
+  public TextMeshProUGUI textRef; // references Text on canvas for name of item
+  public TMP_Text textPossibleKeys;
   CameraController _cameraController;
   private float _cameraSens;
 
@@ -27,6 +30,7 @@ public class PickUpScript : MonoBehaviour
   //MouseLookScript mouseLookScript;
   void Start()
   {
+    instance = this;
     LayerNumber = LayerMask.NameToLayer("HoldLayer"); //if your holdLayer is named differently make sure to change this ""
     _cameraController = GetComponent<CameraController>();
     _cameraSens = _cameraController._sensitivity;
@@ -35,6 +39,7 @@ public class PickUpScript : MonoBehaviour
     if (defaultCanvasBehavior != null)
     {
       textRef = defaultCanvasBehavior.itemHoldDescription;
+      textPossibleKeys = defaultCanvasBehavior.possibleKeys;
     }
   }
   void Update()
@@ -45,7 +50,7 @@ public class PickUpScript : MonoBehaviour
       {
         //perform raycast to check if player is looking at object within pickuprange
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, interectableLayer))
         {
           //make sure pickup tag is attached
           if (hit.transform.gameObject.tag == "CanPickUp")
@@ -79,7 +84,7 @@ public class PickUpScript : MonoBehaviour
 
     }
   }
-  void PickUpObject(GameObject pickUpObj)
+  public void PickUpObject(GameObject pickUpObj)
   {
     if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
     {
@@ -87,8 +92,8 @@ public class PickUpScript : MonoBehaviour
       heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
       heldObjRb.isKinematic = true;
       heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
-      heldObj.layer = LayerNumber; //change the object layer to the holdLayer
-                                   //make sure object doesnt collide with player, it can cause weird bugs
+                                                      // heldObj.layer = LayerNumber; //change the object layer to the holdLayer
+                                                      //make sure object doesnt collide with player, it can cause weird bugs
       Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
     }
   }
@@ -101,6 +106,7 @@ public class PickUpScript : MonoBehaviour
     heldObj.transform.parent = null; //unparent object
     heldObj = null; //undefine game object
     textRef.text = "";
+    textPossibleKeys.text = "";
   }
   void MoveObject()
   {

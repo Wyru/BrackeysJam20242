@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3980648267832649893}
   - component: {fileID: 6837312359509102800}
   - component: {fileID: 5366075137025785362}
+  - component: {fileID: 7560398100151835061}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: CanPickUp
@@ -111,3 +112,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7560398100151835061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836019176615339542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c62950825e108c49bb4ad5cc9cf7bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 500
+  staminaRecover: 35

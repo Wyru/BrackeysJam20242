@@ -5,21 +5,35 @@ using UnityEngine.UI;
 public class DefaultCanvasBehavior : MonoBehaviour
 {
 
-  public static DefaultCanvasBehavior instance;
+    public static DefaultCanvasBehavior instance;
 
-  public RawImage hand;
-  public TextMeshProUGUI itemHoldDescription;
-  private void Awake()
-  {
-    if (instance != null)
+    public RawImage hand;
+    public TextMeshProUGUI itemHoldDescription;
+    public TextMeshProUGUI playerMoneyText;
+    public TMP_Text possibleKeys;
+    public TMP_Text bagText;
+    private void Awake()
+        {
+        if (instance != null)
+        {
+            Debug.LogWarning("Multiplas instâncias do canvas default!");
+            DestroyImmediate(gameObject);
+            return;
+        }
+
+        GameManager.OnMoneyChange += GameManagerOnMoneyChange;
+        instance = this;
+        DontDestroyOnLoad(this);
+    }   
+
+    void GameManagerOnMoneyChange(int value, int moneyTotal, int moneyToday)
     {
-      Debug.LogWarning("Multiplas instâncias do canvas default!");
-      DestroyImmediate(gameObject);
-      return;
+        playerMoneyText.text = "$" + moneyTotal.ToString();
     }
 
-    instance = this;
-    DontDestroyOnLoad(this);
-  }
-
+    void OnDestroy()
+    {
+        GameManager.OnMoneyChange -= GameManagerOnMoneyChange;
+    }
+    
 }

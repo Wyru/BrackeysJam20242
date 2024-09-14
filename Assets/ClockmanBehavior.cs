@@ -78,6 +78,7 @@ public class ClockmanBehavior : MonoBehaviour
 
   Vector3 startOfMoviment;
 
+  public LayerMask playerLayerMask;
 
 
 
@@ -283,16 +284,8 @@ public class ClockmanBehavior : MonoBehaviour
       return false;
 
     // se consegue ver
-    if (Physics.Raycast(eyesAnchor.position, playerDirection, out RaycastHit hit, maxDistance))
-    {
-      Debug.Log(hit.collider.gameObject.name);
-      if (hit.collider.transform == player)
-      {
-        return true;
-      }
-    }
-    // raycast da visão ta bugado
-    return false;
+    return Physics.Raycast(eyesAnchor.position, playerDirection, maxDistance, playerLayerMask);
+
   }
 
   void ChangeState(State newState)

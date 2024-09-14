@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 8149101855145926971}
   - component: {fileID: 4145167104430875129}
   - component: {fileID: 3496502589900953414}
+  - component: {fileID: 1098936994968891418}
   m_Layer: 0
   m_Name: Bananas
   m_TagString: CanPickUp
@@ -418,6 +419,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1, y: 0.1, z: 0.05305455}
   m_Center: {x: 4.634534e-16, y: 0.0000000038877297, z: 0.020565622}
+--- !u!114 &1098936994968891418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408338020241076373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c62950825e108c49bb4ad5cc9cf7bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 80
+  staminaRecover: 10
 --- !u!1 &8588275114617932417
 GameObject:
   m_ObjectHideFlags: 0

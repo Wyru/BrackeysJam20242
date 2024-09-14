@@ -20,12 +20,17 @@ public class PostItManBehavior : MonoBehaviour
   public float nearMaxDetectionDistance = 10f;
   public float nearDetectionViewAngle = 45f;
 
+  public LayerMask playerLayer;
+
+
   [Header("SoundDetection")]
   public int attentionThreshold = 10;
 
   [Header("Attack")]
+  public int attackPower = 2;
   public float minAttackDistance = 2f;
   public float minAttackAngle = 15f;
+
 
 
   [Header("References")]
@@ -35,10 +40,13 @@ public class PostItManBehavior : MonoBehaviour
   public Transform eyesAnchor;
   public SoundDetectionBehavior soundDetectionBehavior;
   public FootstepController footstepController;
+  public AttackCollider hitbox;
   public Timer idleTimer;
   public Timer attackCooldownTimer;
   public Timer deadTimer;
   public Timer detectPlayerTimer;
+
+
 
   [Header("Events")]
   public UnityEvent OnDetectPlayerEvent;
@@ -77,9 +85,11 @@ public class PostItManBehavior : MonoBehaviour
   }
 
   public int currentWaypoint = 0;
+  PlayerController playerController;
   void Start()
   {
-    player = FindAnyObjectByType<PlayerController>().transform;
+    playerController = FindAnyObjectByType<PlayerController>();
+    player = playerController.transform;
   }
 
   public float timeCouter = 0f;
@@ -147,10 +157,7 @@ public class PostItManBehavior : MonoBehaviour
 
         if (IsPlayerInsideActionRange(minAttackDistance, minAttackAngle) && attackCooldownTimer.Timeout)
         {
-          animator.SetTrigger("Attack");
-          attackCooldownTimer.StartTimer();
-          ChangeState(State.Attacking);
-          OnAttackEvent?.Invoke();
+          Attack();
           return;
         }
 
@@ -193,6 +200,39 @@ public class PostItManBehavior : MonoBehaviour
       default:
         return;
     }
+  }
+
+  public void Attack()
+  {
+    animator.SetTrigger("Attack");
+    attackCooldownTimer.StartTimer();
+    ChangeState(State.Attacking);
+    OnAttackEvent?.Invoke();
+    Invoke("RunHitbox", .3f);
+  }
+
+  void RunHitbox()
+  {
+    var colliders = hitbox.GetObjectsInsideHitbox();
+    foreach (var collider in colliders)
+    {
+      Debug.Log(collider.name);
+
+      if (collider.gameObject.CompareTag("Player"))
+      {
+        if (collider.gameObject.TryGetComponent(out PlayerController player))
+        {
+          DealDamageToPlayer();
+        }
+      }
+    }
+  }
+
+  public float playerPushForce = 3;
+  void DealDamageToPlayer()
+  {
+    playerController.TakeDamage(-attackPower);
+    playerController.GetComponent<Rigidbody>().AddForce(transform.forward * playerPushForce, ForceMode.Impulse);
   }
 
   public void OnDeath()
@@ -252,6 +292,7 @@ public class PostItManBehavior : MonoBehaviour
     spottedPlayer = false;
   }
 
+
   bool IsPlayerInsideActionRange(float maxDistance, float angle)
   {
     if (player == null)
@@ -270,13 +311,9 @@ public class PostItManBehavior : MonoBehaviour
       return false;
 
     // se consegue ver
-    if (Physics.Raycast(eyesAnchor.position, playerDirection, out RaycastHit hit, maxDistance))
+    if (Physics.Raycast(eyesAnchor.position, playerDirection, out RaycastHit hit, maxDistance, playerLayer))
     {
-      Debug.Log(hit.collider.gameObject.name);
-      if (hit.collider.transform == player)
-      {
-        return true;
-      }
+      return true;
     }
     // raycast da visão ta bugado
     return false;
