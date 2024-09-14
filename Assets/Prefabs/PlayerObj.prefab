@@ -2602,7 +2602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86165a0f60741fb42b3fd42d66087ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  speed: 10
   _cameraTransform: {fileID: 2886181834076036229}
   _weaponSlot: {fileID: 4700604395287838498}
   _rb: {fileID: 0}

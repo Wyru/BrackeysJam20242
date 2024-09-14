@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     [SerializeField]
-    public float _speed = 5f;
+
+    public float speed = 5;
     Vector3 _PlayerVelocity;
 
 
@@ -92,7 +93,18 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = _cameraTransform.forward * _input.y + _cameraTransform.right * _input.x;
         move.y = 0f;
-        _rb.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
+
+        if (move.magnitude == 0)
+        {
+            _rb.velocity = Vector3.zero;
+            // _rb.velocity = Vector3.MoveTowards(_rb.velocity, Vector3.zero, deceleration);
+            return;
+        }
+
+        // _rb.AddForce(move.normalized * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+        // _rb.maxLinearVelocity = maxSpeed;
+
+        _rb.velocity = move * speed;
 
     }
 
@@ -232,8 +244,9 @@ public class PlayerController : MonoBehaviour
             if (hit.transform.TryGetComponent<Actor>(out Actor T))
             {
                 T.TakeDamage(attackDamage);
-                if(!weaponEquipped){
-                    T.GetComponent<NavMeshAgent>().velocity = transform.forward*7.5f;
+                if (!weaponEquipped)
+                {
+                    T.GetComponent<NavMeshAgent>().velocity = transform.forward * 7.5f;
                 }
             }
         }

@@ -100,7 +100,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -135,7 +135,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -150,7 +150,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.20833333
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -319,6 +319,156 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6334255998696534697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4852893059666467024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3931100400887037907}
+  - component: {fileID: 2277819744337173894}
+  - component: {fileID: 8451410396078355303}
+  m_Layer: 7
+  m_Name: Footsteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3931100400887037907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852893059666467024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6578473474168114719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2277819744337173894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852893059666467024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f542afef6ea73654688c7a1fc7815970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepSound1: {fileID: 8300000, guid: 80025789671f254478fd8a4ec6136e70, type: 3}
+  footstepSound2: {fileID: 8300000, guid: 6184eb79c9a220a45ae14811c29a261c, type: 3}
+  audioSource: {fileID: 8451410396078355303}
+  minPitch: 0.8
+  maxPitch: 1.1
+  stepInterval: 0.3
+  runStepInterval: 0.2
+  isWalking: 0
+  isRunning: 0
+--- !u!82 &8451410396078355303
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852893059666467024}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6926760018081095830
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +508,7 @@ Transform:
   - {fileID: 639009360492330218}
   - {fileID: 6440972549095610016}
   - {fileID: 3907334983045675314}
+  - {fileID: 3931100400887037907}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2739377242243707856
@@ -372,18 +523,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1667a70ab648a46bb737d1e4479880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxChaseDistance: 40
-  normalWakSpeed: 2
-  chasingPlayerSpeedModifier: 2.5
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  farMaxDetectionDistance: 10
-  farDetectionViewAngle: 90
-  nearMaxDetectionDistance: 3
+  maxChaseDistance: 30
+  normalWakSpeed: 3
+  chasingPlayerSpeedModifier: 3
+  waypoints: []
+  farMaxDetectionDistance: 15
+  farDetectionViewAngle: 45
+  nearMaxDetectionDistance: 8
   nearDetectionViewAngle: 180
   attentionThreshold: 10
-  detactionDebugColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   minAttackDistance: 2
   minAttackAngle: 180
   animator: {fileID: 2521081348170221911}
@@ -391,6 +539,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   eyesAnchor: {fileID: 4040169679344922607}
   soundDetectionBehavior: {fileID: 4671798082382862070}
+  footstepController: {fileID: 2277819744337173894}
   idleTimer: {fileID: 8456125471010124594}
   attackCooldownTimer: {fileID: 8533410884411584587}
   deadTimer: {fileID: 5730818627457625066}
@@ -558,10 +707,10 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2
-  m_Acceleration: 15
+  m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0.3
+  m_AngularSpeed: 80
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
