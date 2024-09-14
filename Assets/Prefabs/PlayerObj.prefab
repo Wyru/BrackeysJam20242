@@ -1282,7 +1282,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5332699959062808832
 Transform:
   m_ObjectHideFlags: 0
@@ -1400,7 +1400,9 @@ MonoBehaviour:
   holdPos: {fileID: 3072148438512071900}
   throwForce: 200
   pickUpRange: 5
+  heldObj: {fileID: 0}
   textRef: {fileID: 0}
+  textPossibleKeys: {fileID: 0}
 --- !u!1 &4152392510820757916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2668,7 @@ MonoBehaviour:
   InteractRange: 15
   _interact: {fileID: 5403371620548639764, guid: 940b05bca26d63f47a747f1459ae1800,
     type: 3}
+  _interactRemoveItem: {fileID: 0}
   _interactionIcon: {fileID: 0}
 --- !u!114 &7037847873670897961
 MonoBehaviour:
