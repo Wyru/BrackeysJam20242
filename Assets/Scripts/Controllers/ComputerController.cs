@@ -20,6 +20,8 @@ public class ComputerController : MonoBehaviour, IInteractable
     public Volume _pixelation;
     public GameObject _UICamera;
     public UnityEvent OnInteract;
+    public List<string> pcMessages = new List<string> { "You need to clock in first. 'TIME is money!', like your boss always says." };
+
 
     void Start()
     {
@@ -31,8 +33,10 @@ public class ComputerController : MonoBehaviour, IInteractable
         _crosshairHand = _crosshairCanvas.transform.Find("HandImage").gameObject;
     }
 
-    public void Interact(){
-        if(OfficeManager.instance.clockIn){
+    public void Interact()
+    {
+        if (OfficeManager.instance.clockIn)
+        {
             OnInteract?.Invoke();
             _pixelation.gameObject.SetActive(true);
             _possibleKeys.SetActive(false);
@@ -48,6 +52,10 @@ public class ComputerController : MonoBehaviour, IInteractable
 
             int changeLayer = LayerMask.NameToLayer("Default");
             _screen.gameObject.layer = changeLayer;
+        }
+        else
+        {
+            DialogSystemController.ShowDialogs(pcMessages);
         }
     }
 

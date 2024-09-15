@@ -15,6 +15,7 @@ public class OfficeManager : MonoBehaviour
     private Task leaveTask;
     public List<string> ListaClockIn;
 
+
     void Awake()
     {
         instance = this;
@@ -54,7 +55,6 @@ public class OfficeManager : MonoBehaviour
     {
         if (tasks[currentTaskIndex].TaskType == TaskType.ClockIn)
         {
-            Debug.Log("asdasdasda");
             DialogSystemController.ShowDialogs(ListaClockIn);
             clockIn = true;
             CompleteTask();
@@ -79,7 +79,7 @@ public class OfficeManager : MonoBehaviour
 
     private void AddFinalTask()
     {
-        finalTask = new Task(TaskType.Leave,"You can leave or work more!");
+        finalTask = new Task(TaskType.Leave, "You can leave or work more!");
         tasks.Add(finalTask);
 
         UpdateTasksText();
@@ -96,7 +96,7 @@ public class OfficeManager : MonoBehaviour
     private void AddLeaveTask()
     {
         tasks.Clear();
-        leaveTask = new Task(TaskType.Leave,"Work done! You can leave");
+        leaveTask = new Task(TaskType.Leave, "Work done! You can leave");
         tasks.Add(leaveTask);
 
         UpdateTasksText();
@@ -124,11 +124,11 @@ public class OfficeManager : MonoBehaviour
         for (int i = 0; i < tasks.Count; i++)
         {
             string descriptionColor = tasks[i].IsCompleted ? "#00FF00" : "#FFFFFF";
-            string statusColor = tasks[i].IsCompleted ? "#00FF00" : "#FF0000"; 
+            string statusColor = tasks[i].IsCompleted ? "#00FF00" : "#FF0000";
 
             // Format the task line with rich text
-            string status = tasks[i].IsCompleted 
-                ? $"<s><color={statusColor}>Done</color></s>" 
+            string status = tasks[i].IsCompleted
+                ? $"<s><color={statusColor}>Done</color></s>"
                 : $"<color={statusColor}>Pending</color>";
 
             tasksText.text += $"{i + 1}. <color={descriptionColor}>{tasks[i].Description}</color> - {status}\n";
