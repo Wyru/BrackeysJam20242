@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +15,9 @@ public class DefaultCanvasBehavior : MonoBehaviour
     public TMP_Text bagText;
     public TMP_Text _taskText;
     public GameObject menu;
+    public GameObject cartTotalObject;
     private void Awake()
-        {
+    {
         if (instance != null)
         {
             Debug.LogWarning("Multiplas instâncias do canvas default!");
@@ -26,7 +28,7 @@ public class DefaultCanvasBehavior : MonoBehaviour
         GameManager.OnMoneyChange += GameManagerOnMoneyChange;
         instance = this;
         DontDestroyOnLoad(this);
-    }   
+    }
 
     void GameManagerOnMoneyChange(int value, int moneyTotal, int moneyToday)
     {
@@ -37,5 +39,5 @@ public class DefaultCanvasBehavior : MonoBehaviour
     {
         GameManager.OnMoneyChange -= GameManagerOnMoneyChange;
     }
-    
+
 }

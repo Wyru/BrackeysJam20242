@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,12 +15,14 @@ public class StartSequence : MonoBehaviour
     public GameObject _hero;
     public Animator _anim;
     public TextMeshProUGUI text;
+    public GameObject logo;
     // Start is called before the first frame update
     private void Awake()
     {
         _actualPlayer.SetActive(false);
         _canvas.SetActive(false);
-        if(GameManager.instance.day > 1){
+        if (GameManager.instance.day > 1)
+        {
             text.text = "DAY " + GameManager.instance.day.ToString();
         }
     }
@@ -38,6 +41,7 @@ public class StartSequence : MonoBehaviour
     {
         yield return new WaitForSeconds(6.5f);
         text.enabled = false;
+        logo.SetActive(false);
         GetComponent<CinemachineVirtualCamera>().enabled = false;
         // vcam.enabled = true;
         GetComponent<AudioSource>().volume = 0.1f;

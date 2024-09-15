@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemsCounterController: MonoBehaviour
+public class ItemsCounterController : MonoBehaviour
 {
     public List<string> Response;
     public List<GameObject> itemsOnCounter = new List<GameObject>();
@@ -24,22 +24,32 @@ public class ItemsCounterController: MonoBehaviour
         _bagExist = null;
     }
 
+    private void Start()
+    {
+        cartTotalObject = FindObjectOfType<DefaultCanvasBehavior>().cartTotalObject;
+    }
+
     void Update()
     {
-        if(itemsOnCounter.Count > 0)
+        if (itemsOnCounter.Count > 0)
         {
             cartTotalObject.SetActive(true);
             cartTotalObject.GetComponent<TMP_Text>().text = "Cart Total: $" + cartTotalValue;
-        }else{
+        }
+        else
+        {
             cartTotalObject.SetActive(false);
         }
-        if(_bagExist = GameObject.FindWithTag("PaperBag")){
+        if (_bagExist = GameObject.FindWithTag("PaperBag"))
+        {
             _alreadySpawned = true;
-        }else{
+        }
+        else
+        {
             _alreadySpawned = false;
         }
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         ItemsController item = other.GetComponent<ItemsController>();
@@ -67,13 +77,15 @@ public class ItemsCounterController: MonoBehaviour
 
     public void CompletePurchase()
     {
-        if(!_alreadySpawned){
+        if (!_alreadySpawned)
+        {
             GameObject paperBag = Instantiate(bagToSpawn, bagPositionSpawn);
-            if(cartTotalValue <= _gameManager.moneyTotal){
+            if (cartTotalValue <= _gameManager.moneyTotal)
+            {
                 for (int i = 0; i < itemsOnCounter.Count; i++)
                 {
                     paperBag.gameObject.GetComponent<BagController>().itemsOnBag.Add(itemsOnCounter[i]);
-                    itemsOnCounter[i].transform.SetParent(paperBag.gameObject.transform,true);
+                    itemsOnCounter[i].transform.SetParent(paperBag.gameObject.transform, true);
                     itemsOnCounter[i].gameObject.transform.localPosition = Vector3.zero;
                     itemsOnCounter[i].gameObject.SetActive(false);
                     itemsOnCounter[i].gameObject.GetComponent<ItemsController>().alreadyPurchased = true;
@@ -85,8 +97,10 @@ public class ItemsCounterController: MonoBehaviour
                 itemsOnCounter.Clear();
                 DialogSystemController.ShowDialogs(Response);
             }
-        }else 
-        if(cartTotalValue <= _gameManager.moneyTotal && _alreadySpawned){
+        }
+        else
+        if (cartTotalValue <= _gameManager.moneyTotal && _alreadySpawned)
+        {
             Debug.Log("Test2");
             for (int i = 0; i < itemsOnCounter.Count; i++)
             {
@@ -101,7 +115,7 @@ public class ItemsCounterController: MonoBehaviour
     void OnEnable()
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        
+
     }
 
     void OnDisable()
