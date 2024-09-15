@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public static Action<int> OnDayChange;
     public static Action<int, int, int> OnHealthChange;
 
-    [SerializeField] private List<string> figurinesFounded; 
+    [SerializeField] public List<string> figurinesFounded; 
 
     void Awake()
     {
