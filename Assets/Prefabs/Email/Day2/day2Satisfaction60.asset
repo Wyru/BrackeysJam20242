@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day2Satisfaction60
   m_EditorClassIdentifier: 
-  emailTitle: Divorce Intimation2
-  emailContent: You are hereby notified of the divorce proceedings.<br><br>You will
-    receive new information soon.
+  emailTitle: Further Divorce Info
+  emailContent: You have two days to respond the attached form. Time is SENSITIVE.
   sender: Legal Dept.

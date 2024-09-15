@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day1Satisfaction40
   m_EditorClassIdentifier: 
-  emailTitle: Bill Notice
-  emailContent: "Your water bill is overdue.<br><br>If payment isn\u2019t received
-    by the end of the week, your water supply will be cut off."
-  sender: Water Comp.
+  emailTitle: Review
+  emailContent: Your work is improving.<br><br>Keep it up and you might see new paths
+    soon!
+  sender: Boss

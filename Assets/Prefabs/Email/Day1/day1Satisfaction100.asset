@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day1Satisfaction100
   m_EditorClassIdentifier: 
-  emailTitle: Pizza Party
-  emailContent: "We\u2019re having a pizza party this weekend to acknowledge your
-    \u2018good\u2019 work.<br>Attendance is expected, though it\u2019s unlikely to
-    improve your situation"
-  sender: HR Dept.
+  emailTitle: Remembering the Dark
+  emailContent: Hi, I might forget this. Nights feel like a dark cloud, a maze echoing
+    through time until I finally sleep.
+  sender: "Jo\xE3o <myself>"
