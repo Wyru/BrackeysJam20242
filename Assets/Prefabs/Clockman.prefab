@@ -183,7 +183,7 @@ MonoBehaviour:
   maxChaseDistance: 40
   normalWakSpeed: 10
   chasingWalkSpeed: 2
-  maxMovementDistance: 30
+  maxMovementDistance: 25
   movementDecreaseRate: 0.1
   chasingPlayerSpeedModifier: 3
   normalPlayerSpeedModifier: 3
@@ -495,8 +495,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   destroyOnDeath: 0
-  currentHealth: 500
-  maxHealth: 500
+  currentHealth: 80
+  maxHealth: 80
 --- !u!1 &1515289885217776870
 GameObject:
   m_ObjectHideFlags: 0
