@@ -2375,6 +2375,7 @@ MonoBehaviour:
   playerMoneyText: {fileID: 4328197401173566244}
   possibleKeys: {fileID: 7514395163838502093}
   bagText: {fileID: 7300708607898630752}
+  _taskText: {fileID: 44793054056648271}
   menu: {fileID: 546269551261454170}
 --- !u!1 &7588167008196140209
 GameObject:
@@ -2768,8 +2769,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 5025582135046505165}
+        m_TargetAssemblyTypeName: SaveSensButton, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:

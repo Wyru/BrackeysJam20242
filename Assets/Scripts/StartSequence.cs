@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,9 @@ public class StartSequence : MonoBehaviour
     {
         _actualPlayer.SetActive(false);
         _canvas.SetActive(false);
+        if(GameManager.instance.day > 1){
+            text.text = "DAY " + GameManager.instance.day.ToString();
+        }
     }
     // Update is called once per frame
     void Update()
@@ -27,7 +31,6 @@ public class StartSequence : MonoBehaviour
         {
             _anim.SetBool("Move/Click", true);
             StartCoroutine(waiter());
-
         }
     }
 

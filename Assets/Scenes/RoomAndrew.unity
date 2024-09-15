@@ -1236,18 +1236,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 636119840}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &636194229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5100376848911769689, guid: eb3e1b28bbb08e74db1114ae84685510,
-    type: 3}
-  m_PrefabInstance: {fileID: 1950658977}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce7bfc018066a8438838582874553f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &668323682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,7 +2970,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destinySpawnPoint
       value: 
-      objectReference: {fileID: 11400000, guid: 2ae0406594296a6468802da08a34d88b,
+      objectReference: {fileID: 11400000, guid: 3068a8a2c70792c4cac8cd19fe973239,
         type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -4594,18 +4582,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1855903365 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5491246148050016733, guid: 1b26983b8ca956c4bb6a99d53e62deea,
-    type: 3}
-  m_PrefabInstance: {fileID: 387273067}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 951cf15ff6fb0674e9c203ae63aa6d86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1867843385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4614,11 +4590,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 957756272327604552, guid: 2bcd3f08c7aba524896369a70a81a1a4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1855903365}
     - target: {fileID: 2451713890662194041, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4719,16 +4690,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5370887844476676084, guid: 2bcd3f08c7aba524896369a70a81a1a4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1855903365}
-    - target: {fileID: 7175170818578169075, guid: 2bcd3f08c7aba524896369a70a81a1a4,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 636194229}
     - target: {fileID: 7332677235987086766, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_Name

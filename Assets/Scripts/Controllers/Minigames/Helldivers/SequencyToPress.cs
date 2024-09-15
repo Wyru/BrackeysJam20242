@@ -186,6 +186,7 @@ public class SequencyToPress : MonoBehaviour
         DestroyArrowOnScreen();
         gameHasStarted = false;
         _endGame.SetActive(true);
+        _chooseWork.SetActive(false);
         if(scorePoints == 0){
             _goodEmployer.SetActive(false);
             _badEmployer.SetActive(true);
@@ -195,7 +196,6 @@ public class SequencyToPress : MonoBehaviour
         }
         _closeWindows.SetActive(true);
         _workPanel.SetActive(false);
-        _chooseWork.SetActive(false);
         ArrowGameManager manager = ArrowGameManager.instance;
         finalScore.text = scorePoints.ToString();
         manager.finalScoreSave += scorePoints;

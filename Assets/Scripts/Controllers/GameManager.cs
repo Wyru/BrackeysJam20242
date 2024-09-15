@@ -171,12 +171,5 @@ public class GameManager : MonoBehaviour
         InputManager.instance.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
 }
 
