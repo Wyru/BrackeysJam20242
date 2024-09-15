@@ -399,6 +399,9 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   player: {fileID: 0}
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   state: 1
   distanceToPlayer: 0
   soundPosition: {x: 0, y: 0, z: 0}
@@ -745,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 10
+  seconds: 60
   secondsCounter: 0
   timeout: 0
 --- !u!1 &2793854334577991030
@@ -1184,8 +1187,10 @@ MonoBehaviour:
   maxPitch: 0.9
   stepInterval: 0.25
   runStepInterval: 0.15
+  fatigueStepInterval: 0.7
   isWalking: 0
   isRunning: 0
+  isFatigue: 0
 --- !u!82 &2995625038683288154
 AudioSource:
   m_ObjectHideFlags: 0
