@@ -16,13 +16,18 @@ public class DoorBehavior : MonoBehaviour, IInteractable
     if (!activated)
     { // impede que o player interaja duas vezes seguidas
       activated = true;
-      GameManager.instance.IncrementDay();
-      if (GameManager.instance.day > 3)
+
+      if (advanceDay)
       {
-        DialogSystemController.ShowDialogs(new List<string> {
-          "You survived time! And now, it's up to you to make up time for yourself, until the next storm there's still calm to be had, until the clock strikes...",
-        });
+        GameManager.instance.IncrementDay();
+        if (GameManager.instance.day > 3)
+        {
+          DialogSystemController.ShowDialogs(new List<string> {
+            "You survived time! And now, it's up to you to make up time for yourself, until the next storm there's still calm to be had, until the clock strikes...",
+          });
+        }
       }
+
       SceneTransitionController.ToScene(destinySpawnPoint, type);
     }
   }
