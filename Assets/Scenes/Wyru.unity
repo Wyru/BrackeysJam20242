@@ -6844,6 +6844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostItMan
       objectReference: {fileID: 0}
+    - target: {fileID: 6926760018081095830, guid: 6a6a1f69a590b4f4caf7716860136fa2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6861,31 +6866,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clockman
-      objectReference: {fileID: 0}
-    - target: {fileID: 841472708131638453, guid: f113a6c8b5c9aaf4695ddfc567fa6fcd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201523621523908378, guid: f113a6c8b5c9aaf4695ddfc567fa6fcd,
-        type: 3}
-      propertyPath: playerLayerMask.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157678518663738496, guid: f113a6c8b5c9aaf4695ddfc567fa6fcd,
-        type: 3}
-      propertyPath: seconds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4248584173376216282, guid: f113a6c8b5c9aaf4695ddfc567fa6fcd,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 1.5881691
-      objectReference: {fileID: 0}
-    - target: {fileID: 4248584173376216282, guid: f113a6c8b5c9aaf4695ddfc567fa6fcd,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.29408455
       objectReference: {fileID: 0}
     - target: {fileID: 5265413122729008410, guid: f113a6c8b5c9aaf4695ddfc567fa6fcd,
         type: 3}
