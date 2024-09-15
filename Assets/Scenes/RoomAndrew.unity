@@ -4969,12 +4969,12 @@ PrefabInstance:
     - target: {fileID: 44793054056648271, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 44793054056648271, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 126612201832456891, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -5009,12 +5009,12 @@ PrefabInstance:
     - target: {fileID: 1331163188180844326, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -100.7449
+      value: -100.745
       objectReference: {fileID: 0}
     - target: {fileID: 1331163188180844326, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -314.6815
+      value: -744.846
       objectReference: {fileID: 0}
     - target: {fileID: 1331163188180844326, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -5024,17 +5024,22 @@ PrefabInstance:
     - target: {fileID: 1331163188180844326, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -34.90509
+      value: -17.227
       objectReference: {fileID: 0}
     - target: {fileID: 1421646101221883538, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 320.172
+      value: 457.034
       objectReference: {fileID: 0}
     - target: {fileID: 1421646101221883538, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 231.269
+      value: 320.527
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421646101221883538, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 237.266
       objectReference: {fileID: 0}
     - target: {fileID: 2451713890662194041, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -5166,15 +5171,35 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 143.206
       objectReference: {fileID: 0}
+    - target: {fileID: 3644986668330430507, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644986668330430507, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644986668330430507, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4328197401173566244, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_fontSize
-      value: 1
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4328197401173566244, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 1
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328197401173566244, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4348608460201195935, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -5206,10 +5231,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6585715671109675593, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1061.849
+      value: 1270.4
       objectReference: {fileID: 0}
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -5219,7 +5249,7 @@ PrefabInstance:
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 525.7649
+      value: 629.03955
       objectReference: {fileID: 0}
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -6816,7 +6846,8 @@ GameObject:
   - component: {fileID: 6097062799391678270}
   - component: {fileID: 4772740960847537813}
   - component: {fileID: 772137541}
-  m_Layer: 0
+  - component: {fileID: 7173986133729913582}
+  m_Layer: 6
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6892,7 +6923,8 @@ GameObject:
   - component: {fileID: 7889499344565426590}
   - component: {fileID: 8222090655172096099}
   - component: {fileID: 1050317810}
-  m_Layer: 0
+  - component: {fileID: 8222090655172096100}
+  m_Layer: 6
   m_Name: Sink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7601,6 +7633,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652340790255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7173986133729913582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024621454232859623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb8d3aa3e34ca34aab5a6461fee1145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frases:
+  - I'm almost out of food, I need to remember to stop by the Konbini later.
 --- !u!4 &7339203751699193136
 Transform:
   m_ObjectHideFlags: 0
@@ -7681,6 +7727,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8222090655172096100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255186634260864788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb8d3aa3e34ca34aab5a6461fee1145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frases:
+  - The water bill is almost due.
 --- !u!1 &8343248221017596944
 GameObject:
   m_ObjectHideFlags: 0
@@ -7837,5 +7897,5 @@ SceneRoots:
   - {fileID: 1888282588}
   - {fileID: 1794735165}
   - {fileID: 734975612}
-  - {fileID: 1400692508}
   - {fileID: 1337085577}
+  - {fileID: 1400692508}
