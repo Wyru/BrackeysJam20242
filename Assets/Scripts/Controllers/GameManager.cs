@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public static Action<int> OnDayChange;
     public static Action<int, int, int> OnHealthChange;
 
+    [SerializeField] private List<string> figurinesFounded; 
+
     void Awake()
     {
         if (instance == null)
@@ -127,6 +129,15 @@ public class GameManager : MonoBehaviour
     {
         moneyToday = 0;
         OnMoneyChange?.Invoke(0, moneyTotal, moneyToday);
+    }
+
+    public void FigurinesFound(GameObject _figurine)
+    {
+        string objName = _figurine.name;
+        if (!figurinesFounded.Contains(objName))
+        {
+            figurinesFounded.Add(objName);
+        }
     }
 }
 

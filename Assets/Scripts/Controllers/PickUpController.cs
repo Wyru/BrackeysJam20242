@@ -115,6 +115,11 @@ public class PickUpScript : MonoBehaviour
                                                       // heldObj.layer = LayerNumber; //change the object layer to the holdLayer
                                                       //make sure object doesnt collide with player, it can cause weird bugs
       Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
+      // Check if the object is already picked up
+    
+      if(heldObj.layer == 17){
+        GameManager.instance.FigurinesFound(heldObj);
+      }
     }
   }
   void DropObject()

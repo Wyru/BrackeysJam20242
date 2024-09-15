@@ -639,7 +639,7 @@ MonoBehaviour:
     type: 3}
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 131137
   _interactionIcon: {fileID: 0}
 --- !u!114 &8239731818626092468
 MonoBehaviour:
@@ -951,7 +951,7 @@ MonoBehaviour:
   pickUpRange: 5
   interectableLayer:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 131137
   heldObj: {fileID: 0}
   textRef: {fileID: 0}
   textPossibleKeys: {fileID: 0}
