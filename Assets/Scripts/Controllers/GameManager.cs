@@ -148,10 +148,8 @@ public class GameManager : MonoBehaviour
 
     public void OpenCloseMenu(DefaultCanvasBehavior canvas){
         if(!canvas.menu.activeSelf){
-            menuOpened = true;
             Pause(canvas);
         }else{
-            menuOpened = false;
             Resume(canvas);
         }
     }
@@ -161,14 +159,16 @@ public class GameManager : MonoBehaviour
         InputManager.instance.enabled = false;
         canvas.menu.SetActive(true);
         CameraController.instance.enabled = false;
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
     void Resume(DefaultCanvasBehavior canvas)
     {
+        InputManager.instance.enabled = true;
         canvas.menu.SetActive(false);
         CameraController.instance.enabled = true;
-        InputManager.instance.enabled = true;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 }

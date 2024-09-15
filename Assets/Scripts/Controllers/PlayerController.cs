@@ -142,6 +142,10 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("flashlight", false);
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            OpenMenu();
+        }
     }
 
     public void ProcessMove(Vector2 _input)
@@ -439,12 +443,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OpenMenu(bool _open)
+    public void OpenMenu()
     {
-        if (_open)
-        {
-            GameManager.instance.OpenCloseMenu(canvas);
-        }
+        GameManager.instance.OpenCloseMenu(canvas);
     }
 
     IEnumerator WaitToThrow()
