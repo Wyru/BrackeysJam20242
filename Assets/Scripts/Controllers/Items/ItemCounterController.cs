@@ -52,12 +52,17 @@ public class ItemsCounterController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ItemsController item = other.GetComponent<ItemsController>();
-        if (item != null && !item.alreadyPurchased)
-        {
-            itemsOnCounter.Add(other.gameObject);
-            cartTotalValue += item.price;
+        if(other.gameObject.layer == 17){
+
+        }else{
+            ItemsController item = other.GetComponent<ItemsController>();
+            if (item != null && !item.alreadyPurchased)
+            {
+                itemsOnCounter.Add(other.gameObject);
+                cartTotalValue += item.price;
+            }
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
