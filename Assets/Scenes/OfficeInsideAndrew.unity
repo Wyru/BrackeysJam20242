@@ -1863,6 +1863,11 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 126612201832456891, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2451713890662194041, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1972,6 +1977,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -4.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025700670009878142, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.30005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025700670009878142, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.899994
       objectReference: {fileID: 0}
     - target: {fileID: 7332677235987086766, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -8298,6 +8313,8 @@ MonoBehaviour:
   tasksText: {fileID: 2133233899}
   fullWorkDone: 0
   clockIn: 0
+  ListaClockIn:
+  - You clocked in. A day of hard work is ahead.
 --- !u!4 &1766180463
 Transform:
   m_ObjectHideFlags: 0
@@ -80610,7 +80627,8 @@ GameObject:
   - component: {fileID: 719314844869742249}
   - component: {fileID: 5693652403041326904}
   - component: {fileID: 6660260825045579066}
-  m_Layer: 0
+  - component: {fileID: 6660260825045579067}
+  m_Layer: 6
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80639,6 +80657,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4493585093827132993, guid: 3ba591650be0d3c419f5b32e687c5bec, type: 3}
+--- !u!114 &6660260825045579067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660260825045579065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56913a7ca8697546a13a70ffa49fb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &6671066081156686040
 MeshFilter:
   m_ObjectHideFlags: 0

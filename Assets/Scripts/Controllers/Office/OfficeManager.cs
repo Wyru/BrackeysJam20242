@@ -13,6 +13,7 @@ public class OfficeManager : MonoBehaviour
     public bool clockIn = false;
     private Task finalTask;
     private Task leaveTask;
+    public List<string> ListaClockIn;
 
     void Awake()
     {
@@ -53,6 +54,8 @@ public class OfficeManager : MonoBehaviour
     {
         if (tasks[currentTaskIndex].TaskType == TaskType.ClockIn)
         {
+            Debug.Log("asdasdasda");
+            DialogSystemController.ShowDialogs(ListaClockIn);
             clockIn = true;
             CompleteTask();
         }

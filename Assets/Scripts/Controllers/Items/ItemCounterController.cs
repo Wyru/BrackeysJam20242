@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ItemsCounterController: MonoBehaviour
 {
+    public List<string> Response;
     public List<GameObject> itemsOnCounter = new List<GameObject>();
     public GameObject cartTotalObject;
     public Transform bagPositionSpawn;
@@ -82,6 +83,7 @@ public class ItemsCounterController: MonoBehaviour
                 _gameManager.SetMoneyToday(-cartTotalValue);
                 cartTotalValue = 0;
                 itemsOnCounter.Clear();
+                DialogSystemController.ShowDialogs(Response);
             }
         }else 
         if(cartTotalValue <= _gameManager.moneyTotal && _alreadySpawned){
