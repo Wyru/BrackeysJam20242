@@ -71,7 +71,7 @@ public class ArrowGameManager : MonoBehaviour
     {
         if(theBS.hasStarted)
         {
-            slider.value -= 0.1f * Mathf.Max(currentScore / 10000, 1); 
+            slider.value -= 0.1f * Mathf.Max(currentScore / 7000, 1); 
             if(slider.value == 0)
             {
                 GameOver();
@@ -84,9 +84,10 @@ public class ArrowGameManager : MonoBehaviour
     {
         theBS.hasStarted = false;
         theBS.CleanUp();
-        _gameOver.SetActive(true);
+        _timeUp.SetActive(true);
+        _badEmployer.SetActive(true);
+        _chooseWork.SetActive(false);
         _workPanel.SetActive(false);
-        _timeUp.SetActive(false);
     }
 
     public void TimeUp()
