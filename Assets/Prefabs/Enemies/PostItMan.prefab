@@ -502,8 +502,10 @@ MonoBehaviour:
   maxPitch: 1.1
   stepInterval: 0.3
   runStepInterval: 0.2
+  fatigueStepInterval: 0.7
   isWalking: 0
   isRunning: 0
+  isFatigue: 0
 --- !u!82 &8451410396078355303
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1177,7 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 10
+  seconds: 120
   secondsCounter: 0
   timeout: 0
 --- !u!1001 &5212891574774816904
