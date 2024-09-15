@@ -639,10 +639,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.4240274
+  m_Radius: 0.42
+  m_Height: 2.0422523
   m_Direction: 1
-  m_Center: {x: 0, y: -0.21201372, z: 0}
+  m_Center: {x: 0, y: -0.021127105, z: 0}
 --- !u!54 &7887414104168975041
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -719,8 +719,10 @@ MonoBehaviour:
   _cameraTransform: {fileID: 2773923429376103579}
   _weaponSlot: {fileID: 5133743515484817428}
   _rb: {fileID: 0}
+  animator: {fileID: 0}
   weaponEquipped: 0
   throwforce: 150
+  canvas: {fileID: 0}
   footstepController: {fileID: 6759947665015603646}
   startRunStaminaCost: 15
   staminaRecoveryRate: 15
@@ -786,10 +788,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractorSource: {fileID: 7479560865275974108}
   InteractRange: 3
-  _interact: {fileID: 5403371620548639764, guid: 940b05bca26d63f47a747f1459ae1800,
-    type: 3}
-  _interactRemoveItem: {fileID: -3697483206079960962, guid: 940b05bca26d63f47a747f1459ae1800,
-    type: 3}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 131137
