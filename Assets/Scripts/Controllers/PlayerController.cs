@@ -424,10 +424,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OpenMenu(bool _open,PlayerInput _playerInput)
+    public void OpenMenu(bool _open)
     {
         if(_open){
-            GameManager.instance.OpenCloseMenu(canvas,_playerInput);
+            GameManager.instance.OpenCloseMenu(canvas);
         }
     }
 
