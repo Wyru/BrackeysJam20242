@@ -35,6 +35,21 @@ public class PlayerController : MonoBehaviour
 
     private Camera cam;
 
+    public Camera MyCamera
+    {
+        get
+        {
+
+            if (cam == null)
+            {
+                cam = Camera.main;
+            }
+
+            return cam;
+
+        }
+    }
+
     [Header("WeaponAttributes")]
     public bool weaponEquipped;
     public float throwforce;
@@ -304,9 +319,9 @@ public class PlayerController : MonoBehaviour
 
             if (collider.transform.TryGetComponent(out Actor actor))
             {
-                var dir = (collider.transform.position - cam.transform.position).normalized;
+                var dir = (collider.transform.position - MyCamera.transform.position).normalized;
 
-                if (Physics.Raycast(cam.transform.position, dir, out RaycastHit hit, 10, attackLayer))
+                if (Physics.Raycast(MyCamera.transform.position, dir, out RaycastHit hit, 10, attackLayer))
                 {
                     HitTarget(hit.point);
                 }
@@ -408,9 +423,9 @@ public class PlayerController : MonoBehaviour
             _equipedWeapon.transform.parent = null;
 
             if (equippedRb.TryGetComponent(out ThrowableObject throwableObject))
-                equippedRb.AddForce(cam.transform.forward * throwableObject.forceNeedToThrow);
+                equippedRb.AddForce(MyCamera.transform.forward * throwableObject.forceNeedToThrow);
             else
-                equippedRb.AddForce(cam.transform.forward * throwforce);
+                equippedRb.AddForce(MyCamera.transform.forward * throwforce);
 
             _equipedWeapon.GetComponent<Rigidbody>().detectCollisions = true;
 
@@ -426,7 +441,8 @@ public class PlayerController : MonoBehaviour
 
     public void OpenMenu(bool _open)
     {
-        if(_open){
+        if (_open)
+        {
             GameManager.instance.OpenCloseMenu(canvas);
         }
     }
