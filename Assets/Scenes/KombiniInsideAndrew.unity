@@ -12421,6 +12421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d75e3eaf0cf3d41885c5052e9dcd42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Response:
+  - She smiles as the register beeps, handing you the receipt. "Transaction complete!
+    Don't forget your bag!" she says with a cheerful tone, her eyes lingering on
+    you for a moment longer than usual, as if hoping for a reason to extend the conversation.
   itemsOnCounter: []
   cartTotalObject: {fileID: 668270277}
   bagPositionSpawn: {fileID: 1415393275}
@@ -25482,7 +25486,8 @@ GameObject:
   - component: {fileID: 1213095910}
   - component: {fileID: 1213095909}
   - component: {fileID: 1213095911}
-  m_Layer: 0
+  - component: {fileID: 1213095912}
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25575,6 +25580,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0013203836, y: 0.0092421975, z: 0.024891393}
   m_Center: {x: 0.00042496374, y: 0.0044770576, z: 0.001038902}
+--- !u!114 &1213095912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213095907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb8d3aa3e34ca34aab5a6461fee1145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frases:
+  - You feel an ominous presence behind this door.
+  - It is locked from the other side.
 --- !u!1001 &1214452081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32652,6 +32672,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewPlayerObject
       objectReference: {fileID: 0}
+    - target: {fileID: 3748705379791676370, guid: eb3e1b28bbb08e74db1114ae84685510,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.0322926
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748705379791676370, guid: eb3e1b28bbb08e74db1114ae84685510,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.016146302
+      objectReference: {fileID: 0}
     - target: {fileID: 3808975621965661373, guid: eb3e1b28bbb08e74db1114ae84685510,
         type: 3}
       propertyPath: speed
@@ -33045,6 +33075,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.74586105, y: 1.7632287, z: 0.42282677}
   m_Center: {x: -0.021167517, y: 0.87654316, z: 0.01469326}
+--- !u!114 &1592975819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592975813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c029bf9ec0feb143bf0aa8d90dfc89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frases:
+  - She looks at you with a quiet curiosity, her eyes soft yet searching, as if she's
+    the only one who sees something more beneath your weary exterior, her smile faint
+    but warm, like a flicker of light in the suffocating gloom of this world.
+  - She leans against the counter, casually flipping through a magazine, looking
+    bored and relaxed. The moment she notices you approaching, her eyes light up,
+    and she straightens, a hint of a smile forming.
+  - "\"That\u2019s all for today?\" she asks, her voice soft but carrying a hint
+    of playfulness, as if their brief exchanges are the highlight of her otherwise
+    dull shift."
 --- !u!1001 &1593447508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37114,6 +37166,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 126612201832456891, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2451713890662194041, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -37213,6 +37270,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703699724073229583, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: typingSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025700670009878142, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.30005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025700670009878142, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.899994
       objectReference: {fileID: 0}
     - target: {fileID: 7300708607898630752, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -39927,7 +39999,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d31d644d74b5f5948926bc079a7b0719,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 920925142505332810, guid: d31d644d74b5f5948926bc079a7b0719,
         type: 3}
@@ -40247,6 +40319,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1592975817}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d31d644d74b5f5948926bc079a7b0719,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1592975819}
   m_SourcePrefab: {fileID: 100100000, guid: d31d644d74b5f5948926bc079a7b0719, type: 3}
 --- !u!1 &1942242912 stripped
 GameObject:

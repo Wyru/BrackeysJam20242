@@ -162,6 +162,9 @@ public class InteractorController : MonoBehaviour
             _possibleKeys.enabled = false;
         }
 
+        if(DialogSystemController.Instance.isDialogRunning){
+            _possibleKeys.text = "Space to skip dialogue";
+        }
     }
 
     private void OnEnable()
