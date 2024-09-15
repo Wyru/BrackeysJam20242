@@ -3606,6 +3606,8 @@ MonoBehaviour:
   price: 175
   heathRecover: 0
   alreadyPurchased: 0
+  usable: 1
+  isGuarana: 0
 --- !u!1 &153311639
 GameObject:
   m_ObjectHideFlags: 0
@@ -32673,7 +32675,7 @@ PrefabInstance:
     - target: {fileID: 8295311742723198325, guid: eb3e1b28bbb08e74db1114ae84685510,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.963
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 8295311742723198325, guid: eb3e1b28bbb08e74db1114ae84685510,
         type: 3}
@@ -39527,6 +39529,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d31d644d74b5f5948926bc079a7b0719,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d31d644d74b5f5948926bc079a7b0719,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d31d644d74b5f5948926bc079a7b0719,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d31d644d74b5f5948926bc079a7b0719,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.739
       objectReference: {fileID: 0}
@@ -41378,6 +41395,8 @@ MonoBehaviour:
   price: 0
   heathRecover: 0
   alreadyPurchased: 0
+  usable: 1
+  isGuarana: 0
 --- !u!1001 &2015629667
 PrefabInstance:
   m_ObjectHideFlags: 0

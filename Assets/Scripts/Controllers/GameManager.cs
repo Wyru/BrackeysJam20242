@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public int maxSatistafaction;
     public int globalSatisfaction { get; set; }
     public float stamina;
-    public int maxStamina;
+    public int maxStamina = 100;
+    public float staminaRecoveryRate = 10;
     public int health;
     public int maxHealth = 100;
     public int day;
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
     public static Action<int> OnDayChange;
     public static Action<int, int, int> OnHealthChange;
 
+    [SerializeField] public List<string> figurinesFounded; 
+
     void Awake()
     {
         if (instance == null)
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         health = maxHealth;
+        stamina = maxStamina;
         maxSatistafaction = 110;
         day = 1;
     }
@@ -70,9 +74,10 @@ public class GameManager : MonoBehaviour
         OnHealthChange?.Invoke(0, health, maxHealth);
     }
 
-    public void Stamina(float value)
+    public void SetStamina(float value)
     {
         stamina += value;
+        stamina = math.clamp(stamina, 0, maxStamina);
         OnStaminaChange?.Invoke(value, stamina, maxStamina);
     }
     public void SetMoneyTotal(int value)
@@ -127,6 +132,15 @@ public class GameManager : MonoBehaviour
     {
         moneyToday = 0;
         OnMoneyChange?.Invoke(0, moneyTotal, moneyToday);
+    }
+
+    public void FigurinesFound(GameObject _figurine)
+    {
+        string objName = _figurine.name;
+        if (!figurinesFounded.Contains(objName))
+        {
+            figurinesFounded.Add(objName);
+        }
     }
 }
 

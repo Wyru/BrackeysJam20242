@@ -17,11 +17,13 @@ public class FootstepController : MonoBehaviour
   // Intervalo entre os sons dos passos
   public float stepInterval = 0.5f;
   public float runStepInterval = 0.5f;
+  public float fatigueStepInterval = 0.7f;
 
   private float nextStepTime;
 
   public bool isWalking;
   public bool isRunning;
+  public bool isFatigue;
 
   private void Start()
   {
@@ -38,7 +40,10 @@ public class FootstepController : MonoBehaviour
     if (isWalking && Time.time >= nextStepTime)
     {
       PlayFootstepSound();
-      nextStepTime = Time.time + (isRunning ? runStepInterval : stepInterval);
+      if (isFatigue)
+        nextStepTime = Time.time + fatigueStepInterval;
+      else
+        nextStepTime = Time.time + (isRunning ? runStepInterval : stepInterval);
     }
   }
 

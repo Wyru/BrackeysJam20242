@@ -34,7 +34,6 @@ public class HealthUI : MonoBehaviour
   {
     Color x = lifeDamageTexture.color;
     x.a = 1 - ((float)currentHealth / maxHealth);
-    Debug.Log(((float)currentHealth / maxHealth));
     lifeDamageTexture.color = x;
     lowLife.enabled = (float)currentHealth / maxHealth < lowLifeSoundThreshhold;
     if (change < 0)
