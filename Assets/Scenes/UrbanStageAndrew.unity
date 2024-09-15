@@ -21604,6 +21604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
+      propertyPath: advanceDay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
       propertyPath: destinySpawnPoint
       value: 
       objectReference: {fileID: 11400000, guid: 2534aa1e55017ae42871e19a633e1a79,
