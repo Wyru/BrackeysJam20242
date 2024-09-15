@@ -753,9 +753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1667a70ab648a46bb737d1e4479880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxChaseDistance: 30
+  maxChaseDistance: 25
   normalWakSpeed: 3
-  chasingPlayerSpeedModifier: 3
+  chasingPlayerSpeedModifier: 2.3
   waypoints: []
   farMaxDetectionDistance: 15
   farDetectionViewAngle: 45
