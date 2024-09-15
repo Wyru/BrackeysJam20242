@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody _rb;
     private bool isGrounded;
     CharacterController controller;
-    Animator animator;
+    public Animator animator;
     AudioSource audioSource;
 
     private Camera cam;

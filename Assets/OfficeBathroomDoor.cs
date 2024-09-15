@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class OfficeBathroomDoor : MonoBehaviour, IInteractable
 {
-    public void Interact()
-    {
-        DialogSystemController.ShowDialogs();
-    }
+  public void Interact()
+  {
+    // DialogSystemController.ShowDialogs();
+  }
 
 }

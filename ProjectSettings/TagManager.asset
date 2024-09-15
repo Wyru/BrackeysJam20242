@@ -15,6 +15,7 @@ TagManager:
   - BossSpawn
   - Canvas
   - Computer
+  - Cat
   layers:
   - Default
   - TransparentFX

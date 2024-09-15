@@ -36,7 +36,8 @@ public class InteractorController : MonoBehaviour
         { "PaperBag", "E to pickup" },
         { "Door", "E to Enter" },
         { "Computer", "E to Use"},
-        { "CanPickUp", "E to interact"}
+        { "CanPickUp", "E to interact"},
+        { "Cat", "E to pet =^.^="}
     };
 
     void Awake()
@@ -162,7 +163,8 @@ public class InteractorController : MonoBehaviour
             _possibleKeys.enabled = false;
         }
 
-        if(DialogSystemController.Instance.isDialogRunning){
+        if (DialogSystemController.Instance.isDialogRunning)
+        {
             _possibleKeys.text = "Space to skip dialogue";
         }
     }
