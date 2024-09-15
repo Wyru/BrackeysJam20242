@@ -46,7 +46,7 @@ public class DialogSystemController : MonoBehaviour
     if (!isDialogRunning)
       return;
 
-    var input = Input.GetKeyDown(KeyCode.Space);
+    var input = Input.GetKeyDown(KeyCode.E);
 
 
     if (quotes != null && quotes.Count > 0)

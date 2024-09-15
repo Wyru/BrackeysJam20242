@@ -265,10 +265,10 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    if (GameManager.instance.stamina < attackStaminaCost)
-    {
-      return;
-    }
+    // if (GameManager.instance.stamina < attackStaminaCost)
+    // {
+    //   return;
+    // }
 
 
     readyToAttack = false;
@@ -282,7 +282,7 @@ public class PlayerController : MonoBehaviour
 
       if (!weaponEquipped)
       {
-        GameManager.instance.SetStamina(-attackStaminaCost);
+        // GameManager.instance.SetStamina(-attackStaminaCost);
 
         audioSource.PlayOneShot(attackSlash);
 
