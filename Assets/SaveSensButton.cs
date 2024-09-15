@@ -16,4 +16,9 @@ public class SaveSensButton : MonoBehaviour
         CameraController.instance._sensitivity = newSpeed;
 
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
