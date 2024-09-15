@@ -401,7 +401,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   state: 1
   distanceToPlayer: 0
   soundPosition: {x: 0, y: 0, z: 0}
@@ -446,8 +446,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8957043, y: 3.3649838, z: 1}
-  m_Center: {x: 0.022763252, y: 1.9356939, z: 0}
+  m_Size: {x: 1.8957043, y: 3.3649838, z: 1.5881691}
+  m_Center: {x: 0.022763252, y: 1.9356939, z: 0.29408455}
 --- !u!114 &6287122974165798383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,8 +491,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   destroyOnDeath: 0
-  currentHealth: 30
-  maxHealth: 5
+  currentHealth: 60
+  maxHealth: 60
 --- !u!1 &1515289885217776870
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 0.3
+  seconds: 1
   secondsCounter: 0
   timeout: 0
 --- !u!1 &3382175634389609192
