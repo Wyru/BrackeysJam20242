@@ -14,6 +14,7 @@ public class ComputerController : MonoBehaviour, IInteractable
     private GameObject _crossHair;
     private GameObject _possibleKeys;
     private GameObject _playerMoney;
+    private GameObject _crosshairHand;
     private Canvas _crosshairCanvas;
     public Canvas _terminalUI;
     public Volume _pixelation;
@@ -27,6 +28,7 @@ public class ComputerController : MonoBehaviour, IInteractable
         _crossHair = _crosshairCanvas.transform.Find("Crosshair").gameObject;
         _possibleKeys = _crosshairCanvas.transform.Find("PossibleKeys").gameObject;
         _playerMoney = _crosshairCanvas.transform.Find("PlayerMoney").gameObject;
+        _crosshairHand = _crosshairCanvas.transform.Find("HandImage").gameObject;
     }
 
     public void Interact(){
@@ -36,6 +38,7 @@ public class ComputerController : MonoBehaviour, IInteractable
             _possibleKeys.SetActive(false);
             _crossHair.SetActive(false);
             _playerMoney.SetActive(false);
+            _crosshairHand.SetActive(false);
             _terminalUI.gameObject.SetActive(true);
             PlayerController.instance.gameObject.SetActive(false);
             _screenCamera.tag = "MainCamera";
@@ -55,6 +58,7 @@ public class ComputerController : MonoBehaviour, IInteractable
         _possibleKeys.SetActive(true);
         _crossHair.SetActive(true);
         _playerMoney.SetActive(true);
+        _crosshairHand.SetActive(true);
         _UICamera.GetComponent<AudioListener>().enabled = false;
         _terminalUI.gameObject.SetActive(false);
         PlayerController.instance.gameObject.SetActive(true);
