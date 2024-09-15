@@ -97,7 +97,7 @@ public class ArrowGameManager : MonoBehaviour
         _gameOver.SetActive(false);
         _chooseWork.SetActive(false);
         _workPanel.SetActive(false);
-        moneyPerWork = currentScore / 500;
+        moneyPerWork = currentScore / 200;
         finalScoreSave += currentScore;
         if(currentScore == 0){
             _goodEmployer.SetActive(false);
