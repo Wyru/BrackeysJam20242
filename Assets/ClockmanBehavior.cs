@@ -39,8 +39,11 @@ public class ClockmanBehavior : MonoBehaviour
 
 
   [Header("Attack")]
+
+  public int attackPower = 20;
   public float minAttackDistance = 2f;
   public float minAttackAngle = 15f;
+  public float playerPushForce = 100f;
 
   [Range(0, 1)]
   public float strongAttackProbability;
@@ -115,7 +118,6 @@ public class ClockmanBehavior : MonoBehaviour
   public float distanceToPlayer = 0;
 
   public Vector3 soundPosition;
-
 
 
   void Update()
@@ -233,6 +235,8 @@ public class ClockmanBehavior : MonoBehaviour
     }
 
   }
+
+  public AttackCollider hitbox;
 
   void OnDetectPlayer()
   {
@@ -362,6 +366,31 @@ public class ClockmanBehavior : MonoBehaviour
       return;
     }
     animator.SetTrigger("AttackWeak");
+
+    Invoke("RunHitbox", .3f);
+  }
+
+  void RunHitbox()
+  {
+    var colliders = hitbox.GetObjectsInsideHitbox();
+    foreach (var collider in colliders)
+    {
+      Debug.Log(collider.name);
+
+      if (collider.gameObject.CompareTag("Player"))
+      {
+        if (collider.gameObject.TryGetComponent(out PlayerController player))
+        {
+          DealDamageToPlayer();
+        }
+      }
+    }
+  }
+
+  void DealDamageToPlayer()
+  {
+    PlayerController.instance.TakeDamage(-attackPower);
+    PlayerController.instance.GetComponent<Rigidbody>().AddForce(transform.forward * playerPushForce, ForceMode.Impulse);
   }
 
   public void OnMovementTimerEnd()
