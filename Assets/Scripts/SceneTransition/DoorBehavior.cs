@@ -24,6 +24,7 @@ public class DoorBehavior : MonoBehaviour, IInteractable
         {
           DialogSystemController.ShowDialogs(new List<string> {
             "You survived time! And now, it's up to you to make up time for yourself, until the next storm there's still calm to be had, until the clock strikes...",
+            "Thanks for playing!"
           });
         }
       }

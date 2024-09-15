@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class DialogSystemController : MonoBehaviour
   public bool isDialogRunning = false;
 
   bool firstLine = false;
+
+  Action currentOnEndCallback;
 
 
   private void Awake()
@@ -78,17 +81,21 @@ public class DialogSystemController : MonoBehaviour
     {
       isDialogRunning = false;
       panel.SetActive(false);
+      currentOnEndCallback?.Invoke();
+      currentOnEndCallback = null;
+      typewriterEffect.textMeshProUGUI.text = "";
     }
 
   }
 
 
-  public static void ShowDialogs(List<string> quotes)
+  public static void ShowDialogs(List<string> quotes, Action OnEndDialog = null)
   {
     Instance.isDialogRunning = true;
     Instance.firstLine = true;
     Instance.quotes = new Stack<string>(quotes.ToArray().Reverse());
     Instance.panel.SetActive(true);
+    Instance.currentOnEndCallback = OnEndDialog;
   }
 
 }
