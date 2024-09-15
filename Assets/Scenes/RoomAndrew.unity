@@ -3046,7 +3046,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnIdentifier
       value: 
-      objectReference: {fileID: 11400000, guid: ebea671600d92a34ab77596a0e9a2dce,
+      objectReference: {fileID: 11400000, guid: 2534aa1e55017ae42871e19a633e1a79,
         type: 2}
     - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -4275,6 +4275,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1726705737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6341385884459074530, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1867843385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1783571914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4690,10 +4696,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4500180685291572454, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: cartTotalObject
+      value: 
+      objectReference: {fileID: 1726705737}
     - target: {fileID: 7332677235987086766, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_Name
-      value: Canvas (1)
+      value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7070,6 +7081,7 @@ SceneRoots:
   - {fileID: 995926672}
   - {fileID: 1950658977}
   - {fileID: 387273067}
+  - {fileID: 1867843385}
   - {fileID: 108552591}
   - {fileID: 410087041}
   - {fileID: 832575519}
@@ -7100,7 +7112,6 @@ SceneRoots:
   - {fileID: 976828669}
   - {fileID: 1284312394}
   - {fileID: 636119840}
-  - {fileID: 1867843385}
   - {fileID: 1888282588}
   - {fileID: 1794735165}
   - {fileID: 734975612}

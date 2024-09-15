@@ -19,7 +19,8 @@ public class StartSequence : MonoBehaviour
     {
         _actualPlayer.SetActive(false);
         _canvas.SetActive(false);
-        if(GameManager.instance.day > 1){
+        if (GameManager.instance.day > 1)
+        {
             text.text = "DAY " + GameManager.instance.day.ToString();
         }
     }
