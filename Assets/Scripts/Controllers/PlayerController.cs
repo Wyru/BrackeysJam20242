@@ -166,8 +166,7 @@ public class PlayerController : MonoBehaviour
     if (_disableMovement || DialogSystemController.Instance.isDialogRunning)
       return;
 
-    Vector3 move = _cameraTransform.forward * _input.y + _cameraTransform.right * _input.x;
-    move.y = 0f;
+    Vector3 move = transform.forward * _input.y + transform.right * _input.x;
 
     footstepController.isWalking = move.magnitude != 0;
     footstepController.isFatigue = fatigue;
@@ -175,11 +174,8 @@ public class PlayerController : MonoBehaviour
 
     if (move.magnitude == 0)
     {
-
       animator.SetBool(WALKING, false);
       animator.SetBool(RUNNING, false);
-
-      _rb.velocity = Vector3.zero;
       return;
     }
 
