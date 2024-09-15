@@ -491,8 +491,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   destroyOnDeath: 0
-  currentHealth: 30
-  maxHealth: 5
+  currentHealth: 500
+  maxHealth: 500
 --- !u!1 &1515289885217776870
 GameObject:
   m_ObjectHideFlags: 0

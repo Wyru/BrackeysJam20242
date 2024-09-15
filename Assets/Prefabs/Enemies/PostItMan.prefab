@@ -962,8 +962,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   destroyOnDeath: 0
-  currentHealth: 40
-  maxHealth: 20
+  currentHealth: 60
+  maxHealth: 60
 --- !u!65 &3753701404036354536
 BoxCollider:
   m_ObjectHideFlags: 0
