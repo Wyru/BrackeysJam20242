@@ -16,6 +16,24 @@ public class StatueTurn : MonoBehaviour, IInteractable
     public Animator anim;
     public AudioSource clip;
     private StatueState state = StatueState.Turn0;
+    public Transform spawn;
+    public Transform spawnDirection;
+    public bool isHitting = false;
+
+    private void Update()
+    {
+        if (Physics.Raycast(spawn.transform.position, spawnDirection.position-spawn.position, out RaycastHit hit, Mathf.Infinity))
+        {
+            Debug.DrawRay(spawn.transform.position, (spawnDirection.position-spawn.position)*100000000f, Color.green);
+            if (hit.transform.gameObject.name == "CentralStatue")
+            {
+                Debug.Log(gameObject.transform.parent.name + " acertou a Central Statue");
+                isHitting = true;
+            }else{
+                isHitting = false;
+            }
+        }
+    }
     public void Interact()
     {
         switch (state)
@@ -50,13 +68,16 @@ public class StatueTurn : MonoBehaviour, IInteractable
     }
 
 
-    public void playSound(){
+    public void playSound()
+    {
         clip.PlayOneShot(clip.clip);
         StartCoroutine(WaitForClip());
     }
 
-    IEnumerator WaitForClip(){
-        while (clip.isPlaying){
+    IEnumerator WaitForClip()
+    {
+        while (clip.isPlaying)
+        {
             yield return null;
         }
     }
