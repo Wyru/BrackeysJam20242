@@ -105,11 +105,13 @@ public class InteractorController : MonoBehaviour
                 _interactObjB = interactObjB;
                 hasInteractable = true;
 
-                // You can have a separate dictionary for secondary interaction prompts
-                if (interactionPrompts.TryGetValue(hitInfo.collider.gameObject.tag, out string prompt))
+                if(hitInfo.collider.gameObject.tag == "Cat"){
+                }else if (interactionPrompts.TryGetValue(hitInfo.collider.gameObject.tag, out string prompt))
                 {
                     interactionMessage += "\nR to remove item";  // Add secondary interaction message
                 }
+                // You can have a separate dictionary for secondary interaction prompts
+                
             }
             else
             {
