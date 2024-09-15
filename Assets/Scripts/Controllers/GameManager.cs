@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public bool menuOpened;
 
     [SerializeField] public List<string> figurinesFounded; 
+    [SerializeField] public List<EmailScriptableObject> emailsAlreadyShowed;
 
     void Awake()
     {

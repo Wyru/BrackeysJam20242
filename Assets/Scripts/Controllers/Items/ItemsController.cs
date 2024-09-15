@@ -14,6 +14,7 @@ public class ItemsController : MonoBehaviour
 
   void Awake()
   {
+    heathRecover = 20;
     // alreadyPurchased = false;
   }
 

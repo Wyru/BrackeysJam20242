@@ -199,7 +199,7 @@ public class SequencyToPress : MonoBehaviour
         ArrowGameManager manager = ArrowGameManager.instance;
         finalScore.text = scorePoints.ToString();
         manager.finalScoreSave += scorePoints;
-        manager.moneyPerWork = scorePoints / 1000;
+        manager.moneyPerWork = scorePoints / 500;
         manager.SetAllVariables();
         finalRank.text = manager.rankPosition.ToString();
         manager.finalScoreSave = 0;

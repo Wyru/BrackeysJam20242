@@ -96,7 +96,7 @@ public class ArrowGameManager : MonoBehaviour
         _gameOver.SetActive(false);
         _chooseWork.SetActive(false);
         _workPanel.SetActive(false);
-        moneyPerWork = currentScore / 1000;
+        moneyPerWork = currentScore / 500;
         finalScoreSave += currentScore;
         if(currentScore == 0){
             _goodEmployer.SetActive(false);
@@ -216,7 +216,6 @@ public class ArrowGameManager : MonoBehaviour
                 endPositionRank.text = rankPosition.ToString();
             }
         }else{
-            _gameManager.SetSatisfaction(0);
             _gameManager.SetWorkScoreToday(finalScoreSave);
             _gameManager.SetWorkDoneToday(timeWorked);
             _gameManager.SetMoneyToday(moneyPerWork);
