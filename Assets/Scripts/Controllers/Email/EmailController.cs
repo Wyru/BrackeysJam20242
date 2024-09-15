@@ -24,6 +24,9 @@ public class EmailController : MonoBehaviour
     {
         instance = this;
         soundSource = GetComponent<AudioSource>();
+        if(GameManager.instance.day > 1){
+            emails = GameManager.instance.emailsAlreadyShowed;
+        }
         InstatiateEmails();
     }
 
@@ -32,6 +35,7 @@ public class EmailController : MonoBehaviour
         foreach (EmailScriptableObject email in emails)
         {
             InstantiateButton(email);
+            GameManager.instance.emailsAlreadyShowed.Add(email);
         }
         emails.Clear();
         newEmailIcon.gameObject.SetActive(true);

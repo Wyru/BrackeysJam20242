@@ -28,9 +28,11 @@ public class GameManager : MonoBehaviour
     public static Action<int, int> OnWorkDoneDayChange;
     public static Action<int> OnDayChange;
     public static Action<int, int, int> OnHealthChange;
-    private PlayerInput playerInputManager;
+
+    public bool menuOpened;
 
     [SerializeField] public List<string> figurinesFounded; 
+    [SerializeField] public List<EmailScriptableObject> emailsAlreadyShowed;
 
     void Awake()
     {
@@ -144,37 +146,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OpenCloseMenu(DefaultCanvasBehavior canvas,PlayerInput _playerInput){
+    public void OpenCloseMenu(DefaultCanvasBehavior canvas){
         if(!canvas.menu.activeSelf){
-            Pause(canvas,_playerInput);
+            menuOpened = true;
+            Pause(canvas);
         }else{
-            Resume(canvas,_playerInput);
+            menuOpened = false;
+            Resume(canvas);
         }
     }
 
-    void Pause(DefaultCanvasBehavior canvas,PlayerInput _playerInput)
+    void Pause(DefaultCanvasBehavior canvas)
     {
-        playerInputManager = _playerInput;
+        InputManager.instance.enabled = false;
         canvas.menu.SetActive(true);
         CameraController.instance.enabled = false;
-        _playerInput.Disable();
         Cursor.lockState = CursorLockMode.None;
     }
 
-    void Resume(DefaultCanvasBehavior canvas,PlayerInput _playerInput)
+    void Resume(DefaultCanvasBehavior canvas)
     {
         canvas.menu.SetActive(false);
         CameraController.instance.enabled = true;
-        _playerInput.Enable();
+        InputManager.instance.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void Save()
-    {
-        CameraController.instance.enabled = true;
-        playerInputManager.Enable();
-        Cursor.lockState = CursorLockMode.Locked;
-        playerInputManager = null;
     }
 
 
