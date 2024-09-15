@@ -2,10 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 interface IInteractable
@@ -23,8 +20,6 @@ public class InteractorController : MonoBehaviour
     public static InteractorController instance;
     public Transform InteractorSource;
     public float InteractRange;
-    public InputActionReference _interact;
-    public InputActionReference _interactRemoveItem;
     public LayerMask interactableLayer;
     private TMP_Text _possibleKeys;
     private IInteractable _interactObj;
@@ -35,9 +30,9 @@ public class InteractorController : MonoBehaviour
     {
         { "PaperBag", "E to pickup" },
         { "Door", "E to Enter" },
-        { "Computer", "E to Use"},
-        { "CanPickUp", "E to interact"},
-        { "Cat", "E to pet =^.^="}
+        { "Computer", "E to Use" },
+        { "CanPickUp", "E to interact" },
+        { "Cat", "E to pet =^.^=" }
     };
 
     void Awake()
@@ -58,18 +53,21 @@ public class InteractorController : MonoBehaviour
         }
     }
 
-    private void Interacting(InputAction.CallbackContext context)
-    {
-        if (_interactObj != null) _interactObj.Interact();
-    }
-    private void InteractingRemoveItem(InputAction.CallbackContext context)
-    {
-        if (_interactObjB != null) _interactObjB.InteractB();
-    }
-
     private void Update()
     {
         CheckInteraction();
+
+        // Check for interaction input using Input.GetKeyDown
+        if (_interactObj != null && Input.GetKeyDown(KeyCode.E))
+        {
+            _interactObj.Interact();
+        }
+
+        // Check for remove item input using Input.GetKeyDown
+        if (_interactObjB != null && Input.GetKeyDown(KeyCode.R))
+        {
+            _interactObjB.InteractB();
+        }
     }
 
     private void CheckInteraction()
@@ -167,17 +165,5 @@ public class InteractorController : MonoBehaviour
         {
             _possibleKeys.text = "Space to skip dialogue";
         }
-    }
-
-    private void OnEnable()
-    {
-        _interact.action.performed += Interacting;
-        _interactRemoveItem.action.performed += InteractingRemoveItem;
-    }
-
-    private void OnDisable()
-    {
-        _interact.action.performed -= Interacting;
-        _interactRemoveItem.action.performed -= InteractingRemoveItem;
     }
 }

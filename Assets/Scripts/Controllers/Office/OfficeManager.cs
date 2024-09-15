@@ -58,7 +58,7 @@ public class OfficeManager : MonoBehaviour
     {
         if (tasks[currentTaskIndex].TaskType == TaskType.ClockIn)
         {
-            DialogSystemController.ShowDialogs(ListaClockIn);
+            // DialogSystemController.ShowDialogs(ListaClockIn);
             clockIn = true;
             CompleteTask();
         }
