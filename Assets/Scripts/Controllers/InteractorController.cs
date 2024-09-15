@@ -138,7 +138,7 @@ public class InteractorController : MonoBehaviour
 
                     interactionMessage = "E to drop\nR to rotate\nRMouse to throw";
                     ItemsController item = PickUpScript.instance.heldObj.GetComponent<ItemsController>();
-                    if (item != null)
+                    if (item != null && item.CanBeUsed)
                     {
                         interactionMessage += "\nQ to use";
                     }
