@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day2Satisfaction80
   m_EditorClassIdentifier: 
-  emailTitle: Medical Report2
-  emailContent: We regret to inform you that your recent evaluation shows severe
-    distress, possible hallucinations, or delusions.<br>No immediate assistance will
-    be provided.
+  emailTitle: Medical Follow Up
+  emailContent: Regarding your mental health.<br><br>Looks like you condition keeps
+    worsening. You're even hurting yourself.
   sender: Health Services

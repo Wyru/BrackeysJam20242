@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day3Satisfaction60
   m_EditorClassIdentifier: 
-  emailTitle: Divorce Intimation3
-  emailContent: You are hereby notified of the divorce proceedings.<br><br>You will
-    receive new information soon.
-  sender: Legal Dept.
+  emailTitle: Evacuation Notice
+  emailContent: The city is being engulfed by a storm of ash, caused by the company
+    <i>redacted<i>. Evacuate.
+  sender: Town Government
