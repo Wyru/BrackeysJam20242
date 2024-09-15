@@ -89,6 +89,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""openmenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""28242a96-8775-482a-92e9-2ff85e7e1b63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""remove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83a09691-2b0d-4823-bd2f-a4419bd6429e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""openmenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -244,6 +264,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_throwWeapon = m_Gameplay.FindAction("throwWeapon", throwIfNotFound: true);
         m_Gameplay_drop = m_Gameplay.FindAction("drop", throwIfNotFound: true);
         m_Gameplay_remove = m_Gameplay.FindAction("remove", throwIfNotFound: true);
+        m_Gameplay_openmenu = m_Gameplay.FindAction("openmenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -312,6 +333,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_throwWeapon;
     private readonly InputAction m_Gameplay_drop;
     private readonly InputAction m_Gameplay_remove;
+    private readonly InputAction m_Gameplay_openmenu;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -323,6 +345,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @throwWeapon => m_Wrapper.m_Gameplay_throwWeapon;
         public InputAction @drop => m_Wrapper.m_Gameplay_drop;
         public InputAction @remove => m_Wrapper.m_Gameplay_remove;
+        public InputAction @openmenu => m_Wrapper.m_Gameplay_openmenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -353,6 +376,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @remove.started += instance.OnRemove;
             @remove.performed += instance.OnRemove;
             @remove.canceled += instance.OnRemove;
+            @openmenu.started += instance.OnOpenmenu;
+            @openmenu.performed += instance.OnOpenmenu;
+            @openmenu.canceled += instance.OnOpenmenu;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -378,6 +404,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @remove.started -= instance.OnRemove;
             @remove.performed -= instance.OnRemove;
             @remove.canceled -= instance.OnRemove;
+            @openmenu.started -= instance.OnOpenmenu;
+            @openmenu.performed -= instance.OnOpenmenu;
+            @openmenu.canceled -= instance.OnOpenmenu;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -413,5 +442,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnThrowWeapon(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
         void OnRemove(InputAction.CallbackContext context);
+        void OnOpenmenu(InputAction.CallbackContext context);
     }
 }

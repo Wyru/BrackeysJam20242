@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public static Action<int, int> OnWorkDoneDayChange;
     public static Action<int> OnDayChange;
     public static Action<int, int, int> OnHealthChange;
+    private PlayerInput playerInputManager;
 
     [SerializeField] public List<string> figurinesFounded; 
 
@@ -142,5 +143,45 @@ public class GameManager : MonoBehaviour
             figurinesFounded.Add(objName);
         }
     }
+
+    public void OpenCloseMenu(DefaultCanvasBehavior canvas,PlayerInput _playerInput){
+        if(!canvas.menu.activeSelf){
+            Pause(canvas,_playerInput);
+        }else{
+            Resume(canvas,_playerInput);
+        }
+    }
+
+    void Pause(DefaultCanvasBehavior canvas,PlayerInput _playerInput)
+    {
+        playerInputManager = _playerInput;
+        canvas.menu.SetActive(true);
+        CameraController.instance.enabled = false;
+        _playerInput.Disable();
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    void Resume(DefaultCanvasBehavior canvas,PlayerInput _playerInput)
+    {
+        canvas.menu.SetActive(false);
+        CameraController.instance.enabled = true;
+        _playerInput.Enable();
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void Save()
+    {
+        CameraController.instance.enabled = true;
+        playerInputManager.Enable();
+        Cursor.lockState = CursorLockMode.Locked;
+        playerInputManager = null;
+    }
+
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
 
