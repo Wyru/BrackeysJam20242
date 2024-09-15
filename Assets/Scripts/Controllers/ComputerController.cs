@@ -72,7 +72,7 @@ public class ComputerController : MonoBehaviour, IInteractable
     PlayerController.instance.gameObject.SetActive(true);
     _screenCamera.tag = "Untagged";
     _screen.gameObject.layer = changeLayer;
-    Cursor.lockState = CursorLockMode.None;
+    Cursor.lockState = CursorLockMode.Locked;
     Cursor.visible = false;
   }
 }

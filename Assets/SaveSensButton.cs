@@ -8,7 +8,7 @@ public class SaveSensButton : MonoBehaviour
   {
     CameraController.instance.enabled = true;
     InputManager.instance.enabled = true;
-    Cursor.lockState = CursorLockMode.None;
+    Cursor.lockState = CursorLockMode.Locked;
   }
 
   public void AdjustSensitivity(float newSpeed)
