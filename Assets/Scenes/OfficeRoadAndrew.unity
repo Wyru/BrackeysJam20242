@@ -524,8 +524,19 @@ PrefabInstance:
     - target: {fileID: 798792470614611375, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_Name
-      value: SceneTransition (1)
+      value: ST - B
       objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: destinySpawnPoint
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c30dd550944a8f41854d8928d55e8a8,
+        type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1023,7 +1034,7 @@ PrefabInstance:
     - target: {fileID: 798792470614611375, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_Name
-      value: SceneTransition (2)
+      value: ST - C
       objectReference: {fileID: 0}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -3877,8 +3888,19 @@ PrefabInstance:
     - target: {fileID: 798792470614611375, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_Name
-      value: SceneTransition
+      value: ST - A
       objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: destinySpawnPoint
+      value: 
+      objectReference: {fileID: 11400000, guid: e2e1f0c8c7374cc4aa56aae78d941ac3,
+        type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.x

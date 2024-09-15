@@ -432,7 +432,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 80
-  staminaRecover: 10
+  heathRecover: 20
+  alreadyPurchased: 0
+  usable: 1
+  isGuarana: 0
 --- !u!1 &8588275114617932417
 GameObject:
   m_ObjectHideFlags: 0

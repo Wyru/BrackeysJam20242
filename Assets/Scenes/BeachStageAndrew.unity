@@ -1747,11 +1747,12 @@ PrefabInstance:
         type: 3}
       propertyPath: destinySpawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: ca67ee2761aec0c418f693fe7319f272,
+        type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -1809,6 +1810,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8c30dd550944a8f41854d8928d55e8a8,
         type: 2}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99954236
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.03024946
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.467
+      objectReference: {fileID: 0}
     - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_Size.x
@@ -7799,7 +7835,8 @@ PrefabInstance:
         type: 3}
       propertyPath: destinySpawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 1b3daf4fbfbf78a47adef1e0b8e1586c,
+        type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7876,6 +7913,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5486a7eb09ff140429e8c21a9c133ebb,
         type: 2}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.73900455
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6737005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -84.707
+      objectReference: {fileID: 0}
     - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_Size.x
