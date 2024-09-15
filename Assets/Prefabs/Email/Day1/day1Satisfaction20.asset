@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day1Satisfaction20
   m_EditorClassIdentifier: 
-  emailTitle: Review
-  emailContent: Your work is improving.<br><br>Keep it up so our family can reach
-    new horizons.
+  emailTitle: Work is Life!
+  emailContent: Did you knwo the more you work, the more you receive in life?
   sender: Boss

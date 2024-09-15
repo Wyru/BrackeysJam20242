@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Divorce
   m_EditorClassIdentifier: 
   emailTitle: We need to talk
-  emailContent: We need to talk.<br>You only work and never come to see me, even
-    in the weekends.<br><br>I want to divorce.<br>No more chance.
+  emailContent: We need to talk.<br>You're alwayws working and never comes to see
+    me, even in the weekends.<br><br>I want the divorce.<br>No more chances.
   sender: Wife

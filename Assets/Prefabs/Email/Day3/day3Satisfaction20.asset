@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day3Satisfaction20
   m_EditorClassIdentifier: 
-  emailTitle: Review3
-  emailContent: Your work is improving.<br><br>Keep it up so our family can reach
-    new horizons.
+  emailTitle: TIME is money.
+  emailContent: I see you've been hard at work! I expect much more from you now.
+    Be here earlier tomorrow.
   sender: Boss

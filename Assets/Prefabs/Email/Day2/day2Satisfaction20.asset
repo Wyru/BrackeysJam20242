@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day2Satisfaction20
   m_EditorClassIdentifier: 
-  emailTitle: Review2
-  emailContent: Your work is improving.<br><br>Keep it up so our family can reach
-    new horizons.
+  emailTitle: Congrats!
+  emailContent: Good work on this project.<br><br>You met the expectations we had!
   sender: Boss

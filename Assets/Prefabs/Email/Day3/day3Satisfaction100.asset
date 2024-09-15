@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day3Satisfaction100
   m_EditorClassIdentifier: 
-  emailTitle: Pizza Party3
-  emailContent: "We\u2019re having a pizza party this weekend to acknowledge your
-    \u2018good\u2019 work.<br>Attendance is expected, though it\u2019s unlikely to
-    improve your situation"
-  sender: HR Dept.
+  emailTitle: I want to see u more.
+  emailContent: "Hey! I luv seeing u. My world feels calm when u\u2019re here, like
+    the calm b4 the storm."
+  sender: Fernanda

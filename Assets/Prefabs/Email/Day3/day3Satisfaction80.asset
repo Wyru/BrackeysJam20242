@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59be1e7eee12ff4ab98afcf9b08bb97, type: 3}
   m_Name: day3Satisfaction80
   m_EditorClassIdentifier: 
-  emailTitle: Medical Report3
-  emailContent: We regret to inform you that your recent evaluation shows severe
-    distress, possible hallucinations, or delusions.<br>No immediate assistance will
-    be provided.
-  sender: Health Services
+  emailTitle: "TIME IS SLIPPING, JO\xC3O"
+  emailContent: "TiME iS SLIppiNg awaY, jo\xC3O.... TICK TOCK, THE CLOCK HAUNTS YOU!
+    FiX iT BefOrE it'S tOo Late."
+  sender: ClockMan
