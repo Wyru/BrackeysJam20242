@@ -10,13 +10,14 @@ public class DetectableSound : MonoBehaviour
   public bool canMakeSound = false;
   private void OnCollisionEnter(Collision collision)
   {
-    if (collision.gameObject.isStatic && canMakeSound)
+    if (canMakeSound)
     {
-      canMakeSound = false;
       var soundSource = Instantiate(soundSourcePrefab, transform.position, Quaternion.identity, null);
       soundSource.GetComponent<DetectableSoundSource>().Setup(detectionValue);
       OnCollideWithStatic?.Invoke();
+      canMakeSound = false;
     }
+
   }
 
   public void SetCanMakeSound(bool canMakeSound)

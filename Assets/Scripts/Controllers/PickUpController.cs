@@ -184,7 +184,6 @@ public class PickUpScript : MonoBehaviour
     }
     heldObj = null;
     textRef.text = "";
-
   }
   void StopClipping() //function only called when dropping/throwing
   {
