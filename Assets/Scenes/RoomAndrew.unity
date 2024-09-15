@@ -2949,6 +2949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcam: {fileID: 1372071595}
   _actualPlayer: {fileID: 378922707}
+  _canvas: {fileID: 1867843386}
   _hero: {fileID: 2061470884}
   _anim: {fileID: 2061470886}
   text: {fileID: 668323684}
@@ -4714,6 +4715,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bcd3f08c7aba524896369a70a81a1a4, type: 3}
+--- !u!1 &1867843386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7332677235987086766, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1867843385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1876125206
 GameObject:
   m_ObjectHideFlags: 0

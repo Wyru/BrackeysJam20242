@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public bool weaponEquipped;
     public float throwforce;
 
+    public DefaultCanvasBehavior canvas;
+
     bool _disableMovement = false;
 
     public FootstepController footstepController;
@@ -79,8 +81,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         cam = Camera.main;
-
         gameManager = FindAnyObjectByType<GameManager>();
+        canvas = FindAnyObjectByType<DefaultCanvasBehavior>();
 
     }
 
@@ -419,6 +421,13 @@ public class PlayerController : MonoBehaviour
             weaponEquipped = false;
 
 
+        }
+    }
+
+    public void OpenMenu(bool _open,PlayerInput _playerInput)
+    {
+        if(_open){
+            GameManager.instance.OpenCloseMenu(canvas,_playerInput);
         }
     }
 

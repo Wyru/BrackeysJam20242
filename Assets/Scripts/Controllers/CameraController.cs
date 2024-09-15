@@ -54,4 +54,10 @@ public class CameraController : MonoBehaviour
     }
 
 
+    public void AdjustSensitivity(float newSpeed)
+    {
+        _sensitivity = newSpeed;
+
+    }
+
 }
