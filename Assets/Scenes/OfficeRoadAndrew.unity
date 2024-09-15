@@ -623,6 +623,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 1.4164844
       objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1036,6 +1041,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ST - C
       objectReference: {fileID: 0}
+    - target: {fileID: 1417818012827443786, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: destinySpawnPoint
+      value: 
+      objectReference: {fileID: 11400000, guid: 3068a8a2c70792c4cac8cd19fe973239,
+        type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1097,6 +1108,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ebea671600d92a34ab77596a0e9a2dce,
         type: 2}
+    - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.87
+      objectReference: {fileID: 0}
     - target: {fileID: 8001089705141449834, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -3986,6 +4002,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 1.4164844
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218782215572350397, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
