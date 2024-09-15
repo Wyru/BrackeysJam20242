@@ -22,7 +22,7 @@ public class ClockmanSpawnPoint : MonoBehaviour
     var x = FindObjectOfType<ClockmanBehavior>();
     if (x == null)
     {
-      Debug.LogError("Nenhum Clockman encontrado na cena!");
+      //Debug.LogError("Nenhum Clockman encontrado na cena!");
       return;
     }
 

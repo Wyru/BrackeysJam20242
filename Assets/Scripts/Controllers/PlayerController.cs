@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5;
     public float runningSpeed = 5;
+    public float fatigueSpeed = 3;
 
     Vector3 _PlayerVelocity;
 
@@ -46,6 +47,18 @@ public class PlayerController : MonoBehaviour
 
     GameManager gameManager;
 
+
+    [Header("Stamina")]
+
+    public float startRunStaminaCost = 10f;
+    public float staminaRecoveryRate = 20f;
+    public float staminaDropRate = 20f;
+    public float attackStaminaCost = 15f;
+    public float attackStaminaCostWeapon = 25f;
+    public float recoveryFatigueThreshhold = .4f;
+    public bool fatigue = false;
+
+    bool wasRunning = true;
 
     private void Awake()
     {
@@ -92,6 +105,19 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        if (!wasRunning)
+        {
+            GameManager.instance.SetStamina(staminaRecoveryRate * Time.deltaTime);
+        }
+
+        if (GameManager.instance.stamina / GameManager.instance.maxStamina > recoveryFatigueThreshhold)
+        {
+            fatigue = false;
+        }
+    }
+
     public void ProcessMove(Vector2 _input)
     {
         if (_disableMovement)
@@ -101,6 +127,8 @@ public class PlayerController : MonoBehaviour
         move.y = 0f;
 
         footstepController.isWalking = move.magnitude != 0;
+        footstepController.isFatigue = fatigue;
+
 
         if (move.magnitude == 0)
         {
@@ -109,21 +137,36 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(RUNNING, false);
 
             _rb.velocity = Vector3.zero;
-            // _rb.velocity = Vector3.MoveTowards(_rb.velocity, Vector3.zero, deceleration);
             return;
         }
 
-        // _rb.AddForce(move.normalized * acceleration * Time.deltaTime, ForceMode.VelocityChange);
-        // _rb.maxLinearVelocity = maxSpeed;
-
         animator.SetBool(WALKING, true);
+        animator.SetBool("fatigue", fatigue);
 
         bool inputRunning = Input.GetKey(KeyCode.LeftShift);
+
+        if (inputRunning && wasRunning == false)
+        {
+            // on start running
+            GameManager.instance.SetStamina(-startRunStaminaCost);
+        }
+
+        if (GameManager.instance.stamina < 3)
+            fatigue = true;
+
+        if (inputRunning)
+            GameManager.instance.SetStamina(-staminaDropRate * Time.deltaTime);
+
+        wasRunning = inputRunning;
+
         animator.SetBool(RUNNING, inputRunning);
 
         footstepController.isRunning = inputRunning;
 
-        _rb.velocity = move * (inputRunning ? runningSpeed : speed);
+        if (fatigue)
+            _rb.velocity = move * fatigueSpeed;
+        else
+            _rb.velocity = move * (inputRunning ? runningSpeed : speed);
 
     }
 
@@ -173,6 +216,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!readyToAttack || attacking) return;
 
+
+        if (GameManager.instance.stamina < attackStaminaCost)
+        {
+            return;
+        }
+
+
         readyToAttack = false;
         attacking = true;
 
@@ -184,6 +234,8 @@ public class PlayerController : MonoBehaviour
 
             if (!weaponEquipped)
             {
+                GameManager.instance.SetStamina(-attackStaminaCost);
+
                 audioSource.PlayOneShot(attackSlash);
 
                 if (attackCount == 0)
@@ -193,12 +245,14 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(PUSH_ENEMY_TRIGGER);
+                    animator.SetTrigger(PUNCH_ENEMY_TRIGGER);
                     attackCount = 0;
                 }
             }
             else
             {
+                GameManager.instance.SetStamina(-attackStaminaCostWeapon);
+
                 audioSource.PlayOneShot(attackSlash);
 
                 animator.SetTrigger(WEAPON_SLASH_TRIGGER);
