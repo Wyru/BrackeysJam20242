@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4083829579537194500}
   - component: {fileID: 4645184194508869120}
   - component: {fileID: -3602806026458998795}
+  - component: {fileID: -4768608375246815485}
   m_Layer: 0
   m_Name: Cube.072
   m_TagString: CanPickUp
@@ -111,3 +112,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4768608375246815485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249854260194617203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c62950825e108c49bb4ad5cc9cf7bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 0
+  heathRecover: 20
+  alreadyPurchased: 1
+  usable: 1
+  isGuarana: 1

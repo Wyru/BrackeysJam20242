@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 300
-  heathRecover: 10
+  heathRecover: 20
   alreadyPurchased: 0
   usable: 1
   isGuarana: 0
