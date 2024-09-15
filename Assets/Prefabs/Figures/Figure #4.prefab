@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1641643920103732310}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Bone.003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411616148088367824}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2669025165486721074}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightFRightHand_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 517511476263417357}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftShin_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4853296090244981765}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftThigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 526828033745012216}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Bone.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1772912734982944060}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5371950556377314456}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightFRightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9184754576709489104}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6678638074968269262}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: UpperChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1059162302015020551}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftShoulder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3123412179053756688}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5768410518745762445}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightShin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6640730232775615013}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LowerChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 823234133727140012}
   - component: {fileID: 1972487118160530323}
   - component: {fileID: 5913651518282996338}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Figure #4
   m_TagString: CanPickUp
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683521477801290951}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftForeArm_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6806163579546505138}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2728518399799345553}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2524817237121201832}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightShin_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2281790651967164324}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4396067271792598700}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PostItManSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5112511091234223383}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftShin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3940131817083039479}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +795,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4150192610903343177}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightThigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3800205995083136435}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: LowerTorax
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4968181307468680804}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,7 +892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8641938578822245434}
   - component: {fileID: 2982988923511430734}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Figure #4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
