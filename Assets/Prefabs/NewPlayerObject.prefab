@@ -729,6 +729,7 @@ MonoBehaviour:
   attackStaminaCostWeapon: 25
   recoveryFatigueThreshhold: 0.2
   fatigue: 0
+  pickUpScript: {fileID: 2173677655429654695}
   attackHitbox: {fileID: 1748610396906554703}
   attackDelay: 0.1
   attackSpeed: 0.6

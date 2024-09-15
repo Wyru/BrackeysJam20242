@@ -56,11 +56,11 @@ public class PickUpScript : MonoBehaviour
         {
           item.UseItem();
           itemAudioSource.PlayOneShot(item.isGuarana ? drinkSound : foodSound);
+          textRef.text = "";
+          textPossibleKeys.text = "";
+          DestroyImmediate(heldObj);
         }
       }
-      textRef.text = "";
-      textPossibleKeys.text = "";
-      DestroyImmediate(heldObj);
 
       return;
     }
@@ -116,8 +116,9 @@ public class PickUpScript : MonoBehaviour
                                                       //make sure object doesnt collide with player, it can cause weird bugs
       Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
       // Check if the object is already picked up
-    
-      if(heldObj.layer == 17){
+
+      if (heldObj.layer == 17)
+      {
         GameManager.instance.FigurinesFound(heldObj);
       }
     }

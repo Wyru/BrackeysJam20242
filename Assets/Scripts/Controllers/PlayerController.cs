@@ -41,9 +41,7 @@ public class PlayerController : MonoBehaviour
 
     bool _disableMovement = false;
 
-
     public FootstepController footstepController;
-
 
     GameManager gameManager;
 
@@ -59,6 +57,8 @@ public class PlayerController : MonoBehaviour
     public bool fatigue = false;
 
     bool wasRunning = true;
+
+    public PickUpScript pickUpScript;
 
     private void Awake()
     {
@@ -115,6 +115,15 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.stamina / GameManager.instance.maxStamina > recoveryFatigueThreshhold)
         {
             fatigue = false;
+        }
+
+        if (_equipedWeapon != null)
+        {
+            animator.SetBool("flashlight", _equipedWeapon.name.Contains("Flashlight"));
+        }
+        else
+        {
+            animator.SetBool("flashlight", false);
         }
     }
 
