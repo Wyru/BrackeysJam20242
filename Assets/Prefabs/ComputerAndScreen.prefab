@@ -4207,7 +4207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 25
+  seconds: 20
   secondsCounter: 0
   timeout: 0
 --- !u!1 &2316621267328518063
@@ -4554,7 +4554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 25
+  seconds: 35
   secondsCounter: 0
   timeout: 0
 --- !u!1 &2506680842828687701
