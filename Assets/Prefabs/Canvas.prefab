@@ -2375,6 +2375,7 @@ MonoBehaviour:
   playerMoneyText: {fileID: 4328197401173566244}
   possibleKeys: {fileID: 7514395163838502093}
   bagText: {fileID: 7300708607898630752}
+  _taskText: {fileID: 44793054056648271}
   menu: {fileID: 546269551261454170}
 --- !u!1 &7588167008196140209
 GameObject:

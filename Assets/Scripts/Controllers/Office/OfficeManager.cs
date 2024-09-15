@@ -14,13 +14,15 @@ public class OfficeManager : MonoBehaviour
     private Task finalTask;
     private Task leaveTask;
     public List<string> ListaClockIn;
-
+    public DefaultCanvasBehavior canvas;
 
     void Awake()
     {
         instance = this;
         GameManager.OnSatisfactionChange += GameManagerOnSatisfactionChange;
         GameManager.OnWorkDoneDayChange += GameManagerOnWorkDoneTodayChange;
+        canvas = FindAnyObjectByType<DefaultCanvasBehavior>();
+        tasksText = canvas._taskText;
         tasksText.gameObject.SetActive(true);
 
         InitializeTasks();
@@ -29,6 +31,7 @@ public class OfficeManager : MonoBehaviour
 
     void InitializeTasks()
     {
+        Debug.Log("Test");
         tasks.Add(new Task(TaskType.ClockIn, "Clock-In on the work!"));
         tasks.Add(new Task(TaskType.WorkAtComputer, "Go to the computer and work at least once!"));
     }
@@ -139,5 +142,6 @@ public class OfficeManager : MonoBehaviour
     {
         GameManager.OnSatisfactionChange -= GameManagerOnSatisfactionChange;
         GameManager.OnWorkDoneDayChange -= GameManagerOnWorkDoneTodayChange;
+        tasksText.gameObject.SetActive(false);
     }
 }

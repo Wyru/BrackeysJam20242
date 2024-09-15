@@ -3442,6 +3442,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5551418225153903260, guid: 406bb635f53a96f4b84acdc45ea63bfb, type: 3}
+--- !u!114 &1623676629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44793054056648271, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1867843385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1631074914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4719,6 +4731,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4500180685291572454, guid: 2bcd3f08c7aba524896369a70a81a1a4,
+        type: 3}
+      propertyPath: _taskText
+      value: 
+      objectReference: {fileID: 1623676629}
     - target: {fileID: 5370887844476676084, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

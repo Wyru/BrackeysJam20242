@@ -12,6 +12,7 @@ public class DefaultCanvasBehavior : MonoBehaviour
     public TextMeshProUGUI playerMoneyText;
     public TMP_Text possibleKeys;
     public TMP_Text bagText;
+    public TMP_Text _taskText;
     public GameObject menu;
     private void Awake()
         {
