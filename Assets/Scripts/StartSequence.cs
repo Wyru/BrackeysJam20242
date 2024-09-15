@@ -9,6 +9,7 @@ public class StartSequence : MonoBehaviour
 {
     public CinemachineVirtualCamera vcam;
     public GameObject _actualPlayer;
+    public GameObject _canvas;
     public GameObject _hero;
     public Animator _anim;
     public TextMeshProUGUI text;
@@ -16,6 +17,7 @@ public class StartSequence : MonoBehaviour
     private void Awake()
     {
         _actualPlayer.SetActive(false);
+        _canvas.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -37,6 +39,7 @@ public class StartSequence : MonoBehaviour
         // vcam.enabled = true;
         GetComponent<AudioSource>().volume = 0.1f;
         _actualPlayer.SetActive(true);
+        _canvas.SetActive(true);
         yield return new WaitForSeconds(2f);
         Destroy(_hero);
         Destroy(this);

@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public static Action<int> OnDayChange;
     public static Action<int, int, int> OnHealthChange;
 
+    public bool menuOpened;
+
     [SerializeField] public List<string> figurinesFounded; 
 
     void Awake()
@@ -142,5 +144,38 @@ public class GameManager : MonoBehaviour
             figurinesFounded.Add(objName);
         }
     }
+
+    public void OpenCloseMenu(DefaultCanvasBehavior canvas){
+        if(!canvas.menu.activeSelf){
+            menuOpened = true;
+            Pause(canvas);
+        }else{
+            menuOpened = false;
+            Resume(canvas);
+        }
+    }
+
+    void Pause(DefaultCanvasBehavior canvas)
+    {
+        InputManager.instance.enabled = false;
+        canvas.menu.SetActive(true);
+        CameraController.instance.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    void Resume(DefaultCanvasBehavior canvas)
+    {
+        canvas.menu.SetActive(false);
+        CameraController.instance.enabled = true;
+        InputManager.instance.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
 
