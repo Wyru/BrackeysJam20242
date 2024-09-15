@@ -142,6 +142,6 @@ public class OfficeManager : MonoBehaviour
     {
         GameManager.OnSatisfactionChange -= GameManagerOnSatisfactionChange;
         GameManager.OnWorkDoneDayChange -= GameManagerOnWorkDoneTodayChange;
-        tasksText.gameObject.SetActive(false);
+        tasksText.text = "Go home!";
     }
 }

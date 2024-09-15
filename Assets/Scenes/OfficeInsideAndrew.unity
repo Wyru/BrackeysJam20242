@@ -6560,7 +6560,7 @@ PrefabInstance:
     - target: {fileID: 2171728940620650680, guid: eb3e1b28bbb08e74db1114ae84685510,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8295311742723198325, guid: eb3e1b28bbb08e74db1114ae84685510,
         type: 3}
@@ -8439,6 +8439,7 @@ MonoBehaviour:
   clockIn: 0
   ListaClockIn:
   - You clocked in. A day of hard work is ahead.
+  canvas: {fileID: 0}
 --- !u!4 &1766180463
 Transform:
   m_ObjectHideFlags: 0
