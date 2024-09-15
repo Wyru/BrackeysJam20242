@@ -13670,7 +13670,6 @@ GameObject:
   - component: {fileID: 2514631812549838580}
   - component: {fileID: 5753864268788625237}
   - component: {fileID: 4038471894509859491}
-  - component: {fileID: 5753864268788625238}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -68810,29 +68809,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5753864268788625238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333827838271667158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69bb288b899cba24bbddf4102709db0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tex:
-  - {fileID: 2800000, guid: be613d96b27acbd41a92dc8bdfae977e, type: 3}
-  - {fileID: 2800000, guid: 8551ad09b3f66fc47ad5086c788462b7, type: 3}
-  - {fileID: 2800000, guid: d64136c605c0a8b48a26074610e501d2, type: 3}
-  - {fileID: 2800000, guid: 14bca03db23578942bc50eade48b45a0, type: 3}
-  - {fileID: 2800000, guid: e2d9fe9c1d98b3b4bab8de7b517bb8ef, type: 3}
-  - {fileID: 2800000, guid: a97221ad249d48249bc5d0f759e89af4, type: 3}
-  - {fileID: 2800000, guid: ba294c0ddb3c3d2498fd1570a3f73aea, type: 3}
-  - {fileID: 2800000, guid: 4e4580cf91d6cbc4a8ea8ee2c72e02aa, type: 3}
-  - {fileID: 2800000, guid: 34368d879913f404ea8df97e307f7a8a, type: 3}
-  - {fileID: 2800000, guid: aa4cb66faaa613349a64c1b260c20592, type: 3}
 --- !u!23 &5753864268815014491
 MeshRenderer:
   m_ObjectHideFlags: 0
