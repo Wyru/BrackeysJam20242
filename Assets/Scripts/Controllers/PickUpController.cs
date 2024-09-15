@@ -28,6 +28,10 @@ public class PickUpScript : MonoBehaviour
   //we want to disable the player looking around when rotating the object
   //example below
   //MouseLookScript mouseLookScript;
+
+  public AudioSource itemAudioSource;
+  public AudioClip foodSound;
+  public AudioClip drinkSound;
   void Start()
   {
     instance = this;
@@ -44,6 +48,23 @@ public class PickUpScript : MonoBehaviour
   }
   void Update()
   {
+    if (Input.GetKeyDown(KeyCode.Q) && heldObj != null)
+    {
+      if (heldObj.TryGetComponent(out ItemsController item))
+      {
+        if (item.CanBeUsed)
+        {
+          item.UseItem();
+          itemAudioSource.PlayOneShot(item.isGuarana ? drinkSound : foodSound);
+        }
+      }
+      textRef.text = "";
+      textPossibleKeys.text = "";
+      DestroyImmediate(heldObj);
+
+      return;
+    }
+
     if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
     {
       if (heldObj == null) //if currently not holding anything
@@ -69,6 +90,7 @@ public class PickUpScript : MonoBehaviour
         }
       }
     }
+
     if (heldObj != null) //if player is holding object
     {
       MoveObject(); //keep object position at holdPos
@@ -79,9 +101,7 @@ public class PickUpScript : MonoBehaviour
         StopClipping();
         ThrowObject();
         textRef.text = "";
-
       }
-
     }
   }
   public void PickUpObject(GameObject pickUpObj)

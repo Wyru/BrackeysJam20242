@@ -9,6 +9,9 @@ public class HealthUI : MonoBehaviour
   public Image lifeDamageTexture;
 
   public AudioSource lowLife;
+  public AudioSource lifeItemsAudioSource;
+
+  public AudioClip healSound;
 
   public float lowLifeSoundThreshhold = .3f;
 
@@ -29,18 +32,22 @@ public class HealthUI : MonoBehaviour
 
   public void UpdateUI(int change, int currentHealth, int maxHealth)
   {
+    Color x = lifeDamageTexture.color;
+    x.a = 1 - ((float)currentHealth / maxHealth);
+    Debug.Log(((float)currentHealth / maxHealth));
+    lifeDamageTexture.color = x;
+    lowLife.enabled = (float)currentHealth / maxHealth < lowLifeSoundThreshhold;
     if (change < 0)
-    {
-
       animator.SetTrigger("Show");
-      Color x = lifeDamageTexture.color;
-      x.a = 1 - ((float)currentHealth / maxHealth);
-      lifeDamageTexture.color = x;
-
-      lowLife.enabled = (float)currentHealth / maxHealth < lowLifeSoundThreshhold;
-
+    else
+    {
+      animator.SetTrigger("Heal");
+      lifeItemsAudioSource.PlayOneShot(healSound);
     }
   }
 
-
+  public void PlayHealSound()
+  {
+    lifeItemsAudioSource.PlayOneShot(healSound);
+  }
 }

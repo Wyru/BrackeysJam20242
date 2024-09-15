@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using System;
+using Unity.Mathematics;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public int satistafaction;
     public int maxSatistafaction;
     public float stamina;
@@ -27,6 +29,16 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        if (instance == null)
+            instance = this;
+
+        if (instance != this)
+        {
+            DestroyImmediate(this);
+            return;
+        }
+
+        instance = this;
         DontDestroyOnLoad(this.gameObject);
         maxSatistafaction = 100;
         health = maxHealth;
@@ -35,19 +47,15 @@ public class GameManager : MonoBehaviour
 
     public void SetSatisfaction(int value)
     {
-        if (satistafaction < maxSatistafaction)
-        {
-            satistafaction += value;
-            OnSatisfactionChange?.Invoke(value, satistafaction, maxSatistafaction);
-        }
+        satistafaction += value;
+        satistafaction = math.clamp(satistafaction, 0, maxSatistafaction);
+        OnSatisfactionChange?.Invoke(value, satistafaction, maxSatistafaction);
     }
     public void SetHealth(int value)
     {
-        if (health <= maxHealth)
-        {
-            health += value;
-            OnHealthChange?.Invoke(value, health, maxHealth);
-        }
+        health += value;
+        health = math.clamp(health, 0, maxHealth);
+        OnHealthChange?.Invoke(value, health, maxHealth);
     }
     public void ResetHeath()
     {

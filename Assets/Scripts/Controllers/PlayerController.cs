@@ -276,7 +276,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int x)
     {
-        if (gameManager == null)
+        if (GameManager.instance == null)
         {
             Debug.LogWarning("Game manager não encontrado pelo player ou nulo");
             return;
@@ -284,7 +284,7 @@ public class PlayerController : MonoBehaviour
 
         OnTakeDamage?.Invoke();
 
-        gameManager.SetHealth(x);
+        GameManager.instance.SetHealth(x);
     }
 
     public void PlaySound()

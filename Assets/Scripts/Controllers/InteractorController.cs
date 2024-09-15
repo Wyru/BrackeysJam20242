@@ -136,7 +136,13 @@ public class InteractorController : MonoBehaviour
                 }
                 else
                 {
+
                     interactionMessage = "E to drop\nR to rotate\nRMouse to throw";
+                    ItemsController item = PickUpScript.instance.heldObj.GetComponent<ItemsController>();
+                    if (item != null)
+                    {
+                        interactionMessage += "\nQ to use";
+                    }
                 }
 
                 _interactionIcon.enabled = true;
