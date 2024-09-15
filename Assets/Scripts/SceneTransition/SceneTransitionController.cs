@@ -21,7 +21,7 @@ public class SceneTransitionController : MonoBehaviour
 
   public enum TransitionType
   {
-    Door, Street
+    Door, Street, Death
   }
 
   private void Awake()
@@ -40,6 +40,10 @@ public class SceneTransitionController : MonoBehaviour
       case TransitionType.Street:
         animator.SetTrigger("Street");
         stepsAudioSource.Play();
+        break;
+
+      case TransitionType.Death:
+        animator.SetTrigger("Death");
         break;
 
       default:
@@ -65,6 +69,14 @@ public class SceneTransitionController : MonoBehaviour
   {
     currentScene = SceneManager.GetActiveScene().name;
     nextSpawn = spawn;
+    transitionType = type;
+    PlayerController.instance.DisableMovement(true);
+    SceneManager.LoadScene(SCENE_TRANSITION_NAME, LoadSceneMode.Additive);
+  }
+
+  public static void RestartScene(TransitionType type)
+  {
+    currentScene = SceneManager.GetActiveScene().name;
     transitionType = type;
     PlayerController.instance.DisableMovement(true);
     SceneManager.LoadScene(SCENE_TRANSITION_NAME, LoadSceneMode.Additive);

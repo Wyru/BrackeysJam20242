@@ -155,10 +155,10 @@ public class PlayerController : MonoBehaviour
       animator.SetBool("flashlight", false);
     }
 
-    if (Input.GetKeyDown(KeyCode.Escape))
-    {
-      OpenMenu();
-    }
+    // if (Input.GetKeyDown(KeyCode.Escape))
+    // {
+    //   OpenMenu();
+    // }
   }
 
   public void ProcessMove(Vector2 _input)
@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
       return;
 
     Vector3 move = _cameraTransform.forward * _input.y + _cameraTransform.right * _input.x;
-    // move.y = 0f;
+    move.y = 0f;
 
     footstepController.isWalking = move.magnitude != 0;
     footstepController.isFatigue = fatigue;

@@ -4,172 +4,199 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System;
 using Unity.Mathematics;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public int satistafactionToday;
-    public int maxSatistafaction;
-    public int globalSatisfaction { get; set; }
-    public float stamina;
-    public int maxStamina = 100;
-    public float staminaRecoveryRate = 10;
-    public int health;
-    public int maxHealth = 100;
-    public int day;
-    public int moneyTotal;
-    public int moneyToday;
-    public int workScoreToday;
-    public int workDoneToday;
-    public static Action<int, int, int, int> OnSatisfactionChange;
-    public static Action<float, float, int> OnStaminaChange;
-    public static Action<int, int, int> OnMoneyChange;
-    public static Action<int, int> OnWorkScoreTodayChange;
-    public static Action<int, int> OnWorkDoneDayChange;
-    public static Action<int> OnDayChange;
-    public static Action<int, int, int> OnHealthChange;
+  public static GameManager instance;
+  public int satistafactionToday;
+  public int maxSatistafaction;
+  public int globalSatisfaction { get; set; }
+  public float stamina;
+  public int maxStamina = 100;
+  public float staminaRecoveryRate = 10;
+  public int health;
+  public int maxHealth = 100;
+  public int day;
+  public int moneyTotal;
+  public int moneyToday;
+  public int workScoreToday;
+  public int workDoneToday;
+  public static Action<int, int, int, int> OnSatisfactionChange;
+  public static Action<float, float, int> OnStaminaChange;
+  public static Action<int, int, int> OnMoneyChange;
+  public static Action<int, int> OnWorkScoreTodayChange;
+  public static Action<int, int> OnWorkDoneDayChange;
+  public static Action<int> OnDayChange;
+  public static Action<int, int, int> OnHealthChange;
 
-    public bool menuOpened;
+  public bool menuOpened;
 
-    [SerializeField] public List<string> figurinesFounded; 
-    [SerializeField] public List<EmailScriptableObject> emailsAlreadyShowed;
+  [SerializeField] public List<string> figurinesFounded;
+  [SerializeField] public List<EmailScriptableObject> emailsAlreadyShowed;
 
-    void Awake()
+  void Awake()
+  {
+    if (instance == null)
+      instance = this;
+
+    if (instance != this)
     {
-        if (instance == null)
-            instance = this;
-
-        if (instance != this)
-        {
-            DestroyImmediate(this);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        health = maxHealth;
-        stamina = maxStamina;
-        maxSatistafaction = 110;
-        day = 1;
+      DestroyImmediate(this);
+      return;
     }
 
-    public void SetSatisfaction(int value)
-    {
-        satistafactionToday += value;
-        SetGlobalSatisfaction(value);
-        satistafactionToday = math.clamp(satistafactionToday, 0, maxSatistafaction);
-        OnSatisfactionChange?.Invoke(value, satistafactionToday, maxSatistafaction, globalSatisfaction);
-    }
-    public void SetHealth(int value)
-    {
-        health += value;
-        health = math.clamp(health, 0, maxHealth);
-        OnHealthChange?.Invoke(value, health, maxHealth);
-    }
+    instance = this;
+    DontDestroyOnLoad(this.gameObject);
+    health = maxHealth;
+    stamina = maxStamina;
+    maxSatistafaction = 110;
+    day = 1;
+  }
 
-    public void SetGlobalSatisfaction(int value)
-    {
-        globalSatisfaction += value;
-    }
-    public void ResetHeath()
-    {
-        health = maxHealth;
-        OnHealthChange?.Invoke(0, health, maxHealth);
-    }
+  public void SetSatisfaction(int value)
+  {
+    satistafactionToday += value;
+    SetGlobalSatisfaction(value);
+    satistafactionToday = math.clamp(satistafactionToday, 0, maxSatistafaction);
+    OnSatisfactionChange?.Invoke(value, satistafactionToday, maxSatistafaction, globalSatisfaction);
+  }
 
-    public void SetStamina(float value)
-    {
-        stamina += value;
-        stamina = math.clamp(stamina, 0, maxStamina);
-        OnStaminaChange?.Invoke(value, stamina, maxStamina);
-    }
-    public void SetMoneyTotal(int value)
-    {
-        moneyTotal += value;
-        OnMoneyChange?.Invoke(value, moneyTotal, moneyToday);
-    }
 
-    public void SetMoneyToday(int value)
-    {
-        moneyToday += value;
-        SetMoneyTotal(value);
-    }
+  public bool onDeath = false;
+  public void SetHealth(int value)
+  {
+    health += value;
+    health = math.clamp(health, 0, maxHealth);
+    OnHealthChange?.Invoke(value, health, maxHealth);
 
-    public void SetWorkScoreToday(int value)
+    if (health <= 0 && onDeath == false)
     {
-        workScoreToday += value;
-        OnWorkScoreTodayChange?.Invoke(value, workScoreToday);
+      ResetHeath();
+      onDeath = true;
+      Invoke(nameof(ResetDeathFlag), 3f);
+      SceneTransitionController.RestartScene(SceneTransitionController.TransitionType.Death);
     }
-    public void SetWorkDoneToday(int value)
-    {
-        workDoneToday = value;
-        OnWorkDoneDayChange?.Invoke(value, workDoneToday);
-    }
+  }
 
-    public void IncrementDay()
-    {
-        day++;
-        OnDayChange?.Invoke(day);
-        ResetSatisfaction();
-        ResetWorkDoneToday();
-        ResetWorkScoreToday();
-        ResetMoneyToday();
-    }
+  public void ResetDeathFlag()
+  {
+    onDeath = false;
+  }
 
-    public void ResetSatisfaction()
-    {
-        satistafactionToday = 0;
-        OnSatisfactionChange?.Invoke(0, satistafactionToday, maxSatistafaction, globalSatisfaction);
-    }
-    public void ResetWorkDoneToday()
-    {
-        workDoneToday = 0;
-        OnWorkDoneDayChange?.Invoke(0, workDoneToday);
-    }
-    public void ResetWorkScoreToday()
-    {
-        workScoreToday = 0;
-        OnWorkScoreTodayChange?.Invoke(0, workScoreToday);
-    }
-    public void ResetMoneyToday()
-    {
-        moneyToday = 0;
-        OnMoneyChange?.Invoke(0, moneyTotal, moneyToday);
-    }
+  public void SetGlobalSatisfaction(int value)
+  {
+    globalSatisfaction += value;
+  }
+  public void ResetHeath()
+  {
+    health = maxHealth;
+    OnHealthChange?.Invoke(0, health, maxHealth);
+  }
 
-    public void FigurinesFound(GameObject _figurine)
-    {
-        string objName = _figurine.name;
-        if (!figurinesFounded.Contains(objName))
-        {
-            figurinesFounded.Add(objName);
-        }
-    }
+  public void SetStamina(float value)
+  {
+    stamina += value;
+    stamina = math.clamp(stamina, 0, maxStamina);
+    OnStaminaChange?.Invoke(value, stamina, maxStamina);
+  }
+  public void SetMoneyTotal(int value)
+  {
+    moneyTotal += value;
+    OnMoneyChange?.Invoke(value, moneyTotal, moneyToday);
+  }
 
-    public void OpenCloseMenu(DefaultCanvasBehavior canvas){
-        if(!canvas.menu.activeSelf){
-            Pause(canvas);
-        }else{
-            Resume(canvas);
-        }
-    }
+  public void SetMoneyToday(int value)
+  {
+    moneyToday += value;
+    SetMoneyTotal(value);
+  }
 
-    void Pause(DefaultCanvasBehavior canvas)
-    {
-        InputManager.instance.enabled = false;
-        canvas.menu.SetActive(true);
-        CameraController.instance.enabled = false;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
+  public void SetWorkScoreToday(int value)
+  {
+    workScoreToday += value;
+    OnWorkScoreTodayChange?.Invoke(value, workScoreToday);
+  }
+  public void SetWorkDoneToday(int value)
+  {
+    workDoneToday = value;
+    OnWorkDoneDayChange?.Invoke(value, workDoneToday);
+  }
 
-    void Resume(DefaultCanvasBehavior canvas)
+  public void IncrementDay()
+  {
+    day++;
+    OnDayChange?.Invoke(day);
+    ResetSatisfaction();
+    ResetWorkDoneToday();
+    ResetWorkScoreToday();
+    ResetMoneyToday();
+  }
+
+  public void FullReset()
+  {
+    ResetHeath();
+
+  }
+
+  public void ResetSatisfaction()
+  {
+    satistafactionToday = 0;
+    OnSatisfactionChange?.Invoke(0, satistafactionToday, maxSatistafaction, globalSatisfaction);
+  }
+  public void ResetWorkDoneToday()
+  {
+    workDoneToday = 0;
+    OnWorkDoneDayChange?.Invoke(0, workDoneToday);
+  }
+  public void ResetWorkScoreToday()
+  {
+    workScoreToday = 0;
+    OnWorkScoreTodayChange?.Invoke(0, workScoreToday);
+  }
+  public void ResetMoneyToday()
+  {
+    moneyToday = 0;
+    OnMoneyChange?.Invoke(0, moneyTotal, moneyToday);
+  }
+
+  public void FigurinesFound(GameObject _figurine)
+  {
+    string objName = _figurine.name;
+    if (!figurinesFounded.Contains(objName))
     {
-        InputManager.instance.enabled = true;
-        canvas.menu.SetActive(false);
-        CameraController.instance.enabled = true;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+      figurinesFounded.Add(objName);
     }
+  }
+
+  public void OpenCloseMenu(DefaultCanvasBehavior canvas)
+  {
+    if (!canvas.menu.activeSelf)
+    {
+      Pause(canvas);
+    }
+    else
+    {
+      Resume(canvas);
+    }
+  }
+
+  void Pause(DefaultCanvasBehavior canvas)
+  {
+    InputManager.instance.enabled = false;
+    canvas.menu.SetActive(true);
+    CameraController.instance.enabled = false;
+    Cursor.visible = true;
+    Cursor.lockState = CursorLockMode.None;
+  }
+
+  void Resume(DefaultCanvasBehavior canvas)
+  {
+    InputManager.instance.enabled = true;
+    canvas.menu.SetActive(false);
+    CameraController.instance.enabled = true;
+    Cursor.visible = false;
+    Cursor.lockState = CursorLockMode.Locked;
+  }
 }
 

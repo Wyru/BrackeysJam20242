@@ -36,10 +36,14 @@ public class HealthUI : MonoBehaviour
     x.a = 1 - ((float)currentHealth / maxHealth);
     lifeDamageTexture.color = x;
     lowLife.enabled = (float)currentHealth / maxHealth < lowLifeSoundThreshhold;
+
     if (change < 0)
       animator.SetTrigger("Show");
     else
     {
+      if (currentHealth == maxHealth)
+        return;
+
       animator.SetTrigger("Heal");
       lifeItemsAudioSource.PlayOneShot(healSound);
     }

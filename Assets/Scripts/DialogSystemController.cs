@@ -20,6 +20,13 @@ public class DialogSystemController : MonoBehaviour
 
   private void Awake()
   {
+    if (Instance != null)
+    {
+      Debug.LogWarning("Multiplos dialog system na cena!");
+      Destroy(this);
+      return;
+    }
+
     Instance = this;
   }
 
@@ -39,7 +46,7 @@ public class DialogSystemController : MonoBehaviour
     if (!isDialogRunning)
       return;
 
-    var input = Input.GetKeyDown(KeyCode.E);
+    var input = Input.GetKeyDown(KeyCode.Space);
 
 
     if (quotes != null && quotes.Count > 0)
