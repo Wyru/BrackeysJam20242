@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/JotaVeScene.unity
     guid: c2a077916e1839843bf1288f6f55318b
+  - enabled: 1
+    path: Assets/Scenes/ParkStageAndrew.unity
+    guid: 0e05b6adafc2e094b99c3ec59848c3cd
   m_configObjects: {}

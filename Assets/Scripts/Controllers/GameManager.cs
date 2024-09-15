@@ -8,8 +8,9 @@ using Unity.Mathematics;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int satistafaction;
+    public int satistafactionToday;
     public int maxSatistafaction;
+    public int globalSatisfaction { get; set; }
     public float stamina;
     public int maxStamina;
     public int health;
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     public int moneyToday;
     public int workScoreToday;
     public int workDoneToday;
-    public static Action<int, int, int> OnSatisfactionChange;
+    public static Action<int, int, int, int> OnSatisfactionChange;
     public static Action<float, float, int> OnStaminaChange;
     public static Action<int, int, int> OnMoneyChange;
     public static Action<int, int> OnWorkScoreTodayChange;
@@ -40,22 +41,28 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        maxSatistafaction = 100;
         health = maxHealth;
+        maxSatistafaction = 110;
         day = 1;
     }
 
     public void SetSatisfaction(int value)
     {
-        satistafaction += value;
-        satistafaction = math.clamp(satistafaction, 0, maxSatistafaction);
-        OnSatisfactionChange?.Invoke(value, satistafaction, maxSatistafaction);
+        satistafactionToday += value;
+        SetGlobalSatisfaction(value);
+        satistafactionToday = math.clamp(satistafactionToday, 0, maxSatistafaction);
+        OnSatisfactionChange?.Invoke(value, satistafactionToday, maxSatistafaction, globalSatisfaction);
     }
     public void SetHealth(int value)
     {
         health += value;
         health = math.clamp(health, 0, maxHealth);
         OnHealthChange?.Invoke(value, health, maxHealth);
+    }
+
+    public void SetGlobalSatisfaction(int value)
+    {
+        globalSatisfaction += value;
     }
     public void ResetHeath()
     {
@@ -103,8 +110,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetSatisfaction()
     {
-        satistafaction = 0;
-        OnSatisfactionChange?.Invoke(0, satistafaction, maxSatistafaction);
+        satistafactionToday = 0;
+        OnSatisfactionChange?.Invoke(0, satistafactionToday, maxSatistafaction, globalSatisfaction);
     }
     public void ResetWorkDoneToday()
     {

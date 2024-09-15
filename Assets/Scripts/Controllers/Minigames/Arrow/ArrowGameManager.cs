@@ -46,7 +46,10 @@ public class ArrowGameManager : MonoBehaviour
     [Header("Reference for Objecs")]
     public GameObject _gameOver;
     public GameObject _workPanel;
+    public GameObject _chooseWork;
     public GameObject _timeUp;
+    public GameObject _goodEmployer;
+    public GameObject _badEmployer;
     private GameManager _gameManager;
 
     private string _perfectText = "Shareholders are happy :)";
@@ -89,12 +92,19 @@ public class ArrowGameManager : MonoBehaviour
     public void TimeUp()
     {
         theBS.hasStarted = false;
-        timeWorked++;
-        moneyPerWork = currentScore / 100;
-        finalScoreSave += currentScore;
         _timeUp.SetActive(true);
         _gameOver.SetActive(false);
+        _chooseWork.SetActive(false);
         _workPanel.SetActive(false);
+        moneyPerWork = currentScore / 1000;
+        finalScoreSave += currentScore;
+        if(currentScore == 0){
+            _goodEmployer.SetActive(false);
+            _badEmployer.SetActive(true);
+        }else{
+            _badEmployer.SetActive(false);
+            _goodEmployer.SetActive(true);
+        }
         endScore.text = "Score: " + currentScore.ToString();
         SetAllVariables();
         CleanUp();
@@ -103,6 +113,7 @@ public class ArrowGameManager : MonoBehaviour
     private void CleanUp()
     {
         currentScore = 0;
+        finalScoreSave = 0;
         currentMultiplier = 1;
         scoreText.text = "0";
         slider.value = 100f;
@@ -190,16 +201,25 @@ public class ArrowGameManager : MonoBehaviour
 
     public void SetAllVariables()
     {
-        _gameManager.SetSatisfaction(10);
-        _gameManager.SetWorkScoreToday(finalScoreSave);
-        _gameManager.SetWorkDoneToday(timeWorked);
-        _gameManager.SetMoneyToday(moneyPerWork);
-        companyCostText.text = "Your cost for the company: $" + (costForCompany + moneyPerWork);
-        if(timeWorked > 1){
-            rankPosition = rankPosition + timeWorked * Random.Range(1,100);
-            endPositionRank.text = rankPosition.ToString();
+        if(finalScoreSave > 0){
+            timeWorked++;
+
+            _gameManager.SetSatisfaction(10);
+            _gameManager.SetWorkScoreToday(finalScoreSave);
+            _gameManager.SetWorkDoneToday(timeWorked);
+            _gameManager.SetMoneyToday(moneyPerWork);
+            companyCostText.text = "Your cost for the company: $" + (costForCompany + moneyPerWork);
+            if(timeWorked > 1){
+                rankPosition = rankPosition + timeWorked * Random.Range(1,100);
+                endPositionRank.text = rankPosition.ToString();
+            }else{
+                endPositionRank.text = rankPosition.ToString();
+            }
         }else{
-            endPositionRank.text = rankPosition.ToString();
+            _gameManager.SetSatisfaction(0);
+            _gameManager.SetWorkScoreToday(finalScoreSave);
+            _gameManager.SetWorkDoneToday(timeWorked);
+            _gameManager.SetMoneyToday(moneyPerWork);
         }
     }
 
