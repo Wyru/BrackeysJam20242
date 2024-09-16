@@ -10,4 +10,5 @@ public class EmailScriptableObject : ScriptableObject
     public string emailTitle;   // The title of the email
     public string emailContent; // The content of the email
     public string sender;
+    public bool alreadyReaded = false;
 }

@@ -22,7 +22,8 @@ public class EmailsManager : MonoBehaviour
     void Awake()
     {
         GameManager.OnSatisfactionChange += GameManagerOnSatisfactionChange;
-        GameManager.OnDayChange += GameManagerOnDayChange;
+
+        currentDay = GameManager.instance.day;
 
         dayEmailMap = new Dictionary<int, List<EmailScriptableObject>>
         {
@@ -34,11 +35,6 @@ public class EmailsManager : MonoBehaviour
             { 6, day6EmailSatisfaction },
             { 7, day7EmailSatisfaction }
         };
-    }
-
-    void GameManagerOnDayChange(int day)
-    {
-        currentDay = day;
     }
     
     void GameManagerOnSatisfactionChange(int value, int satisfaction, int maxSatistafaction,int globalSatisfaction)
@@ -83,6 +79,11 @@ public class EmailsManager : MonoBehaviour
             return emailList[index];
         }
         return null;
+    }
+
+    void OnDestroy()
+    {
+        GameManager.OnSatisfactionChange -= GameManagerOnSatisfactionChange;
     }
 }
 

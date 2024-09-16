@@ -25,8 +25,9 @@ public class EmailController : MonoBehaviour
     {
         instance = this;
         soundSource = GetComponent<AudioSource>();
-        if(GameManager.instance.day > 1){
-            emails = GameManager.instance.emailsAlreadyShowed;
+        if (GameManager.instance.day > 1)
+        {
+            emails = new List<EmailScriptableObject>(GameManager.instance.emailsAlreadyShowed);
         }
         InstatiateEmails();
     }
@@ -36,7 +37,11 @@ public class EmailController : MonoBehaviour
         foreach (EmailScriptableObject email in emails)
         {
             InstantiateButton(email);
-            GameManager.instance.emailsAlreadyShowed.Add(email);
+            if (!GameManager.instance.emailsAlreadyShowed.Contains(email))
+            {
+                email.alreadyReaded = true;
+                GameManager.instance.emailsAlreadyShowed.Add(email);
+            }
         }
         emails.Clear();
         newEmailIcon.gameObject.SetActive(true);
@@ -45,13 +50,14 @@ public class EmailController : MonoBehaviour
 
     public void InstantiateButton(EmailScriptableObject email)
     {
-
         GameObject newButton = Instantiate(buttonPrefab, buttonArea);
-        
 
         newButton.GetComponentInChildren<TMP_Text>().text = email.emailTitle;
 
         Button buttonComponent = newButton.GetComponent<Button>();
+        if(email.alreadyReaded == true){
+            newButton.transform.Find("NewEmail").gameObject.SetActive(false);
+        }
         buttonComponent.onClick.AddListener(() => OnButtonClick(buttonComponent, email));
     }
 
