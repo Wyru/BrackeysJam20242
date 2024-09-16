@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -11,6 +10,7 @@ public class ClockmanBehavior : MonoBehaviour
   public float normalWakSpeed = 1.5f;
   public float chasingWalkSpeed = 1.5f;
   public float maxMovementDistance = 10;
+  public float maxMovementDistanceFirstMoveAfterDetect = 10;
   public float movementDecreaseRate = .1f;
   public float chasingPlayerSpeedModifier = 3;
   public float normalPlayerSpeedModifier = 3;
@@ -100,6 +100,8 @@ public class ClockmanBehavior : MonoBehaviour
   public State state = State.Idle;
 
   bool firstClock = false;
+
+  bool firstMoveAfterDetectPlayer = true;
 
   private void Awake()
   {
@@ -224,6 +226,8 @@ public class ClockmanBehavior : MonoBehaviour
     ChangeState(State.Walking);
     OnRevive?.Invoke();
     animator.SetTrigger("Revive");
+    Actor actor = GetComponent<Actor>();
+    actor.currentHealth = actor.maxHealth;
   }
 
   public void OnTakeDamage()
@@ -248,6 +252,7 @@ public class ClockmanBehavior : MonoBehaviour
 
   void OnDetectPlayer()
   {
+    firstMoveAfterDetectPlayer = true;
     OnDetectPlayerEvent?.Invoke();
     ChangeState(State.Chasing);
     animator.SetTrigger("FoundPlayer");
@@ -466,7 +471,9 @@ public class ClockmanBehavior : MonoBehaviour
   {
     float distanceTraveled = Vector3.Distance(startOfMoviment, transform.position);
 
-    var x = state == State.Chasing ? currentMaxMovement : maxMovementDistance;
+    var x = state == State.Chasing ?
+      (firstMoveAfterDetectPlayer ? maxMovementDistanceFirstMoveAfterDetect : currentMaxMovement)
+      : maxMovementDistance;
 
     if (distanceTraveled > x)
     {

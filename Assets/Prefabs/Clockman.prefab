@@ -183,13 +183,14 @@ MonoBehaviour:
   maxChaseDistance: 30
   normalWakSpeed: 8
   chasingWalkSpeed: 2
-  maxMovementDistance: 15
+  maxMovementDistance: 10
+  maxMovementDistanceFirstMoveAfterDetect: 25
   movementDecreaseRate: 0.01
   chasingPlayerSpeedModifier: 3
   normalPlayerSpeedModifier: 3
   currentMaxMovement: 0
   canAttack: 0
-  farMaxDetectionDistance: 30
+  farMaxDetectionDistance: 25
   farDetectionViewAngle: 30
   nearMaxDetectionDistance: 7.96
   nearDetectionViewAngle: 180
@@ -198,9 +199,9 @@ MonoBehaviour:
   attackPower: 15
   minAttackDistance: 4
   minAttackAngle: 149
-  playerPushForce: 100
+  playerPushForce: 50
   strongAttackProbability: 0.3
-  numberOfHitsToDamageAni: 3
+  numberOfHitsToDamageAni: 2
   animator: {fileID: 3702411229747219889}
   hitCollider: {fileID: 4248584173376216282}
   agent: {fileID: 0}
@@ -495,8 +496,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   destroyOnDeath: 0
-  currentHealth: 80
-  maxHealth: 80
+  currentHealth: 100
+  maxHealth: 100
 --- !u!1 &1515289885217776870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,7 +1810,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
-  radius: 3.6
+  radius: 2.95
   debugLine: 1
 --- !u!1 &9065899865984155811
 GameObject:

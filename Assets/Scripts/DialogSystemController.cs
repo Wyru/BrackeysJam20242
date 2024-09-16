@@ -20,6 +20,7 @@ public class DialogSystemController : MonoBehaviour
 
   Action currentOnEndCallback;
 
+  public bool sleepingzzzz = false;
 
   private void Awake()
   {
@@ -84,13 +85,22 @@ public class DialogSystemController : MonoBehaviour
       currentOnEndCallback?.Invoke();
       currentOnEndCallback = null;
       typewriterEffect.textMeshProUGUI.text = "";
+      sleepingzzzz = true;
+      Invoke(nameof(ResetSleeping), .5f);
     }
 
   }
 
+  void ResetSleeping()
+  {
+    sleepingzzzz = false;
+  }
 
   public static void ShowDialogs(List<string> quotes, Action OnEndDialog = null)
   {
+    if (Instance.sleepingzzzz)
+      return;
+
     Instance.isDialogRunning = true;
     Instance.firstLine = true;
     Instance.quotes = new Stack<string>(quotes.ToArray().Reverse());

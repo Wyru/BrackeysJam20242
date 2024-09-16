@@ -30,7 +30,7 @@ public class OfficeBathroomDoor : MonoBehaviour, IInteractable
         {
             yield return null;
         }
-            anim.Play("Door");
+        anim.Play("Door");
         doorStatus = true;
         transform.Rotate(new Vector3(transform.rotation.x, 90, transform.rotation.z));
     }
