@@ -113,6 +113,14 @@ public class ClockmanBehavior : MonoBehaviour
     player = FindAnyObjectByType<PlayerController>().transform;
 
     state = State.Walking;
+
+
+    if (GameManager.instance.day >= 2)
+    {
+      maxMovementDistance = 20;
+      movementDecreaseRate = .05f;
+    }
+
   }
 
   public float distanceToPlayer = 0;

@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c62950825e108c49bb4ad5cc9cf7bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 150
+  price: 10
   heathRecover: 30
   alreadyPurchased: 1
   usable: 1
-  isGuarana: 0
+  isGuarana: 1

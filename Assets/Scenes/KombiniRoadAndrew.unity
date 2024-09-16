@@ -849,7 +849,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destinySpawnPoint
       value: 
-      objectReference: {fileID: 11400000, guid: e701e7e837590854c997904c206ffdaf,
+      objectReference: {fileID: 11400000, guid: 1b3daf4fbfbf78a47adef1e0b8e1586c,
         type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}

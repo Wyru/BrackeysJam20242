@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 1.3
+  seconds: 2
   secondsCounter: 0
   timeout: 0
 --- !u!1 &1698391764481699895
@@ -765,7 +765,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   attentionThreshold: 10
-  attackPower: 20
+  attackPower: 10
   minAttackDistance: 2
   minAttackAngle: 180
   animator: {fileID: 2521081348170221911}
@@ -961,25 +961,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onRevive:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2739377242243707856}
-        m_TargetAssemblyTypeName: PostItManBehavior, Assembly-CSharp
-        m_MethodName: Revive
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   destroyOnDeath: 0
   currentHealth: 60
   maxHealth: 60
-  regenHealth: 3
 --- !u!65 &3753701404036354536
 BoxCollider:
   m_ObjectHideFlags: 0

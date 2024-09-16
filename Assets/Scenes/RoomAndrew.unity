@@ -926,7 +926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &490362831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,8 +969,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490362830}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.67642605, z: 0, w: 0.7365106}
-  m_LocalPosition: {x: 2.45, y: 2.1200001, z: -1.869}
+  m_LocalRotation: {x: 0.1152497, y: 0.94413054, z: -0.24113657, w: 0.19284241}
+  m_LocalPosition: {x: -1.48, y: 6.61, z: 4.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2454,7 +2454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1275027572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3014,7 +3014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1372071595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3202,7 +3202,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destinySpawnPoint
       value: 
-      objectReference: {fileID: 11400000, guid: 5600d839e94f6e4468c6c2c2f8f57941,
+      objectReference: {fileID: 11400000, guid: 3068a8a2c70792c4cac8cd19fe973239,
         type: 2}
     - target: {fileID: 3018127700352137688, guid: 5c6ae5a88bb30b949aa41ec21dd5f1f6,
         type: 3}
@@ -3494,7 +3494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1484716092
 Transform:
   m_ObjectHideFlags: 0
@@ -3503,8 +3503,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484716091}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.67642605, z: 0, w: 0.7365106}
-  m_LocalPosition: {x: 2.45, y: 2.1200001, z: -1.869}
+  m_LocalRotation: {x: 0.1152497, y: 0.94413054, z: -0.24113657, w: 0.19284241}
+  m_LocalPosition: {x: -1.48, y: 6.61, z: 4.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3639,7 +3639,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -5325,7 +5325,7 @@ PrefabInstance:
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1270.4
+      value: 1639.921
       objectReference: {fileID: 0}
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -5335,7 +5335,7 @@ PrefabInstance:
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 629.03955
+      value: 812.00433
       objectReference: {fileID: 0}
     - target: {fileID: 6881451560705434141, guid: 2bcd3f08c7aba524896369a70a81a1a4,
         type: 3}
@@ -5978,7 +5978,7 @@ PrefabInstance:
     - target: {fileID: 2171728940620650680, guid: eb3e1b28bbb08e74db1114ae84685510,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7887414104168975041, guid: eb3e1b28bbb08e74db1114ae84685510,
         type: 3}
@@ -7994,8 +7994,8 @@ SceneRoots:
   - {fileID: 1484716092}
   - {fileID: 490362832}
   - {fileID: 1275027575}
-  - {fileID: 1738108538}
   - {fileID: 1372071596}
+  - {fileID: 1738108538}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1845331806}
