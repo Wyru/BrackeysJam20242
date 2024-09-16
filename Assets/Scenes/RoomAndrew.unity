@@ -122,6 +122,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5799557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4652591148568890535, guid: 7a5a751a853a1af40b66065873178db6,
+    type: 3}
+  m_PrefabInstance: {fileID: 357397645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9351796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,12 +643,12 @@ PrefabInstance:
     - target: {fileID: 5491246148050016733, guid: 1b26983b8ca956c4bb6a99d53e62deea,
         type: 3}
       propertyPath: figurinesFounded.Array.data[0]
-      value: Figure #1
+      value: Figure #2
       objectReference: {fileID: 0}
     - target: {fileID: 5491246148050016733, guid: 1b26983b8ca956c4bb6a99d53e62deea,
         type: 3}
       propertyPath: figurinesFounded.Array.data[1]
-      value: 
+      value: Figure #1
       objectReference: {fileID: 0}
     - target: {fileID: 5491246148050016733, guid: 1b26983b8ca956c4bb6a99d53e62deea,
         type: 3}
@@ -6199,7 +6205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   figurines:
   - {fileID: 1045450834}
-  - {fileID: 0}
+  - {fileID: 5799557}
   - {fileID: 1284312395}
   - {fileID: 636119841}
   - {fileID: 2011237287}
