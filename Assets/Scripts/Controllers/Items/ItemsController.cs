@@ -11,7 +11,9 @@ public class ItemsController : MonoBehaviour
   {
     get { return alreadyPurchased && usable; }
   }
-
+  public bool isDropable = false;
+  [Range(0,100)]
+  public float dropChance = 0f;
   void Awake()
   {
     heathRecover = 20;
