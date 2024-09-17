@@ -96,7 +96,7 @@ public class ItemsCounterController : MonoBehaviour
                         paperBag.SetActive(true);
                     }
                     _alreadySpawned = true;
-                    _gameManager.SetMoneyToday(-cartTotalValue);
+                    _gameManager.SetMoneyToday((-cartTotalValue)/3);
                     cartTotalValue = 0;
                     itemsOnCounter.Clear();
                     DialogSystemController.ShowDialogs(Response);
