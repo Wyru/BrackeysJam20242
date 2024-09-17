@@ -183,11 +183,12 @@ MonoBehaviour:
   maxChaseDistance: 30
   normalWakSpeed: 8
   chasingWalkSpeed: 2
-  maxMovementDistance: 10
+  maxMovementDistance: 15
   maxMovementDistanceFirstMoveAfterDetect: 25
-  movementDecreaseRate: 0.01
+  movementDecreaseRate: 0.1
   chasingPlayerSpeedModifier: 3
   normalPlayerSpeedModifier: 3
+  minDistanceToPlayer: 1.5
   currentMaxMovement: 0
   canAttack: 0
   farMaxDetectionDistance: 25
@@ -195,13 +196,13 @@ MonoBehaviour:
   nearMaxDetectionDistance: 7.96
   nearDetectionViewAngle: 180
   spontaneousChaseStateProbability: 0.1
-  searchPlayerAnimeProbability: 0.582
+  searchPlayerAnimeProbability: 0.4
   attackPower: 15
   minAttackDistance: 4
   minAttackAngle: 149
-  playerPushForce: 50
+  playerPushForce: 70
   strongAttackProbability: 0.3
-  numberOfHitsToDamageAni: 2
+  numberOfHitsToDamageAni: 3
   animator: {fileID: 3702411229747219889}
   hitCollider: {fileID: 4248584173376216282}
   agent: {fileID: 0}

@@ -15,6 +15,8 @@ public class ClockmanBehavior : MonoBehaviour
   public float chasingPlayerSpeedModifier = 3;
   public float normalPlayerSpeedModifier = 3;
 
+  public float minDistanceToPlayer = 1;
+
   [Header("Debug")]
   [SerializeField]
   float currentMaxMovement;
@@ -135,6 +137,8 @@ public class ClockmanBehavior : MonoBehaviour
 
     distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+
+
     switch (state)
     {
       case State.Idle:
@@ -180,15 +184,17 @@ public class ClockmanBehavior : MonoBehaviour
           LostSightOfPlayer();
         }
 
-        if (distanceToPlayer <= minAttackDistance)
-        {
-          if (canAttack)
-            Attack();
-        }
+        // if (distanceToPlayer <= minAttackDistance)
+        // {
+        //   if (canAttack)
+        //     Attack();
+        // }
 
         break;
 
       case State.Damage:
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
 
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Damage"))
         {
@@ -204,7 +210,13 @@ public class ClockmanBehavior : MonoBehaviour
         break;
 
       default:
-        return;
+        break;
+    }
+
+    if (distanceToPlayer <= minDistanceToPlayer)
+    {
+      agent.isStopped = true;
+      agent.velocity = Vector3.zero;
     }
   }
 
@@ -212,9 +224,11 @@ public class ClockmanBehavior : MonoBehaviour
   {
     if (state == State.Dead)
       return;
+
     deadTimer.StartTimer();
     agent.isStopped = true;
     hitCollider.enabled = false;
+    footstepController.isWalking = false;
     animator.SetTrigger("Death");
     ChangeState(State.Dead);
     OnDeathEvent?.Invoke();
@@ -410,11 +424,13 @@ public class ClockmanBehavior : MonoBehaviour
   {
     firstClock = !firstClock;
 
+    if (state == State.Dead)
+      return;
+
     if (!firstClock)
     {
       //movement clock action
-      if (state != State.Dead)
-        clock01.PlayOneShot(clock01.clip);
+      clock01.PlayOneShot(clock01.clip);
 
       if (state == State.Chasing)
       {
@@ -444,9 +460,7 @@ public class ClockmanBehavior : MonoBehaviour
       return;
     }
 
-    // fixed clock action
-    if (state != State.Dead)
-      clock02.PlayOneShot(clock02.clip);
+    clock02.PlayOneShot(clock02.clip);
 
     StopMovement();
 

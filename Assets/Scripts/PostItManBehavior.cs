@@ -10,6 +10,7 @@ public class PostItManBehavior : MonoBehaviour
   public float maxChaseDistance = 30f;
   public float normalWakSpeed = 1.5f;
   public float chasingPlayerSpeedModifier = 3;
+  public float minDistanceToPlayer = 1.5f;
   public Transform[] waypoints;
 
   [Header("Detection")]
@@ -45,6 +46,7 @@ public class PostItManBehavior : MonoBehaviour
   public Timer attackCooldownTimer;
   public Timer deadTimer;
   public Timer detectPlayerTimer;
+  public Timer stunTimer;
 
 
 
@@ -155,7 +157,7 @@ public class PostItManBehavior : MonoBehaviour
         footstepController.isWalking = true;
         footstepController.isRunning = true;
 
-        if (IsPlayerInsideActionRange(minAttackDistance, minAttackAngle) && attackCooldownTimer.Timeout)
+        if (distanceToPlayer < minAttackDistance && attackCooldownTimer.Timeout)
         {
           Attack();
           return;
@@ -184,7 +186,8 @@ public class PostItManBehavior : MonoBehaviour
         break;
 
       case State.Damage:
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Damage"))
+        agent.isStopped = true;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Damage") && stunTimer.Timeout)
         {
           ChangeState(State.Chasing);
         }
@@ -198,12 +201,19 @@ public class PostItManBehavior : MonoBehaviour
         break;
 
       default:
-        return;
+        break;
+    }
+
+    if (distanceToPlayer < minDistanceToPlayer)
+    {
+      agent.isStopped = true;
+      agent.velocity = Vector3.zero;
     }
   }
 
   public void Attack()
   {
+    transform.LookAt(player.position);
     animator.SetTrigger("Attack");
     attackCooldownTimer.StartTimer();
     ChangeState(State.Attacking);
@@ -260,7 +270,7 @@ public class PostItManBehavior : MonoBehaviour
   {
     if (state == State.Dead)
       return;
-
+    stunTimer.StartTimer();
     OnTakeDamageEvent?.Invoke();
     animator.SetTrigger("Damage");
     ChangeState(State.Damage);

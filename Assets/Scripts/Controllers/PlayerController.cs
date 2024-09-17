@@ -168,6 +168,7 @@ public class PlayerController : MonoBehaviour
 
     Vector3 move = transform.forward * _input.y + transform.right * _input.x;
 
+
     footstepController.isWalking = move.magnitude != 0;
     footstepController.isFatigue = fatigue;
 
@@ -202,10 +203,16 @@ public class PlayerController : MonoBehaviour
 
     footstepController.isRunning = inputRunning;
 
+    Vector3 velocity;
+
     if (fatigue)
-      _rb.velocity = move * fatigueSpeed;
+      velocity = move * fatigueSpeed;
     else
-      _rb.velocity = move * (inputRunning ? runningSpeed : speed);
+      velocity = move * (inputRunning ? runningSpeed : speed);
+
+    velocity.y = _rb.velocity.y;
+
+    _rb.velocity = velocity;
 
   }
 
@@ -261,11 +268,10 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // if (GameManager.instance.stamina < attackStaminaCost)
-    // {
-    //   return;
-    // }
-
+    if (GameManager.instance.stamina < attackStaminaCost)
+    {
+      return;
+    }
 
     readyToAttack = false;
     attacking = true;
@@ -278,7 +284,7 @@ public class PlayerController : MonoBehaviour
 
       if (!weaponEquipped)
       {
-        // GameManager.instance.SetStamina(-attackStaminaCost);
+        GameManager.instance.SetStamina(-attackStaminaCost);
 
         audioSource.PlayOneShot(attackSlash);
 
