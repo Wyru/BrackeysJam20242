@@ -11,7 +11,8 @@ public class InputRelaySource : MonoBehaviour, IInteractable
     [SerializeField] UnityEvent<Vector2> OnCursorInput = new UnityEvent<Vector2>();
     public GameObject _computer;
 
-    public void Interact(){
+    public void Interact()
+    {
         int changeLayer = LayerMask.NameToLayer("Default");
         gameObject.layer = changeLayer;
         _computer.gameObject.GetComponent<ComputerController>().Interact();
@@ -20,18 +21,27 @@ public class InputRelaySource : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        // retrieve a ray based on the mouse location
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        // raycast to find what we have hit
-        RaycastHit hitResult;
-        if (Physics.Raycast(mouseRay, out hitResult, RaycastDistance, RaycastMask, QueryTriggerInteraction.Ignore))
+        try
         {
-            // ignore if not us
-            if (hitResult.collider.gameObject != gameObject)
-                return;
-            if(OnCursorInput != null)
-                OnCursorInput?.Invoke(hitResult.textureCoord);
+            // retrieve a ray based on the mouse location
+            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            // raycast to find what we have hit
+            RaycastHit hitResult;
+            if (Physics.Raycast(mouseRay, out hitResult, RaycastDistance, RaycastMask, QueryTriggerInteraction.Ignore))
+            {
+                // ignore if not us
+                if (hitResult.collider.gameObject != gameObject)
+                    return;
+                if (OnCursorInput != null)
+                    OnCursorInput?.Invoke(hitResult.textureCoord);
+            }
         }
+        catch (System.Exception)
+        {
+
+            Debug.LogWarning("Erro da câmera sendo desativada");
+        }
+
     }
 }

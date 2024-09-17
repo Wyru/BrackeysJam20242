@@ -11,12 +11,12 @@ public class BreathController : MonoBehaviour
 
   void Start()
   {
-    GameManager.OnStaminaChange += OnStaminaChange;
+
   }
 
   public void OnStaminaChange(float value, float current, int max)
   {
-
+    Debug.Log("On stamina change breath");
 
     if (fatigue)
     {
@@ -41,6 +41,11 @@ public class BreathController : MonoBehaviour
     }
 
     audioSource.loop = false;
+  }
+
+  private void OnEnable()
+  {
+    GameManager.OnStaminaChange += OnStaminaChange;
   }
 
   private void OnDisable()
