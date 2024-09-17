@@ -23,6 +23,7 @@ public class StartSequence : MonoBehaviour
         if (GameManager.instance.day > 1)
         {
             text.text = "DAY " + GameManager.instance.day.ToString();
+            Destroy(_hero);
         }
     }
     // Update is called once per frame
@@ -43,11 +44,17 @@ public class StartSequence : MonoBehaviour
         logo.SetActive(false);
         GetComponent<CinemachineVirtualCamera>().enabled = false;
         // vcam.enabled = true;
-        GetComponent<AudioSource>().volume = 0.1f;
-        _actualPlayer.SetActive(true);
-        _canvas.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        Destroy(_hero);
+
+        if (GameManager.instance.day == 1)
+        {
+            GetComponent<AudioSource>().volume = 0.1f;
+            _actualPlayer.SetActive(true);
+            _canvas.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            Destroy(_hero);
+        }
+
+
         Destroy(this);
     }
 }

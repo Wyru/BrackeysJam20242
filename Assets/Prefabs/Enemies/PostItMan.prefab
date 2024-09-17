@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 3
+  seconds: 2
   secondsCounter: 0
   timeout: 0
 --- !u!1 &1698391764481699895
@@ -450,6 +450,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6334255998696534697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3983607319313364932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157084358193863059}
+  - component: {fileID: 1340804845342364903}
+  m_Layer: 7
+  m_Name: StunTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1157084358193863059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983607319313364932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6578473474168114719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1340804845342364903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983607319313364932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3385e46a8d03f7642b5a111861730a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 0.4
+  secondsCounter: 0
+  timeout: 0
 --- !u!1 &4852893059666467024
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +782,7 @@ Transform:
   - {fileID: 8066017865423614889}
   - {fileID: 6179564083187406225}
   - {fileID: 639009360492330218}
+  - {fileID: 1157084358193863059}
   - {fileID: 6440972549095610016}
   - {fileID: 3907334983045675314}
   - {fileID: 1985229034858356411}
@@ -756,6 +804,7 @@ MonoBehaviour:
   maxChaseDistance: 25
   normalWakSpeed: 3
   chasingPlayerSpeedModifier: 2.3
+  minDistanceToPlayer: 1.5
   waypoints: []
   farMaxDetectionDistance: 15
   farDetectionViewAngle: 45
@@ -782,6 +831,7 @@ MonoBehaviour:
   dropableItems:
   - {fileID: 5543535816680518825, guid: 30e0f824a8f92e64fb88b39d53b353e9, type: 3}
   - {fileID: 5242560389507765396, guid: 7a3406baf0cd5e14db225318d2304470, type: 3}
+  stunTimer: {fileID: 1340804845342364903}
   OnDetectPlayerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -938,7 +988,7 @@ MonoBehaviour:
   timeCouter: 0
   distanceToPlayer: 0
   soundPosition: {x: 0, y: 0, z: 0}
-  playerPushForce: 3
+  playerPushForce: 40
 --- !u!114 &361652346878197869
 MonoBehaviour:
   m_ObjectHideFlags: 0

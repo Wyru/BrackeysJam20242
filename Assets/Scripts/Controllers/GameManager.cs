@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
   public void SetMoneyToday(int value)
   {
     moneyToday += value * 3;
-    SetMoneyTotal(value);
+    SetMoneyTotal(moneyToday);
   }
 
   public void SetWorkScoreToday(int value)
