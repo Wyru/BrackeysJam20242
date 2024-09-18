@@ -97,6 +97,10 @@ public class PickUpScript : MonoBehaviour
             MoveObject(); //keep object position at holdPos
             RotateObject();
             textRef.text = heldObj.name;
+            if (DefaultCanvasBehavior.instance.itemNotifications.text.Length > 0)
+            {
+                DefaultCanvasBehavior.instance.itemNotifications.text = "";
+            }
             if (Input.GetKeyDown(KeyCode.Mouse1) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
             {
                 StopClipping();
