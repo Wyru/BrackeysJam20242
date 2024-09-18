@@ -16,6 +16,7 @@ public class DefaultCanvasBehavior : MonoBehaviour
     public TMP_Text _taskText;
     public GameObject menu;
     public GameObject cartTotalObject;
+    public TextMeshProUGUI itemNotifications;
     private void Awake()
     {
         if (instance != null)
