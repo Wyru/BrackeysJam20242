@@ -5025,10 +5025,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5330245790377427392}
-  - component: {fileID: 487840423691702203}
   - component: {fileID: 6268369068425644714}
-  - component: {fileID: 8333355223183055412}
   - component: {fileID: 1094889956624957518}
+  - component: {fileID: 8333355223183055412}
+  - component: {fileID: 487840423691702203}
   - component: {fileID: 6696195593873695096}
   m_Layer: 6
   m_Name: Crowbar
@@ -5045,7 +5045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7817087277025025521}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.078506224, y: -0.08439223, z: 0.08855899, w: 0.98937964}
+  m_LocalRotation: {x: 0.078507915, y: -0.08438856, z: 0.08856177, w: 0.9893796}
   m_LocalPosition: {x: 3.6332068, y: 1.309875, z: -12.191928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5055,21 +5055,7 @@ Transform:
   - {fileID: 8119205181951040034}
   - {fileID: 8821470023161185098}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &487840423691702203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7817087277025025521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9655ce19e54367a49b0b7e5eeddbfcea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceNeedToThrow: 950
-  throwRotation: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.805, y: -8.937, z: 9.462}
 --- !u!54 &6268369068425644714
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5097,6 +5083,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1094889956624957518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817087277025025521}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27038625, y: 1.383623, z: 0.24496141}
+  m_Center: {x: 0.046296213, y: 0.23228458, z: 0.0038911453}
 --- !u!114 &8333355223183055412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5109,6 +5116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccfbd41553dc394e9a3c3b3ee67b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipedPosition: {x: 0, y: 0, z: 0}
+  equipedRotation: {x: 9, y: 70, z: 90}
   attackDamage: 15
   durabilityDropRate: 10
   durability: 100
@@ -5141,27 +5150,22 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   breakParticle: {fileID: 8486556439512970139}
---- !u!65 &1094889956624957518
-BoxCollider:
+  rb: {fileID: 0}
+  type: 0
+--- !u!114 &487840423691702203
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7817087277025025521}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.27038625, y: 1.383623, z: 0.24496141}
-  m_Center: {x: 0.046296213, y: 0.23228458, z: 0.0038911453}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9655ce19e54367a49b0b7e5eeddbfcea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceNeedToThrow: 15
+  throwRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &6696195593873695096
 MonoBehaviour:
   m_ObjectHideFlags: 0

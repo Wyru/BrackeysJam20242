@@ -27,7 +27,7 @@ public class InputManager : MonoBehaviour
     {
         _playerController.ProcessMove(_gameplayActions.move.ReadValue<Vector2>());
         _playerController.ProcessAttack(_gameplayActions.atack.IsPressed());
-        _playerController.DropWeapon(_gameplayActions.drop.IsPressed());
+        _playerController.DropWeapon(_gameplayActions.dropWeapon.IsPressed());
         _playerController.Throwing(_gameplayActions.throwWeapon.IsPressed());
         // _playerController.OpenMenu(_gameplayActions.openmenu.IsPressed());
         // BagController.instance.RemoveItems(_gameplayActions.drop.IsPressed());
@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
         // {
         //     _gameManager.IncrementDay();
         //     Debug.Log(_gameManager.day);
-            // _gameManager.SetMoneyToday(+100);
+        // _gameManager.SetMoneyToday(+100);
         // }
     }
 

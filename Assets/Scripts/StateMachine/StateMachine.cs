@@ -5,15 +5,20 @@ public abstract class StateMachine : MonoBehaviour
 {
     public List<State> States { get; private set; }
 
-
+    [Header("State Machine")]
     public State initialState;
     public State currentState;
     public State lastState;
 
     virtual protected void Start()
     {
-        var states = GetComponentInChildren<State>();
-        States = new List<State> { states };
+        var states = GetComponentsInChildren<State>();
+        States = new List<State>(states);
+
+        foreach (var state in States)
+        {
+            state.Setup(this);
+        }
     }
 
     virtual protected void Update()
@@ -21,11 +26,7 @@ public abstract class StateMachine : MonoBehaviour
         if (currentState != null)
         {
             currentState.Run();
-            if (currentState.isComplete)
-            {
-                var state = SelectNextState();
-                ChangeState(state);
-            }
+            ChangeState(SelectNextState());
         }
     }
 
@@ -47,6 +48,8 @@ public abstract class StateMachine : MonoBehaviour
 
         if (currentState != null)
             currentState.OnExitState();
+
+        Debug.Log($"{name} alterando de {currentState.name} para {state.name}");
 
         lastState = currentState;
         currentState = state;

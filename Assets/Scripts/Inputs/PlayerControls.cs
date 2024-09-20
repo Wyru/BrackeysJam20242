@@ -73,9 +73,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""drop"",
+                    ""name"": ""dropWeapon"",
                     ""type"": ""Button"",
                     ""id"": ""27766205-2482-4ce5-b4b3-ca22e1f41ca4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""dropItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""dcb355f0-628c-4cb4-83dc-0833126645b2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -107,6 +116,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""useItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""18eab7a5-803f-49c4-a10d-a7c7ee5bec43"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -194,7 +212,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""drop"",
+                    ""action"": ""dropWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -252,6 +270,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76818171-a3b6-402f-97d4-017572144db7"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""dropItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98736381-5399-40b9-8193-ee168d5cfdf9"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""useItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,10 +322,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_look = m_Gameplay.FindAction("look", throwIfNotFound: true);
         m_Gameplay_atack = m_Gameplay.FindAction("atack", throwIfNotFound: true);
         m_Gameplay_throwWeapon = m_Gameplay.FindAction("throwWeapon", throwIfNotFound: true);
-        m_Gameplay_drop = m_Gameplay.FindAction("drop", throwIfNotFound: true);
+        m_Gameplay_dropWeapon = m_Gameplay.FindAction("dropWeapon", throwIfNotFound: true);
+        m_Gameplay_dropItem = m_Gameplay.FindAction("dropItem", throwIfNotFound: true);
         m_Gameplay_remove = m_Gameplay.FindAction("remove", throwIfNotFound: true);
         m_Gameplay_openmenu = m_Gameplay.FindAction("openmenu", throwIfNotFound: true);
         m_Gameplay_camera = m_Gameplay.FindAction("camera", throwIfNotFound: true);
+        m_Gameplay_useItem = m_Gameplay.FindAction("useItem", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -352,10 +394,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_look;
     private readonly InputAction m_Gameplay_atack;
     private readonly InputAction m_Gameplay_throwWeapon;
-    private readonly InputAction m_Gameplay_drop;
+    private readonly InputAction m_Gameplay_dropWeapon;
+    private readonly InputAction m_Gameplay_dropItem;
     private readonly InputAction m_Gameplay_remove;
     private readonly InputAction m_Gameplay_openmenu;
     private readonly InputAction m_Gameplay_camera;
+    private readonly InputAction m_Gameplay_useItem;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -365,10 +409,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @look => m_Wrapper.m_Gameplay_look;
         public InputAction @atack => m_Wrapper.m_Gameplay_atack;
         public InputAction @throwWeapon => m_Wrapper.m_Gameplay_throwWeapon;
-        public InputAction @drop => m_Wrapper.m_Gameplay_drop;
+        public InputAction @dropWeapon => m_Wrapper.m_Gameplay_dropWeapon;
+        public InputAction @dropItem => m_Wrapper.m_Gameplay_dropItem;
         public InputAction @remove => m_Wrapper.m_Gameplay_remove;
         public InputAction @openmenu => m_Wrapper.m_Gameplay_openmenu;
         public InputAction @camera => m_Wrapper.m_Gameplay_camera;
+        public InputAction @useItem => m_Wrapper.m_Gameplay_useItem;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -393,9 +439,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @throwWeapon.started += instance.OnThrowWeapon;
             @throwWeapon.performed += instance.OnThrowWeapon;
             @throwWeapon.canceled += instance.OnThrowWeapon;
-            @drop.started += instance.OnDrop;
-            @drop.performed += instance.OnDrop;
-            @drop.canceled += instance.OnDrop;
+            @dropWeapon.started += instance.OnDropWeapon;
+            @dropWeapon.performed += instance.OnDropWeapon;
+            @dropWeapon.canceled += instance.OnDropWeapon;
+            @dropItem.started += instance.OnDropItem;
+            @dropItem.performed += instance.OnDropItem;
+            @dropItem.canceled += instance.OnDropItem;
             @remove.started += instance.OnRemove;
             @remove.performed += instance.OnRemove;
             @remove.canceled += instance.OnRemove;
@@ -405,6 +454,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @camera.started += instance.OnCamera;
             @camera.performed += instance.OnCamera;
             @camera.canceled += instance.OnCamera;
+            @useItem.started += instance.OnUseItem;
+            @useItem.performed += instance.OnUseItem;
+            @useItem.canceled += instance.OnUseItem;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -424,9 +476,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @throwWeapon.started -= instance.OnThrowWeapon;
             @throwWeapon.performed -= instance.OnThrowWeapon;
             @throwWeapon.canceled -= instance.OnThrowWeapon;
-            @drop.started -= instance.OnDrop;
-            @drop.performed -= instance.OnDrop;
-            @drop.canceled -= instance.OnDrop;
+            @dropWeapon.started -= instance.OnDropWeapon;
+            @dropWeapon.performed -= instance.OnDropWeapon;
+            @dropWeapon.canceled -= instance.OnDropWeapon;
+            @dropItem.started -= instance.OnDropItem;
+            @dropItem.performed -= instance.OnDropItem;
+            @dropItem.canceled -= instance.OnDropItem;
             @remove.started -= instance.OnRemove;
             @remove.performed -= instance.OnRemove;
             @remove.canceled -= instance.OnRemove;
@@ -436,6 +491,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @camera.started -= instance.OnCamera;
             @camera.performed -= instance.OnCamera;
             @camera.canceled -= instance.OnCamera;
+            @useItem.started -= instance.OnUseItem;
+            @useItem.performed -= instance.OnUseItem;
+            @useItem.canceled -= instance.OnUseItem;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -469,9 +527,11 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnAtack(InputAction.CallbackContext context);
         void OnThrowWeapon(InputAction.CallbackContext context);
-        void OnDrop(InputAction.CallbackContext context);
+        void OnDropWeapon(InputAction.CallbackContext context);
+        void OnDropItem(InputAction.CallbackContext context);
         void OnRemove(InputAction.CallbackContext context);
         void OnOpenmenu(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnUseItem(InputAction.CallbackContext context);
     }
 }

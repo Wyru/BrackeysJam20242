@@ -51,9 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "drop",
+                    "name": "dropWeapon",
                     "type": "Button",
                     "id": "27766205-2482-4ce5-b4b3-ca22e1f41ca4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "dropItem",
+                    "type": "Button",
+                    "id": "dcb355f0-628c-4cb4-83dc-0833126645b2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -85,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "useItem",
+                    "type": "Button",
+                    "id": "18eab7a5-803f-49c4-a10d-a7c7ee5bec43",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -172,7 +190,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "drop",
+                    "action": "dropWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -228,6 +246,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76818171-a3b6-402f-97d4-017572144db7",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "dropItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98736381-5399-40b9-8193-ee168d5cfdf9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "useItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

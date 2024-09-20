@@ -5,18 +5,36 @@ using UnityEngine;
 using UnityEngine.Events;
 public class EquipableObjects : MonoBehaviour, IInteractable
 {
-    [SerializeField]
+    public Vector3 equipedPosition;
+    public Vector3 equipedRotation;
     public int attackDamage;
-    [SerializeField]
     public int durabilityDropRate;
-    [SerializeField]
     public int durability = 100;
     public UnityEvent onBreakEvent;
     public ParticleSystem breakParticle;
 
+    public Rigidbody rb;
+
+    int layer;
+
+    public enum WeaponType
+    {
+        Melee,
+        Gun
+    }
+
+    public WeaponType type;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        layer = gameObject.layer;
+    }
+
     public void Interact()
     {
-        PlayerController.instance.EquipWeapon(this.gameObject);
+        // PlayerController.instance.EquipWeapon(this.gameObject);
+        PlayerBehavior.instance.playerWeapon.Equip(this);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -28,13 +46,37 @@ public class EquipableObjects : MonoBehaviour, IInteractable
         }
     }
 
-    public void onBreak()
+    public void OnBreak()
     {
         //break mesh
         Debug.Log(gameObject.name + " broke!!");
+        PlayerBehavior.instance.playerWeapon.DropWeapon();
         StartCoroutine(DisplayBreakMessage("Your " + gameObject.name + " is broken"));
         breakParticle.Play();
         gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+    }
+
+    public void OnEquip(int layer)
+    {
+        rb.isKinematic = true;
+        transform.SetLocalPositionAndRotation(equipedPosition, Quaternion.Euler(equipedRotation));
+        gameObject.layer = layer;
+    }
+
+    public void OnDrop()
+    {
+        rb.isKinematic = false;
+        gameObject.layer = layer;
+        transform.SetParent(null);
+    }
+
+    public void DropDurability()
+    {
+        durability -= durabilityDropRate;
+        if (durability <= 0)
+        {
+            OnBreak();
+        }
     }
 
     IEnumerator DisplayBreakMessage(string message)

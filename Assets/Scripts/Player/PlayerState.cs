@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerState : State
+public abstract class PlayerState : State
 {
     public PlayerBehavior Player
     {
@@ -8,25 +8,5 @@ public class PlayerState : State
         {
             return stateMachine as PlayerBehavior;
         }
-    }
-
-    public override void FixedRun()
-    {
-        return;
-    }
-
-    public override void OnEnterState()
-    {
-        return;
-    }
-
-    public override void OnExitState()
-    {
-        return;
-    }
-
-    public override void Run()
-    {
-        return;
     }
 }

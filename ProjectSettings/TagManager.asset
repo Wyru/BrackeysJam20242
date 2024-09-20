@@ -25,14 +25,14 @@ TagManager:
   - UI
   - Interactable
   - Hittable
-  - HoldLayer
+  - Hold
   - Screen
   - NoPost
-  - SoundLayer
+  - 
   - World
   - Player
   - Hitbox
-  - 
+  - Hurtox
   - 
   - Figurines
   - 
