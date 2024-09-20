@@ -3661,7 +3661,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 57302d6c3ad748b42889b21dfc44e8c1,
         type: 3}
       propertyPath: m_Name
-      value: Machete (5)
+      value: Machete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4102,7 +4102,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 57302d6c3ad748b42889b21dfc44e8c1,
         type: 3}
       propertyPath: m_Name
-      value: Machete (3)
+      value: Machete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4423,7 +4423,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 57302d6c3ad748b42889b21dfc44e8c1,
         type: 3}
       propertyPath: m_Name
-      value: Machete (2)
+      value: Machete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15527,7 +15527,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 8f7c004c15fc3c645b4d00199f7180fe,
         type: 3}
       propertyPath: m_Name
-      value: Crowbar (5)
+      value: Crowbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25258,7 +25258,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 8f7c004c15fc3c645b4d00199f7180fe,
         type: 3}
       propertyPath: m_Name
-      value: Crowbar (2)
+      value: Crowbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25455,7 +25455,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 8f7c004c15fc3c645b4d00199f7180fe,
         type: 3}
       propertyPath: m_Name
-      value: Crowbar (1)
+      value: Crowbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27010,7 +27010,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 57302d6c3ad748b42889b21dfc44e8c1,
         type: 3}
       propertyPath: m_Name
-      value: Machete (1)
+      value: Machete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31146,7 +31146,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 57302d6c3ad748b42889b21dfc44e8c1,
         type: 3}
       propertyPath: m_Name
-      value: Machete (6)
+      value: Machete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31574,7 +31574,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 57302d6c3ad748b42889b21dfc44e8c1,
         type: 3}
       propertyPath: m_Name
-      value: Machete (4)
+      value: Machete
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43570,7 +43570,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 01095f2bbf3f20240b2582780ead23d9,
         type: 3}
       propertyPath: m_Name
-      value: Shotgun (1)
+      value: Shotgun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52955,7 +52955,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 8f7c004c15fc3c645b4d00199f7180fe,
         type: 3}
       propertyPath: m_Name
-      value: Crowbar (3)
+      value: Crowbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53943,7 +53943,7 @@ PrefabInstance:
     - target: {fileID: 7817087277025025521, guid: 8f7c004c15fc3c645b4d00199f7180fe,
         type: 3}
       propertyPath: m_Name
-      value: Crowbar (4)
+      value: Crowbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
