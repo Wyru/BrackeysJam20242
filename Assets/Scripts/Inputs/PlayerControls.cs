@@ -98,6 +98,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""2e3bbdd0-fce9-4bf6-aa17-1ca23c665945"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -169,17 +178,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""24b98475-6c52-4ccc-9e57-6761b9c04734"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""0d334187-f1f8-4a29-9778-686439da7eae"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -232,6 +230,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""openmenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ace43003-c214-46e6-9525-6cfdba67f0eb"",
+                    ""path"": ""/Mouse/Delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09208987-d142-4011-937a-0da7a6f4d003"",
+                    ""path"": ""/Mouse/Delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -265,6 +285,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Gameplay_drop = m_Gameplay.FindAction("drop", throwIfNotFound: true);
         m_Gameplay_remove = m_Gameplay.FindAction("remove", throwIfNotFound: true);
         m_Gameplay_openmenu = m_Gameplay.FindAction("openmenu", throwIfNotFound: true);
+        m_Gameplay_camera = m_Gameplay.FindAction("camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -334,6 +355,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_drop;
     private readonly InputAction m_Gameplay_remove;
     private readonly InputAction m_Gameplay_openmenu;
+    private readonly InputAction m_Gameplay_camera;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -346,6 +368,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @drop => m_Wrapper.m_Gameplay_drop;
         public InputAction @remove => m_Wrapper.m_Gameplay_remove;
         public InputAction @openmenu => m_Wrapper.m_Gameplay_openmenu;
+        public InputAction @camera => m_Wrapper.m_Gameplay_camera;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -379,6 +402,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @openmenu.started += instance.OnOpenmenu;
             @openmenu.performed += instance.OnOpenmenu;
             @openmenu.canceled += instance.OnOpenmenu;
+            @camera.started += instance.OnCamera;
+            @camera.performed += instance.OnCamera;
+            @camera.canceled += instance.OnCamera;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -407,6 +433,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @openmenu.started -= instance.OnOpenmenu;
             @openmenu.performed -= instance.OnOpenmenu;
             @openmenu.canceled -= instance.OnOpenmenu;
+            @camera.started -= instance.OnCamera;
+            @camera.performed -= instance.OnCamera;
+            @camera.canceled -= instance.OnCamera;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -443,5 +472,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnDrop(InputAction.CallbackContext context);
         void OnRemove(InputAction.CallbackContext context);
         void OnOpenmenu(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }

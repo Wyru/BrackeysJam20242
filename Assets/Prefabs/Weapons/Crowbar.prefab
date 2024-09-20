@@ -5068,7 +5068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9655ce19e54367a49b0b7e5eeddbfcea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceNeedToThrow: 10
+  forceNeedToThrow: 950
   throwRotation: {x: 0, y: 0, z: 0}
 --- !u!54 &6268369068425644714
 Rigidbody:

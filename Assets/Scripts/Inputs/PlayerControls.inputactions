@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "camera",
+                    "type": "Value",
+                    "id": "2e3bbdd0-fce9-4bf6-aa17-1ca23c665945",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -147,17 +156,6 @@
                 },
                 {
                     "name": "",
-                    "id": "24b98475-6c52-4ccc-9e57-6761b9c04734",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0d334187-f1f8-4a29-9778-686439da7eae",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -208,6 +206,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "openmenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ace43003-c214-46e6-9525-6cfdba67f0eb",
+                    "path": "/Mouse/Delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09208987-d142-4011-937a-0da7a6f4d003",
+                    "path": "/Mouse/Delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

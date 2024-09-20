@@ -53,5 +53,6 @@
   },
   "dotnet.defaultSolution": "BrackeysJam20242.sln",
   "editor.indentSize": "tabSize",
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "editor.tabSize": 4
 }
