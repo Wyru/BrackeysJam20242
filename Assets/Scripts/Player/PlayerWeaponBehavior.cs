@@ -28,6 +28,7 @@ public class PlayerWeaponBehavior : MonoBehaviour
 
     void Update()
     {
+        PlayerBehavior.ArmsAni.SetBool("weapon", currentWeapon != null);
 
         if (currentWeapon == null)
             return;
@@ -45,17 +46,18 @@ public class PlayerWeaponBehavior : MonoBehaviour
 
     public void Attack()
     {
-        if (currentWeapon == null)
-        {
-            MeleeAttack();
-            return;
-        }
 
-        if (currentWeapon.type == EquipableObjects.WeaponType.Melee)
-        {
-            WeaponAttack();
-            return;
-        }
+        PlayerBehavior.instance.armsAnimator.SetTrigger("attack");
+
+        // if (currentWeapon == null)
+        // {
+        //     return;
+        // }
+
+        // if (currentWeapon.type == EquipableObjects.WeaponType.Melee)
+        // {
+        //     return;
+        // }
 
         // currentWeapon.DropDurability();
     }
@@ -106,22 +108,6 @@ public class PlayerWeaponBehavior : MonoBehaviour
 
         currentWeapon.OnDrop();
         currentWeapon = null;
-    }
-
-
-    void MeleeAttack()
-    {
-        PlayerBehavior.instance.animator.SetTrigger(ATTACK_ANI_TRIGGER);
-    }
-
-    void WeaponAttack()
-    {
-        PlayerBehavior.instance.animator.SetTrigger(WEAPON_MELEE_ATTACK_ANI_TRIGGER);
-    }
-
-    void GunAttack()
-    {
-        PlayerBehavior.instance.animator.SetTrigger(ATTACK_ANI_TRIGGER);
     }
 
     public void DealDamage(Collider other)

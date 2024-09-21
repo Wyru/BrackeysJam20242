@@ -5,51 +5,42 @@ using UnityEngine;
 public class BreathController : MonoBehaviour
 {
 
-  public AudioSource audioSource;
-  public float breathTrhreslhld = .4f;
-  public bool fatigue = false;
+    public AudioSource audioSource;
+    public float breathTrhreslhld = .4f;
 
-  void Start()
-  {
+    public AnimationCurve breathSoundVolumeCurve;
 
-  }
-
-  public void OnStaminaChange(float value, float current, int max)
-  {
-    Debug.Log("On stamina change breath");
-
-    if (fatigue)
+    private void Update()
     {
-      if (current / max > breathTrhreslhld)
-      {
+        PlayBreathSound();
+    }
+
+    void PlayBreathSound()
+    {
+        audioSource.volume = breathSoundVolumeCurve.Evaluate(PlayerBehavior.Fatigue.StaminaPercentage);
+
+        if (PlayerBehavior.Fatigue.isFatigued)
+        {
+            if (PlayerBehavior.Fatigue.StaminaPercentage > breathTrhreslhld)
+            {
+                audioSource.loop = false;
+            }
+
+            return;
+        }
+
+        if (PlayerBehavior.Fatigue.StaminaPercentage < breathTrhreslhld)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.loop = true;
+
+                audioSource.Play();
+            }
+            return;
+        }
+
+
         audioSource.loop = false;
-        fatigue = false;
-      }
-      return;
     }
-
-
-    if (current / max < breathTrhreslhld)
-    {
-      if (!audioSource.isPlaying)
-      {
-        audioSource.loop = true;
-
-        audioSource.Play();
-      }
-      return;
-    }
-
-    audioSource.loop = false;
-  }
-
-  private void OnEnable()
-  {
-    GameManager.OnStaminaChange += OnStaminaChange;
-  }
-
-  private void OnDisable()
-  {
-    GameManager.OnStaminaChange -= OnStaminaChange;
-  }
 }

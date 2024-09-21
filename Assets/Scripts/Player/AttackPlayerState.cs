@@ -15,9 +15,18 @@ public class AttackPlayerState : PlayerState
     public override void OnEnterState()
     {
         isComplete = false;
+
+        if (Player.lastState == Player.walkingPlayerState)
+        {
+            Player.armsAnimator.SetTrigger("wasWalking");
+        }
+
         Player.playerWeapon.Attack();
+
         // PlayerAnimationEvents.OnAnimationFirstEvent += CastHitBox;
         PlayerAnimationEvents.OnAnimationEndEvent += OnAttackAnimationEnd;
+
+
     }
     public override void Run()
     {

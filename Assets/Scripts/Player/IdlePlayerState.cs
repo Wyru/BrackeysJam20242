@@ -4,10 +4,14 @@ public class IdlePlayerState : PlayerState
 {
     public override State Next()
     {
+        if (Player.crouchInput.action.WasPerformedThisFrame())
+        {
+            return Player.crouchingPlayerState;
+        }
 
         if (Player.action1Input.action.WasPerformedThisFrame())
         {
-            return Player.attackPlayer;
+            return Player.attackPlayerState;
         }
 
         if (Player.movement.magnitude > 0)
@@ -23,8 +27,16 @@ public class IdlePlayerState : PlayerState
         Player.UpdateCamera();
     }
 
-    public override void OnEnterState() { }
-    public override void OnExitState() { }
+    public override void OnEnterState()
+    {
+        Player.fatigue.autoRecovery = true;
+    }
+
+    public override void OnExitState()
+    {
+        Player.fatigue.autoRecovery = false;
+
+    }
     public override void Run() { }
 
 }
