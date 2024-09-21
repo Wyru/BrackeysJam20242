@@ -26,7 +26,11 @@ public abstract class StateMachine : MonoBehaviour
         if (currentState != null)
         {
             currentState.Run();
-            ChangeState(SelectNextState());
+            var state = SelectNextState();
+            if (state != null)
+            {
+                ChangeState(state);
+            }
         }
     }
 

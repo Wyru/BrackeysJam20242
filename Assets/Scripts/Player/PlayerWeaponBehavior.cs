@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerWeaponBehavior : MonoBehaviour
 {
+    [Header("Attack Ani triggers")]
+    readonly string ATTACK_ANI_TRIGGER = "punch";
+    readonly string WEAPON_MELEE_ATTACK_ANI_TRIGGER = "weaponSlash";
+
     public string equippedWeaponLayerName = "Hold"; // Nome da camada
     private int equippedWeaponLayer; // Valor da camada
     public Transform weaponPositionPivot;
     public EquipableObjects currentWeapon;
-
+    public Hitbox hitbox;
 
     void Start()
     {
@@ -18,6 +22,8 @@ public class PlayerWeaponBehavior : MonoBehaviour
         {
             Debug.LogError($"A camada '{equippedWeaponLayerName}' não existe! Certifique-se de que está configurada nas camadas do projeto.");
         }
+
+        hitbox.OnTriggerEnterEvent += DealDamage;
     }
 
     void Update()
@@ -39,8 +45,19 @@ public class PlayerWeaponBehavior : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("Raycast Aqui?");
-        currentWeapon.DropDurability();
+        if (currentWeapon == null)
+        {
+            MeleeAttack();
+            return;
+        }
+
+        if (currentWeapon.type == EquipableObjects.WeaponType.Melee)
+        {
+            WeaponAttack();
+            return;
+        }
+
+        // currentWeapon.DropDurability();
     }
 
     public void LeftAction()
@@ -90,4 +107,30 @@ public class PlayerWeaponBehavior : MonoBehaviour
         currentWeapon.OnDrop();
         currentWeapon = null;
     }
+
+
+    void MeleeAttack()
+    {
+        PlayerBehavior.instance.animator.SetTrigger(ATTACK_ANI_TRIGGER);
+    }
+
+    void WeaponAttack()
+    {
+        PlayerBehavior.instance.animator.SetTrigger(WEAPON_MELEE_ATTACK_ANI_TRIGGER);
+    }
+
+    void GunAttack()
+    {
+        PlayerBehavior.instance.animator.SetTrigger(ATTACK_ANI_TRIGGER);
+    }
+
+    public void DealDamage(Collider other)
+    {
+        if (other.TryGetComponent<Actor>(out var actor))
+        {
+            actor.TakeDamage(currentWeapon?.attackDamage ?? 1);
+        }
+    }
+
+
 }

@@ -10,9 +10,37 @@ public class PlayerBehavior : StateMachine
     public PlayerWeaponBehavior playerWeapon;
     public PlayerItemBehavior playerItem;
 
+    public PlayerAnimationEvents animationEvents;
+
+    public static Animator Ani
+    {
+        get
+        {
+            return instance.animator;
+        }
+    }
+
+
+    public static Rigidbody Rb
+    {
+        get
+        {
+            return instance.rigidbody;
+        }
+    }
+
+    public static PlayerWeaponBehavior Weapon
+    {
+        get
+        {
+            return instance.playerWeapon;
+        }
+    }
+
     [Header("States")]
     public IdlePlayerState idlePlayerState;
     public WalkingPlayerState walkingPlayerState;
+    public AttackPlayerState attackPlayer;
 
     [Header("Input References")]
     public InputActionReference cameraMovementInput;
@@ -68,6 +96,12 @@ public class PlayerBehavior : StateMachine
         return currentState.Next();
     }
 
+    protected override void ChangeState(State state)
+    {
+        animationEvents.ClearAllEvents();
+        base.ChangeState(state);
+    }
+
     void UpdateInput()
     {
         cameraMovement = cameraMovementInput.action.ReadValue<Vector2>();
@@ -86,4 +120,5 @@ public class PlayerBehavior : StateMachine
     {
         playerCameraBehavior.UpdateCamera(cameraMovement);
     }
+
 }

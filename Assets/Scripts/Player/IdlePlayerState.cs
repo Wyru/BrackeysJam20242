@@ -4,6 +4,12 @@ public class IdlePlayerState : PlayerState
 {
     public override State Next()
     {
+
+        if (Player.action1Input.action.WasPerformedThisFrame())
+        {
+            return Player.attackPlayer;
+        }
+
         if (Player.movement.magnitude > 0)
         {
             return Player.walkingPlayerState;
