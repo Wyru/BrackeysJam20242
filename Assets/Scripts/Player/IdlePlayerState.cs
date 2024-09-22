@@ -14,6 +14,11 @@ public class IdlePlayerState : PlayerState
             return Player.attackPlayerState;
         }
 
+        if (Player.action2Input.action.WasPerformedThisFrame() && Player.throwPlayerState.CanStart)
+        {
+            return Player.throwPlayerState;
+        }
+
         if (Player.movement.magnitude > 0)
         {
             return Player.walkingPlayerState;

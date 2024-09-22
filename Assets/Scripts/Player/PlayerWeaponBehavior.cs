@@ -38,10 +38,10 @@ public class PlayerWeaponBehavior : MonoBehaviour
             DropWeapon();
         }
 
-        if (PlayerBehavior.instance.action2Input.action.WasPerformedThisFrame())
-        {
-            LeftAction();
-        }
+        // if (PlayerBehavior.instance.action2Input.action.WasPerformedThisFrame())
+        // {
+        //     LeftAction();
+        // }
     }
 
     public void Attack()

@@ -51,6 +51,7 @@ public class PlayerBehavior : StateMachine
     public WalkingPlayerState walkingPlayerState;
     public AttackPlayerState attackPlayerState;
     public CrouchingPlayerState crouchingPlayerState;
+    public ThrowPlayerState throwPlayerState;
 
     [Header("Input References")]
     public InputActionReference cameraMovementInput;
