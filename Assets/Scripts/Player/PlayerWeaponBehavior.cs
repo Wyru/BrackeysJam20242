@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWeaponBehavior : MonoBehaviour
 {
-    [Header("Attack Ani triggers")]
     readonly string ATTACK_ANI_TRIGGER = "punch";
     readonly string WEAPON_MELEE_ATTACK_ANI_TRIGGER = "weaponSlash";
 
@@ -13,6 +13,13 @@ public class PlayerWeaponBehavior : MonoBehaviour
     public Transform weaponPositionPivot;
     public EquipableObjects currentWeapon;
     public Hitbox hitbox;
+
+    [Header("Events")]
+    public static Action<EquipableObjects> OnAttackEvent;
+    public static Action OnHitEvent;
+    public static Action OnThrowWeaponEvent;
+    public static Action OnDropEvent;
+
 
     void Start()
     {
@@ -38,37 +45,12 @@ public class PlayerWeaponBehavior : MonoBehaviour
             DropWeapon();
         }
 
-        // if (PlayerBehavior.instance.action2Input.action.WasPerformedThisFrame())
-        // {
-        //     LeftAction();
-        // }
     }
 
     public void Attack()
     {
-
         PlayerBehavior.instance.armsAnimator.SetTrigger("attack");
-
-        // if (currentWeapon == null)
-        // {
-        //     return;
-        // }
-
-        // if (currentWeapon.type == EquipableObjects.WeaponType.Melee)
-        // {
-        //     return;
-        // }
-
-        // currentWeapon.DropDurability();
-    }
-
-    public void LeftAction()
-    {
-
-        if (currentWeapon.type == EquipableObjects.WeaponType.Melee)
-        {
-            Throw();
-        }
+        OnAttackEvent?.Invoke(currentWeapon);
     }
 
     public void Equip(EquipableObjects weapon)
@@ -97,7 +79,8 @@ public class PlayerWeaponBehavior : MonoBehaviour
             ForceMode.Impulse
         );
 
-        weapon.DropDurability();
+        //weapon.DropDurability();
+        OnThrowWeaponEvent?.Invoke();
 
     }
 
@@ -108,6 +91,7 @@ public class PlayerWeaponBehavior : MonoBehaviour
 
         currentWeapon.OnDrop();
         currentWeapon = null;
+        OnDropEvent?.Invoke();
     }
 
     public void DealDamage(Collider other)
@@ -115,8 +99,8 @@ public class PlayerWeaponBehavior : MonoBehaviour
         if (other.TryGetComponent<Actor>(out var actor))
         {
             actor.TakeDamage(currentWeapon?.attackDamage ?? 1);
+            OnHitEvent?.Invoke();
         }
     }
-
 
 }

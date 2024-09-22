@@ -35,10 +35,6 @@ public class AttackPlayerState : PlayerState
     public override void FixedRun() { }
     public override void OnExitState() { }
 
-    public void CastHitBox()
-    {
-        Debug.Log("CastHitBox ");
-    }
 
     public void OnAttackAnimationEnd()
     {

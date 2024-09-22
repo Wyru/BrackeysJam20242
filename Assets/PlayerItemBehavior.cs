@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PlayerItemBehavior : MonoBehaviour
     private int equippedItemLayer; // Valor da camada
     public Transform itemSlot;
     public ItemsController currentItem;
+
+    public static Action<ItemsController> OnUseItem;
 
     void Start()
     {
@@ -65,8 +68,11 @@ public class PlayerItemBehavior : MonoBehaviour
         if (currentItem == null)
             return;
 
+        if (!currentItem.CanBeUsed)
+            return;
+
+        OnUseItem?.Invoke(currentItem);
         currentItem.UseItem();
-        currentItem.OnDrop();
         currentItem = null;
     }
 
